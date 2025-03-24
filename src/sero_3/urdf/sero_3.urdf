@@ -1,0 +1,159 @@
+<robot name="onshape">
+<link name="base">
+<visual>
+<origin xyz="0.72000000000000075051 -0.12499999999999973632 1.0349999999999999201" rpy="-3.141592653589793116 -1.5707963267948954478 0" />
+<geometry>
+<mesh filename="package://sero_3/meshes/v_tube.stl"/>
+</geometry>
+<material name="v_tube_material">
+<color rgba="0.80000000000000004441 0.74901960784313725839 0.91372549019607840481 1.0"/>
+</material>
+</visual>
+<collision>
+<origin xyz="0.72000000000000075051 -0.12499999999999973632 1.0349999999999999201" rpy="-3.141592653589793116 -1.5707963267948954478 0" />
+<geometry>
+<mesh filename="package://sero_3/meshes/v_tube.stl"/>
+</geometry>
+</collision>
+<visual>
+<origin xyz="0.72000000000000063949 0.06500000000000032141 1.125" rpy="-3.141592653589793116 -1.5707963267948954478 0" />
+<geometry>
+<mesh filename="package://sero_3/meshes/v_tube.stl"/>
+</geometry>
+<material name="v_tube_material">
+<color rgba="0.80000000000000004441 0.74901960784313725839 0.91372549019607840481 1.0"/>
+</material>
+</visual>
+<collision>
+<origin xyz="0.72000000000000063949 0.06500000000000032141 1.125" rpy="-3.141592653589793116 -1.5707963267948954478 0" />
+<geometry>
+<mesh filename="package://sero_3/meshes/v_tube.stl"/>
+</geometry>
+</collision>
+<visual>
+<origin xyz="0.72000000000000063949 -0.12499999999999968081 1.125" rpy="-3.141592653589793116 -1.5707963267948954478 0" />
+<geometry>
+<mesh filename="package://sero_3/meshes/v_tube.stl"/>
+</geometry>
+<material name="v_tube_material">
+<color rgba="0.80000000000000004441 0.74901960784313725839 0.91372549019607840481 1.0"/>
+</material>
+</visual>
+<collision>
+<origin xyz="0.72000000000000063949 -0.12499999999999968081 1.125" rpy="-3.141592653589793116 -1.5707963267948954478 0" />
+<geometry>
+<mesh filename="package://sero_3/meshes/v_tube.stl"/>
+</geometry>
+</collision>
+<visual>
+<origin xyz="0.72000000000000075051 -0.029999999999999752559 1.079999999999999627" rpy="-1.5707963267948972241 1.3149203947904211581e-15 -1.5707963267948972241" />
+<geometry>
+<mesh filename="package://sero_3/meshes/ee_base.stl"/>
+</geometry>
+<material name="ee_base_material">
+<color rgba="0.76078431372549015776 0.83921568627450982003 0.92549019607843141522 1.0"/>
+</material>
+</visual>
+<collision>
+<origin xyz="0.72000000000000075051 -0.029999999999999752559 1.079999999999999627" rpy="-1.5707963267948972241 1.3149203947904211581e-15 -1.5707963267948972241" />
+<geometry>
+<mesh filename="package://sero_3/meshes/ee_base.stl"/>
+</geometry>
+</collision>
+<visual>
+<origin xyz="3.3306690738754696213e-16 -0.11999999999999980127 0.8499999999999999778" rpy="7.3833568907000287586e-16 -2.2204460492503111087e-16 3.141592653589793116" />
+<geometry>
+<mesh filename="package://sero_3/meshes/link3.stl"/>
+</geometry>
+<material name="link3_material">
+<color rgba="0.79607843137254896693 0.90588235294117647189 0.74509803921568629193 1.0"/>
+</material>
+</visual>
+<collision>
+<origin xyz="3.3306690738754696213e-16 -0.11999999999999980127 0.8499999999999999778" rpy="7.3833568907000287586e-16 -2.2204460492503111087e-16 3.141592653589793116" />
+<geometry>
+<mesh filename="package://sero_3/meshes/link3.stl"/>
+</geometry>
+</collision>
+<visual>
+<origin xyz="0.72000000000000063949 0.06500000000000032141 1.0349999999999999201" rpy="-3.141592653589793116 -1.5707963267948954478 0" />
+<geometry>
+<mesh filename="package://sero_3/meshes/v_tube.stl"/>
+</geometry>
+<material name="v_tube_material">
+<color rgba="0.80000000000000004441 0.74901960784313725839 0.91372549019607840481 1.0"/>
+</material>
+</visual>
+<collision>
+<origin xyz="0.72000000000000063949 0.06500000000000032141 1.0349999999999999201" rpy="-3.141592653589793116 -1.5707963267948954478 0" />
+<geometry>
+<mesh filename="package://sero_3/meshes/v_tube.stl"/>
+</geometry>
+</collision>
+<visual>
+<origin xyz="2.2204460492503130808e-16 -0.11999999999999995393 0.22000000000000000111" rpy="1.570796326794896558 1.570796326794896336 0" />
+<geometry>
+<mesh filename="package://sero_3/meshes/link2.stl"/>
+</geometry>
+<material name="link2_material">
+<color rgba="0.94117647058823528106 0.87450980392156862919 0.67843137254901964006 1.0"/>
+</material>
+</visual>
+<collision>
+<origin xyz="2.2204460492503130808e-16 -0.11999999999999995393 0.22000000000000000111" rpy="1.570796326794896558 1.570796326794896336 0" />
+<geometry>
+<mesh filename="package://sero_3/meshes/link2.stl"/>
+</geometry>
+</collision>
+<visual>
+<origin xyz="2.2204460492503130808e-16 0 0" rpy="-3.254009893154236877e-16 8.6281661508548166217e-32 1.2347465433156991646e-16" />
+<geometry>
+<mesh filename="package://sero_3/meshes/base.stl"/>
+</geometry>
+<material name="base_material">
+<color rgba="0.89019607843137249503 0.69803921568627447236 0.63921568627450975342 1.0"/>
+</material>
+</visual>
+<collision>
+<origin xyz="2.2204460492503130808e-16 0 0" rpy="-3.254009893154236877e-16 8.6281661508548166217e-32 1.2347465433156991646e-16" />
+<geometry>
+<mesh filename="package://sero_3/meshes/base.stl"/>
+</geometry>
+</collision>
+<visual>
+<origin xyz="0.49500000000000060618 0.050000000000000363598 0.98999999999999976907" rpy="1.570796326794896558 2.2204460492503130808e-16 -1.422803332463297465e-16" />
+<geometry>
+<mesh filename="package://sero_3/meshes/link4.stl"/>
+</geometry>
+<material name="link4_material">
+<color rgba="0.73725490196078435901 0.9372549019607843146 0.91764705882352937127 1.0"/>
+</material>
+</visual>
+<collision>
+<origin xyz="0.49500000000000060618 0.050000000000000363598 0.98999999999999976907" rpy="1.570796326794896558 2.2204460492503130808e-16 -1.422803332463297465e-16" />
+<geometry>
+<mesh filename="package://sero_3/meshes/link4.stl"/>
+</geometry>
+</collision>
+<visual>
+<origin xyz="2.2204460492503128343e-16 4.6219995041041095586e-17 0.14000000000000001332" rpy="-3.2540098931542349048e-16 -2.0214560696288431017e-30 -5.5511151231257974933e-17" />
+<geometry>
+<mesh filename="package://sero_3/meshes/link1.stl"/>
+</geometry>
+<material name="link1_material">
+<color rgba="0.92156862745098033773 0.80000000000000004441 0.65490196078431373028 1.0"/>
+</material>
+</visual>
+<collision>
+<origin xyz="2.2204460492503128343e-16 4.6219995041041095586e-17 0.14000000000000001332" rpy="-3.2540098931542349048e-16 -2.0214560696288431017e-30 -5.5511151231257974933e-17" />
+<geometry>
+<mesh filename="package://sero_3/meshes/link1.stl"/>
+</geometry>
+</collision>
+<inertial>
+<origin xyz="0.12923682560271093633 -0.077974506916770755516 0.66004321831648227192" rpy="0 0 0"/>
+<mass value="290.39841297718282931" />
+<inertia ixx="41.572967050038656112" ixy="-2.5995180787630061126"  ixz="-14.200106447758106043" iyy="51.219794413225734786" iyz="-2.7072234266610895048" izz="17.335617872595740607" />
+</inertial>
+</link>
+</robot>

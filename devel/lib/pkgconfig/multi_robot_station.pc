@@ -1,0 +1,8 @@
+prefix=/home/nifa/catkin_ws/devel
+
+Name: multi_robot_station
+Description: Description of multi_robot_station
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

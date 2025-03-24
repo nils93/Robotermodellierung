@@ -1,0 +1,13 @@
+<launch>
+  <!-- Starte Gazebo mit einer leeren Welt -->
+  <include file="$(find gazebo_ros)/launch/empty_world.launch" />
+
+  <!-- Lade die Roboterbeschreibung aus der URDF-Datei -->
+  <param name="robot_description" command="cat $(find sero_3)/urdf/sero_3.urdf" />
+
+  <!-- Starte den robot_state_publisher -->
+  <node pkg="robot_state_publisher" type="robot_state_publisher" name="robot_state_publisher" output="screen" />
+
+  <!-- Spawne das Roboter-Modell in Gazebo -->
+  <node name="spawn_urdf" pkg="gazebo_ros" type="spawn_model" args="-param robot_description -urdf -model sero_3" output="screen" />
+</launch>
