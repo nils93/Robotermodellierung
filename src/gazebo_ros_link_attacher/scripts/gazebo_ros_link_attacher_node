@@ -1,0 +1,21 @@
+#!/usr/bin/env python3
+
+import rospy
+from gazebo_ros_link_attacher.srv import Attach, AttachResponse
+
+def handle_attach(req):
+    rospy.loginfo(f"🔗 Attach requested: {req.model_name_1}:{req.link_name_1} <-> {req.model_name_2}:{req.link_name_2}")
+    # Hier würde die tatsächliche Verbindung mit Gazebo erfolgen
+    return AttachResponse(ok=True)
+
+def handle_detach(req):
+    rospy.loginfo(f"🚫 Detach requested: {req.model_name_1}:{req.link_name_1} <-> {req.model_name_2}:{req.link_name_2}")
+    # Hier würde die tatsächliche Trennung in Gazebo erfolgen
+    return AttachResponse(ok=True)
+
+if __name__ == '__main__':
+    rospy.init_node('gazebo_ros_link_attacher_node')
+    rospy.Service('/link_attacher_node/attach', Attach, handle_attach)
+    rospy.Service('/link_attacher_node/detach', Attach, handle_detach)
+    rospy.loginfo("🟢 gazebo_ros_link_attacher_node is running.")
+    rospy.spin()
