@@ -1,0 +1,18 @@
+<launch>
+  <!-- Starte Gazebo mit der eigenen Welt -->
+  <include file="$(find gazebo_ros)/launch/empty_world.launch">
+    <arg name="world_name" value="$(find multi_robot_station)/worlds/my_world.world" />
+  </include>
+
+  <!-- Roboter 1 aus dem Paket robot1_description -->
+  <node name="spawn_sero_1" pkg="gazebo_ros" type="spawn_model"
+        args="-file $(find sero_1)/urdf/sero_1.urdf -urdf -model sero_1 -x 0 -y 0" output="screen" />
+
+  <!-- Roboter 2 aus dem Paket robot2_description -->
+  <node name="spawn_sero_2" pkg="gazebo_ros" type="spawn_model"
+        args="-file $(find sero_2)/urdf/sero_2.urdf -urdf -model sero_2 -x 1 -y 0" output="screen" />
+
+  <!-- Roboter 3 aus dem Paket robot3_description -->
+  <node name="spawn_sero_3" pkg="gazebo_ros" type="spawn_model"
+        args="-file $(find sero_3)/urdf/sero_3.urdf -urdf -model sero_3 -x 2 -y 0" output="screen" />
+</launch>
