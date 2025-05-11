@@ -3,7 +3,7 @@
 <visual>
 <origin xyz="-1.5815932371176240324e-17 0.0003676064896688987756 1.2462514743223658495e-17" rpy="-9.3394600618250885692e-16 1.4558378780933280025e-22 -1.0606777952125936304e-24" />
 <geometry>
-<mesh filename="package://sero_2/meshes/base.stl"/>
+<mesh filename="package://sero_2/meshes/base.stl"/> 
 </geometry>
 <material name="base_material">
 <color rgba="0.90196078431372550543 0.87843137254901959565 0.81176470588235294379 1.0"/>
