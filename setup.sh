@@ -28,5 +28,4 @@ catkin_make
 # 4) Hinweis
 echo -e "\n✅  Fertig. Jetzt noch:"
 echo "   source devel/setup.bash"
-echo "   # Beispiel:"
-echo "   roslaunch sero_description display.launch"
+echo "   roslaunch multi_robot_station spawn_multi_robot.launch"
