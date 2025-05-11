@@ -29,7 +29,7 @@
   <node pkg="multi_robot_station" type="attach_robots.py" name="attach_robots" output="screen" />
 
   <node name="spawn_workobject" pkg="gazebo_ros" type="spawn_model"
-      args="-file $(find workobject)/urdf/workobject.urdf -urdf -model workobject -x 0.0 -y 1.0 -z 0.525 -R 3.1415 -P 0 -Y 3.1415"
+      args="-file $(find workobject)/urdf/workobject.urdf -urdf -model workobject -x 0.0 -y 1.0 -z 0.531 -R 3.1415 -P 0 -Y 3.1415"
       output="screen" />
 
 </launch>
