@@ -1,0 +1,31 @@
+# === Catkin-Workspace – generierte Verzeichnisse ==========
+build/
+devel/
+install/
+log/
+
+# === ROS tools ============================================
+.rosinstall
+rosdep.yaml
+
+# === Editor- und IDE-Artefakte =============================
+.vscode/
+.idea/
+*.code-workspace
+
+# === Python ===============================================
+__pycache__/
+*.py[cod]
+
+# === CMake / Make / Ninja =================================
+CMakeFiles/
+CMakeCache.txt
+cmake_install.cmake
+Makefile
+compile_commands.json
+
+# === Backup & temporäre Dateien ===========================
+*~
+*.swp
+*.swo
+.DS_Store
