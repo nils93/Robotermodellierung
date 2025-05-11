@@ -1,8 +1,0 @@
-prefix=/home/nifa/catkin_ws/devel
-
-Name: SeRo_1
-Description: Description of SeRo_1
-Version: 0.0.0
-Cflags: 
-Libs: -L${prefix}/lib 
-Requires: 
