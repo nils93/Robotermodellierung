@@ -12,6 +12,11 @@ cd sero_ws
 source devel/setup.bash
 ```
 
+## 3. Gazebo laden
+```bash
+roslaunch multi_robot_station spawn_multi_robot.launch
+```
+
 ## Quellen
 Nachstehende Repo's werden verwendet:
 ```bash

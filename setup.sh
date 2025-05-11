@@ -5,6 +5,15 @@
 
 set -e  # bei Fehler sofort abbrechen
 
+# 0) ROS-Quellen + Keys hinzufügen (wenn nötig)
+if ! grep -q "packages.ros.org" /etc/apt/sources.list.d/ros-latest.list 2>/dev/null; then
+  echo "🔧  ROS APT-Source hinzufügen …"
+  sudo sh -c 'echo "deb http://packages.ros.org/ros/ubuntu $(lsb_release -sc) main" > /etc/apt/sources.list.d/ros-latest.list'
+  sudo apt update
+  sudo apt install -y curl gnupg
+  curl -sSL "https://raw.githubusercontent.com/ros/rosdistro/master/ros.asc" | sudo apt-key add -
+fi
+
 # 1) APT-Pakete für Gazebo, MoveIt, URDF-Tools …
 echo "🔧  Abhängigkeiten (apt) installieren …"
 sudo apt update
