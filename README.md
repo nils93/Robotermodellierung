@@ -11,3 +11,9 @@ cd sero_ws
 ./setup.sh
 source devel/setup.bash
 ```
+
+## Quellen
+Nachstehende Repo's werden verwendet:
+```
+https://github.com/pal-robotics/gazebo_ros_link_attacher.git src/gazebo_ros_link_attacher
+```
