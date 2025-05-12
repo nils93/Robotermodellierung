@@ -1,0 +1,34 @@
+arm_controller:
+  type: effort_controllers/JointTrajectoryController
+  joints:
+    - j1
+    - j2
+    - j3
+    - j4
+    - j5
+  gains:
+    j1:
+      p: 53.82
+      d: 160.49
+      i: 29.34
+      i_clamp: 320.98
+    j2:
+      p: 1380.35
+      d: 477.06
+      i: 148.61
+      i_clamp: 954.12
+    j3:
+      p: 100
+      d: 1
+      i: 1
+      i_clamp: 1
+    j4:
+      p: 100
+      d: 1
+      i: 1
+      i_clamp: 1
+    j5:
+      p: 100
+      d: 1
+      i: 1
+      i_clamp: 1

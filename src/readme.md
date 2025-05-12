@@ -50,3 +50,65 @@ Im Anschluss das Launchfile starten
 ```
 roslaunch multi_robot_station spawn_multi_robot.launch
 ```
+
+
+# MoveIt
+
+## 1. Starte den MoveIt Setup Assistant
+```bash
+roslaunch moveit_setup_assistant setup_assistant.launch
+```
+
+## 2. Create_New_MoveIt_Configuration_Package
+
+## 3. Self-Collisions 
+Sampling Density : 100000, Min collisions for always colliding pairs: 95%
+
+## 4. Virtual Joints
+Virtual Joint Name: FixedLinkToWorld
+Child Link: base
+Parent Frame Name: world
+Joint Type: fixed
+
+Diese Befehle gehören ins URDF-File:
+
+```bash
+    <link name="world">
+    </link>
+
+    <joint name="fixed_link_to_world" type="fixed">
+        <parent link="world"/>
+        <child link="base"/>
+    </joint>
+
+
+    <gazebo>
+        <plugin name="control" filename="libgazebo_ros_control.so">
+            <robotNamespace>/</robotNamespace>
+        </plugin>
+    </gazebo>
+    <gazebo>
+        <plugin name = "joint_state_publisher" filename = "libgazebo_ros_joint_state_publisher.so" >
+        <jointName>j1, j2, j3, j4, j5 </jointName>
+        </plugin>
+    </gazebo>
+
+```
+Bei den joints noch folgendes einfügen:
+j1-j4:
+```bash
+        <limit effort="10" velocity="3.14" lower="XYZ" upper="XYZ" />
+        <dynamics damping="1.0" friction="1.0" />
+```
+j5:
+```bash
+        <limit effort="5" velocity="3.14" lower="XYZ" upper="XYZ" />
+        <dynamics damping="1.0" friction="1.0" />
+```
+
+```bash
+catkin_make
+source devel/setup.bash
+roslaunch sero_2_moveit demo_gazebo.launch
+roslaunch sero_3_moveit demo_gazebo.launch
+```
