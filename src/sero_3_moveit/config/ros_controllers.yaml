@@ -8,27 +8,27 @@ arm_controller:
     - j5
   gains:
     j1:
-      p: 53.82
-      d: 160.49
-      i: 29.34
-      i_clamp: 320.98
+      p: 20000
+      d: 1000
+      i: 100
+      i_clamp: 100
     j2:
-      p: 1380.35
-      d: 477.06
-      i: 148.61
-      i_clamp: 954.12
+      p: 20000
+      d: 1000
+      i: 100
+      i_clamp: 100
     j3:
-      p: 100
-      d: 1
+      p: 20000
+      d: 100
       i: 1
       i_clamp: 1
     j4:
-      p: 100
-      d: 1
+      p: 20000
+      d: 10
       i: 1
       i_clamp: 1
     j5:
-      p: 100
-      d: 1
+      p: 1000
+      d: 10
       i: 1
       i_clamp: 1
