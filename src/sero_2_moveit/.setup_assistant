@@ -4,7 +4,7 @@ moveit_setup_assistant_config:
     relative_path: urdf/sero_2.urdf
     xacro_args: ""
   SRDF:
-    relative_path: config/onshape.srdf
+    relative_path: config/sero_2.srdf
   CONFIG:
     author_name: nifa
     author_email: test@test.com

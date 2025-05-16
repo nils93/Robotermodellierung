@@ -1,0 +1,23 @@
+<launch>
+  <!-- Argumente -->
+  <arg name="paused" default="false"/>
+  <arg name="gui" default="true"/>
+
+  <!-- Setze Pfad zu CAD-Modellen -->
+  <env name="GAZEBO_MODEL_PATH" value="$(find my_objects)"/>
+
+  <!-- Simulationszeit -->
+  <param name="use_sim_time" value="true"/>
+
+  <!-- Starte Gazebo mit Welt -->
+  <include file="$(find gazebo_ros)/launch/empty_world.launch">
+    <arg name="world_name" value="$(find multi_robot_station)/worlds/my_world.world" />
+    <arg name="paused" value="$(arg paused)"/>
+    <arg name="gui" value="$(arg gui)"/>
+  </include>
+
+  <!-- Spawn Workobject -->
+  <node name="spawn_workobject" pkg="gazebo_ros" type="spawn_model"
+      args="-file $(find workobject)/urdf/workobject.urdf -urdf -model workobject -x 0.0 -y 1.0 -z 0.531 -R 3.1415 -P 0 -Y 3.1415"
+      output="screen" />
+</launch>

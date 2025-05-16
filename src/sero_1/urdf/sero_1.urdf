@@ -1,4 +1,4 @@
-<robot name="onshape">
+<robot name="sero_1">
     <link name="world" />
     <joint name="fixed_link_to_world" type="fixed">
         <parent link="world" />
@@ -210,72 +210,74 @@
     <transmission name="trans_jendeffector">
         <type>transmission_interface/SimpleTransmission</type>
         <joint name="jendeffector">
-            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+            <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
         </joint>
         <actuator name="jendeffector_motor">
-            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+            <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
             <mechanicalReduction>1</mechanicalReduction>
         </actuator>
     </transmission>
     <transmission name="trans_j5">
         <type>transmission_interface/SimpleTransmission</type>
         <joint name="j5">
-            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+            <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
         </joint>
         <actuator name="j5_motor">
-            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+            <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
             <mechanicalReduction>1</mechanicalReduction>
         </actuator>
     </transmission>
     <transmission name="trans_j4">
         <type>transmission_interface/SimpleTransmission</type>
         <joint name="j4">
-            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+            <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
         </joint>
         <actuator name="j4_motor">
-            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+            <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
             <mechanicalReduction>1</mechanicalReduction>
         </actuator>
     </transmission>
     <transmission name="trans_j3">
         <type>transmission_interface/SimpleTransmission</type>
         <joint name="j3">
-            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+            <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
         </joint>
         <actuator name="j3_motor">
-            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+            <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
             <mechanicalReduction>1</mechanicalReduction>
         </actuator>
     </transmission>
     <transmission name="trans_j2">
         <type>transmission_interface/SimpleTransmission</type>
         <joint name="j2">
-            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+            <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
         </joint>
         <actuator name="j2_motor">
-            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+            <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
             <mechanicalReduction>1</mechanicalReduction>
         </actuator>
     </transmission>
     <transmission name="trans_j1">
         <type>transmission_interface/SimpleTransmission</type>
         <joint name="j1">
-            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+            <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
         </joint>
         <actuator name="j1_motor">
-            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+            <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
             <mechanicalReduction>1</mechanicalReduction>
         </actuator>
     </transmission>
-
+    
     <gazebo>
         <plugin name="control" filename="libgazebo_ros_control.so">
-            <robotNamespace>/</robotNamespace>
+            <robotNamespace>/sero_1</robotNamespace>
+            <robotParam>/sero_1/robot_description</robotParam>
         </plugin>
-    </gazebo>
+    </gazebo> 
     <gazebo>
         <plugin name="joint_state_publisher" filename="libgazebo_ros_joint_state_publisher.so">
             <jointName>j1, j2, j3, j4, j5, jendeffector</jointName>
+            <updateRate>100.0</updateRate>
         </plugin>
     </gazebo>
 

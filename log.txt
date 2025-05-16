@@ -1,0 +1,118 @@
+log.txt
+roslaunch sero_1_moveit spawn_robot.launch \
+  robot_name:=sero_1 \
+  robot_namespace:=robot1 \
+  urdf_path:=$(rospack find sero_1)/urdf/sero_1.urdf \
+  moveit_package:=sero_1_moveit \
+  world_pose:='-x -1.0 -y 0.0 -z 0.5 -Y 1.57'
+
+
+roslaunch sero_2_moveit spawn_robot.launch \
+  robot_name:=sero_2 \
+  robot_namespace:=robot2 \
+  urdf_path:=$(rospack find sero_2)/urdf/sero_2.urdf \
+  moveit_package:=sero_2_moveit \
+  world_pose:='-x 2.0 -y 0.0 -z 0.5 -Y 1.57'
+
+
+#### Workflow 
+Terminal 1
+1. roslaunch gazebo_ros empty_world.launch
+
+Terminal 2
+2. rostopic echo /clock
+
+Terminal 3
+3. rqt_console
+
+Terminal 4
+4. rosparam set /robot1/robot_description "$(cat test_box_robot.urdf)"
+5. rosrun gazebo_ros spawn_model -urdf -param /robot1/robot_description -model boxbot1 -x -2 -y 0 -z 0.5
+
+Terminal 5
+6. rosparam set /robot2/robot_description "$(cat test_box_robot.urdf)"
+7. rosrun gazebo_ros spawn_model -urdf -param /robot2/robot_description -model boxbot2 -x 2 -y 0 -z 0.5
+
+Terminal 6
+8. rosparam set /sero_1/robot_description "$(cat $(rospack find sero_1)/urdf/sero_1.urdf)"
+9. rosrun gazebo_ros spawn_model -urdf -param /sero_1/robot_description -model sero_1_test -x 0 -y 0 -z 0.5
+
+Terminal 7
+
+10. rosparam load $(rospack find sero_1_moveit)/config/ros_controllers.yaml /sero_1
+11. rosrun controller_manager spawner joint_state_controller __ns:=/sero_1
+
+12. rosservice call /sero_1/controller_manager/load_controller "name: 'arm_controller'"
+13. rosservice call /sero_1/controller_manager/load_controller "name: 'ee_controller'"
+14. rosservice call /sero_1/controller_manager/switch_controller "{start_controllers: ['arm_controller', 'ee_controller'], stop_controllers: [], strictness: 2}"
+
+15. 
+rostopic pub /sero_1/arm_controller/command trajectory_msgs/JointTrajectory "header:
+  stamp: {secs: 0, nsecs: 0}
+  frame_id: ''
+joint_names: ['j1', 'j2', 'j3', 'j4', 'j5']
+points:
+- positions: [0.2, -0.5, 1.0, 0.5, -0.2]
+  time_from_start: {secs: 2, nsecs: 0}"
+
+
+
+
+
+
+
+
+
+Terminal 7
+10. rosparam set /robot4/robot_description "$(cat test_box_robot.urdf)"
+11. rosrun gazebo_ros spawn_model -urdf -param /robot4/robot_description -model boxbot3 -x 3 -y 0 -z 0.5
+
+
+
+focal@focal:~/git/sero_ws$ rosservice list | grep gazebo
+
+focal@focal:~/git/sero_ws$ rosservice call /gazebo/get_world_properties
+
+focal@focal:~/git/sero_ws$ rosparam set /robot2/robot_description "$(cat $(rospack find sero_2)/urdf/sero_2.urdf)"
+
+focal@focal:~/git/sero_ws$ rosparam get /robot2/robot_description | head
+
+focal@focal:~/git/sero_ws$ rosrun gazebo_ros spawn_model \
+-urdf \
+-param /robot2/robot_description \
+-model sero_2_test \
+-x 2.0 -y 0.0 -z 0.5
+
+focal@focal:~/git/sero_ws$ rosrun gazebo_ros spawn_model \
+>   -urdf \
+>   -param /robot2/robot_description \
+>   -model sero_2_test \
+>   -x 2.0 -y 0.0 -z 0.5
+
+focal@focal:~/git/sero_ws$ rosparam get /robot1/robot_description | head
+
+focal@focal:~/git/sero_ws$ rosparam set /robot2/robot_description "$(cat $(rospack find sero_2)/urdf/sero_2.urdf)"
+
+rosparam set /robot1/robot_description "$(cat test_box_robot.urdf)"
+rosrun gazebo_ros spawn_model -urdf -param /robot1/robot_description -model boxbot -x -2 -y 0 -z 0.5
+
+
+
+rosrun gazebo_ros spawn_model \
+  -urdf \
+  -param /robot1/robot_description \
+  -model sero_1_test \
+  -x -2.0 -y 0.0 -z 0.5
+
+
+##################
+killall -9 gzserver gzclient roslaunch rosmaster spawn_model
+
+
+rosparam set /robot3/robot_description "$(cat $(rospack find sero_2)/urdf/sero_2.urdf)"
+
+rosrun gazebo_ros spawn_model \
+-urdf \
+-param /robot3/robot_description \
+-model sero_2_test \
+-x 2.0 -y 0.0 -z 0.5

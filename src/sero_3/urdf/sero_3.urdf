@@ -1,4 +1,4 @@
-<robot name="onshape">
+<robot name="sero_3">
     <link name="world">
     <!--Bleibt erstmal leer -->
     </link>

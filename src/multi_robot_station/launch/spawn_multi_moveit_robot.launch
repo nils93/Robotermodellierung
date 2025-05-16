@@ -1,0 +1,99 @@
+<?xml version="1.0"?>
+<launch>
+  <!-- General Gazebo options -->
+  <arg name="gazebo_gui" default="true" doc="Start Gazebo GUI"/>
+  <arg name="paused" default="false" doc="Start Gazebo paused"/>
+  
+
+  <!--Sero_1 Gazebo options -->
+  <arg name="sero_1_initial_pose" default="-x 1.5 -y 0.0 -z 0.525 -R 0 -P 0 -Y 1.5708" doc="Pose to spawn sero_1"/> 
+  <arg name="sero_1_initial_joint_positions" default=" -J j1 0 -J j2 -1.0894 -J j3 -0.659 -J j4 0 -J j5 0" doc="Initial joint configuration of sero_1"/>
+  <!--Sero_2 Gazebo options -->
+  <arg name="sero_2_initial_pose" default="-x 0.0 -y -1.5 -z 0.525 -R 0 -P 0 -Y 0" doc="Pose to spawn sero_2"/> 
+  <arg name="sero_2_initial_joint_positions" default=" -J j1 0 -J j2 0 -J j3 0 -J j4 0 -J j5 0" doc="Initial joint configuration of sero_2"/>
+  <!--Sero_3 Gazebo options -->
+  <arg name="sero_3_initial_pose" default="-x 0.0 -y 0.0 -z 0.525 -R 0 -P 0 -Y 0" doc="Pose to spawn sero_3"/> 
+  <arg name="sero_3_initial_joint_positions" default=" -J j1 0 -J j2 -0.7853 -J j3 -0.7853 -J j4 0 -J j5 0" doc="Initial joint configuration of the robot"/> 
+  
+  <!-- Setze Pfad zu CAD-Modellen -->
+  <env name="GAZEBO_MODEL_PATH" value="$(find my_objects)"/>
+
+  <!-- Starte Gazebo mit der eigenen Welt -->
+  <include file="$(find gazebo_ros)/launch/empty_world.launch">
+    <arg name="world_name" value="$(find multi_robot_station)/worlds/my_world.world" />
+  </include>
+
+  <!-- Set the robot urdf on the parameter server -->
+<!--
+  <param name="sero_1_description" textfile="$(find sero_1)/urdf/sero_1.urdf" />
+  <param name="sero_2_description" textfile="$(find sero_2)/urdf/sero_2.urdf" />
+  <param name="sero_3_description" textfile="$(find sero_3)/urdf/sero_3.urdf" /> -->
+
+  <!-- Unpause the simulation after loading the robot model -->
+  <arg name="unpause" value="$(eval '' if arg('paused') else '-unpause')" />
+
+
+  <group ns="sero_1">
+      <param name="robot_description" textfile="$(find sero_1)/urdf/sero_1.urdf" />
+      <!-- Spawn sero_1 in Gazebo -->
+      <node name="spawn_sero_1" pkg="gazebo_ros" type="spawn_model" args="-urdf -param /robot_description -model sero_1 $(arg unpause) $(arg sero_1_initial_pose) $(arg sero_1_initial_joint_positions)"
+      launch-prefix="bash -c 'sleep 2; exec'" output="screen" />
+      <rosparam file="$(find sero_1_moveit)/config/gazebo_controllers.yaml" />
+      <include file="$(find sero_1_moveit)/launch/ros_controllers.launch"/>
+      <node name="rsp_sero_1" pkg="robot_state_publisher" type="robot_state_publisher" output="screen"/>
+      <node name="spawner_sero_1" pkg="controller_manager" type="spawner" args="joint_state_controller arm_controller" output="screen"/>
+  </group>
+
+  <group ns="sero_2">
+      <param name="robot_description" textfile="$(find sero_2)/urdf/sero_2.urdf" />
+      <!-- Spawn sero_2 in Gazebo -->
+      <!--<node name="spawn_sero_2" pkg="gazebo_ros" type="spawn_model" args="-urdf -param robot_description -model sero_2 $(arg unpause) $(arg sero_2_initial_pose) $(arg sero_2_initial_joint_positions)"
+      respawn="false" output="screen" /> -->
+      <node name="spawn_sero_2" pkg="gazebo_ros" type="spawn_model"
+      args="-urdf -param robot_description -model sero_2 $(arg unpause) $(arg sero_2_initial_pose) $(arg sero_2_initial_joint_positions)"
+      launch-prefix="bash -c 'sleep 5; exec'" output="screen" />
+
+      <rosparam file="$(find sero_2_moveit)/config/gazebo_controllers.yaml" />
+      <include file="$(find sero_2_moveit)/launch/ros_controllers.launch"/>
+      <node name="rsp_sero_2" pkg="robot_state_publisher" type="robot_state_publisher" output="screen"/>
+      <node name="spawner_sero_2" pkg="controller_manager" type="spawner" args="joint_state_controller arm_controller" output="screen"/>
+  </group>
+
+  <group ns="sero_3">
+      <param name="robot_description" textfile="$(find sero_3)/urdf/sero_3.urdf" />
+      <!-- Spawn sero_3 in Gazebo -->
+      <node name="spawn_sero_3" pkg="gazebo_ros" type="spawn_model" args="-urdf -param robot_description -model sero_3 $(arg unpause) $(arg sero_3_initial_pose) $(arg sero_3_initial_joint_positions)"
+      launch-prefix="bash -c 'sleep 8; exec'" output="screen" />
+      <rosparam file="$(find sero_3_moveit)/config/gazebo_controllers.yaml" />
+      <include file="$(find sero_3_moveit)/launch/ros_controllers.launch"/>
+      <node name="rsp_sero_3" pkg="robot_state_publisher" type="robot_state_publisher" output="screen"/>
+      <node name="spawner_sero_3" pkg="controller_manager" type="spawner" args="joint_state_controller arm_controller" output="screen"/>
+  </group>
+
+
+  <!-- Unpause the simulation after loading the robot model -->
+  <!-- <arg name="unpause" value="$(eval '' if arg('paused') else '-unpause')" /> -->
+
+
+  <!-- Load the controller parameters onto the parameter server -->
+  <!--
+  <rosparam file="$(find sero_1_moveit)/config/gazebo_controllers.yaml" />
+  <include file="$(dirname)/ros_controllers.launch"/>
+
+  <rosparam file="$(find sero_2_moveit)/config/gazebo_controllers.yaml" />
+  <include file="$(dirname)/ros_controllers.launch"/>
+
+  <rosparam file="$(find sero_3_moveit)/config/gazebo_controllers.yaml" />
+  <include file="$(dirname)/ros_controllers.launch"/> -->
+
+  <!-- Spawn the Gazebo ROS controllers -->
+  <!--<node name="gazebo_controller_spawner" pkg="controller_manager" type="spawner" respawn="false" output="screen" args="joint_state_controller" /> -->
+
+  <!-- Given the published joint states, publish tf for the robot links -->
+  <!-- <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" respawn="true" output="screen" /> -->
+
+  <!-- Workobject -->
+  <node name="spawn_workobject" pkg="gazebo_ros" type="spawn_model"
+        args="-file $(find workobject)/urdf/workobject.urdf -urdf -model workobject -x 0.0 -y 1.0 -z 0.531 -R 3.1415 -P 0 -Y 3.1415"
+        output="screen" />
+</launch>

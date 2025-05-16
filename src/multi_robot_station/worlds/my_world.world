@@ -2,8 +2,8 @@
 <sdf version="1.6">
   <world name="default">
 
-  <!-- Setze Pfad zu CAD-Modellen -->
-  <plugin name="gazebo_ros_link_attacher" filename="libgazebo_ros_link_attacher.so"/>
+  <!-- Setze Pfad zu CAD-Modellen 
+  <plugin name="gazebo_ros_link_attacher" filename="libgazebo_ros_link_attacher.so"/> -->
 
 
     <!-- Boden und Sonne -->
