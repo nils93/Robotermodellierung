@@ -874,14 +874,17 @@
         </actuator>
     </transmission>
     <gazebo>
-    <plugin name="control" filename="libgazebo_ros_control.so">
-        <robotNamespace>/</robotNamespace>
-    </plugin>
-</gazebo>
-<gazebo>
-    <plugin name = "joint_state_publisher" filename = "libgazebo_ros_joint_state_publisher.so" >
-    <jointName>sero_1_j1, sero_1_j2, sero_1_j3, sero_1_j4, sero_1_j5, sero_1_j6, sero_2_j1, sero_2_j2, sero_2_j3, sero_2_j4, sero_2_j5, sero_3_j1, sero_3_j2, sero_3_j3, sero_3_j4, sero_3_j5</jointName>
-    </plugin>
-</gazebo>
+        <plugin name="control" filename="libgazebo_ros_control.so">
+            <robotNamespace>/</robotNamespace>
+        </plugin>
+        <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
+            <robotNamespace>/</robotNamespace>
+        </plugin>
+    </gazebo>
+    <gazebo>
+        <plugin name="joint_state_publisher" filename="libgazebo_ros_joint_state_publisher.so">
+            <jointName>sero_1_j1, sero_1_j2, sero_1_j3, sero_1_j4, sero_1_j5, sero_1_j6, sero_2_j1, sero_2_j2, sero_2_j3, sero_2_j4, sero_2_j5, sero_3_j1, sero_3_j2, sero_3_j3, sero_3_j4, sero_3_j5</jointName>
+        </plugin>
+    </gazebo>
 </robot>
 

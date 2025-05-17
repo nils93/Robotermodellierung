@@ -164,7 +164,7 @@ planner_configs:
     stop_on_each_solution_improvement: 0  # stop the planner each time a solution improvement is found. Useful for debugging. Default: 0
     use_strict_queue_ordering: 0  # sort edges in the queue at the end of the batch (0) or after each rewiring (1). Default: 0
     find_approximate_solutions: 0  # track approximate solutions (1) or not (0). Default: 0
-sero_1_arm:
+sero_1:
   default_planner_config: RRT
   planner_configs:
     - AnytimePathShortening
@@ -196,7 +196,7 @@ sero_1_arm:
     - BITstar
   projection_evaluator: joints(sero_1_j1,sero_1_j2)
   longest_valid_segment_fraction: 0.005
-sero_2_arm:
+sero_2:
   default_planner_config: RRT
   planner_configs:
     - AnytimePathShortening
@@ -228,7 +228,7 @@ sero_2_arm:
     - BITstar
   projection_evaluator: joints(sero_2_j1,sero_2_j2)
   longest_valid_segment_fraction: 0.005
-sero_3_arm:
+sero_3:
   default_planner_config: RRT
   planner_configs:
     - AnytimePathShortening
@@ -260,93 +260,3 @@ sero_3_arm:
     - BITstar
   projection_evaluator: joints(sero_3_j1,sero_3_j2)
   longest_valid_segment_fraction: 0.005
-sero_1_ee:
-  default_planner_config: RRT
-  planner_configs:
-    - AnytimePathShortening
-    - SBL
-    - EST
-    - LBKPIECE
-    - BKPIECE
-    - KPIECE
-    - RRT
-    - RRTConnect
-    - RRTstar
-    - TRRT
-    - PRM
-    - PRMstar
-    - FMT
-    - BFMT
-    - PDST
-    - STRIDE
-    - BiTRRT
-    - LBTRRT
-    - BiEST
-    - ProjEST
-    - LazyPRM
-    - LazyPRMstar
-    - SPARS
-    - SPARStwo
-    - AITstar
-    - ABITstar
-    - BITstar
-sero_2_ee:
-  default_planner_config: RRT
-  planner_configs:
-    - AnytimePathShortening
-    - SBL
-    - EST
-    - LBKPIECE
-    - BKPIECE
-    - KPIECE
-    - RRT
-    - RRTConnect
-    - RRTstar
-    - TRRT
-    - PRM
-    - PRMstar
-    - FMT
-    - BFMT
-    - PDST
-    - STRIDE
-    - BiTRRT
-    - LBTRRT
-    - BiEST
-    - ProjEST
-    - LazyPRM
-    - LazyPRMstar
-    - SPARS
-    - SPARStwo
-    - AITstar
-    - ABITstar
-    - BITstar
-sero_3_ee:
-  default_planner_config: RRT
-  planner_configs:
-    - AnytimePathShortening
-    - SBL
-    - EST
-    - LBKPIECE
-    - BKPIECE
-    - KPIECE
-    - RRT
-    - RRTConnect
-    - RRTstar
-    - TRRT
-    - PRM
-    - PRMstar
-    - FMT
-    - BFMT
-    - PDST
-    - STRIDE
-    - BiTRRT
-    - LBTRRT
-    - BiEST
-    - ProjEST
-    - LazyPRM
-    - LazyPRMstar
-    - SPARS
-    - SPARStwo
-    - AITstar
-    - ABITstar
-    - BITstar
