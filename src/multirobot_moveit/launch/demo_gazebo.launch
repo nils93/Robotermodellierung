@@ -9,6 +9,9 @@
   <arg name="world_name" default="worlds/empty.world" doc="Gazebo world file"/>
   <arg name="world_pose" default="-x 0 -y 0 -z 0 -R 0 -P 0 -Y 0" doc="Pose to spawn the robot at"/>
 
+  <!-- PID gains for gazebo_ros_control -->
+  <rosparam file="$(find multirobot_moveit)/config/pid_gains.yaml" command="load" />
+
   <!-- Launch Gazebo and spawn the robot -->
   <include file="$(dirname)/gazebo.launch" pass_all_args="true"/>
 
