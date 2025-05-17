@@ -1,0 +1,11 @@
+moveit_setup_assistant_config:
+  URDF:
+    package: ""
+    relative_path: /root/catkin_ws/src/3_robots/urdf/3_robots.urdf
+    xacro_args: ""
+  SRDF:
+    relative_path: config/3_robots.srdf
+  CONFIG:
+    author_name: test
+    author_email: tets@gmx.com
+    generated_timestamp: 1747503505

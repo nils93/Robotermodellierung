@@ -1,0 +1,43 @@
+controller_list:
+  - name: fake_sero_1_arm_controller
+    type: $(arg fake_execution_type)
+    joints:
+      - j1
+      - j2
+      - j3
+      - j4
+      - j5
+  - name: fake_sero_1_ee_controller
+    type: $(arg fake_execution_type)
+    joints:
+      - jendeffector
+  - name: fake_sero_2_arm_controller
+    type: $(arg fake_execution_type)
+    joints:
+      - j1_2
+      - j2_2
+      - j3_2
+      - j4_2
+      - j5_2
+  - name: fake_sero_2_ee_controller
+    type: $(arg fake_execution_type)
+    joints:
+      []
+  - name: fake_sero_3_arm_controller
+    type: $(arg fake_execution_type)
+    joints:
+      - j1_3
+      - j2_3
+      - j3_3
+      - j4_3
+  - name: fake_sero_3_ee_controller
+    type: $(arg fake_execution_type)
+    joints:
+      - j5_3
+initial:  # Define initial robot poses per group
+  - group: sero_1_arm
+    pose: sero_1_home
+  - group: sero_2_arm
+    pose: sero_2_home
+  - group: sero_3_arm
+    pose: sero_3_home

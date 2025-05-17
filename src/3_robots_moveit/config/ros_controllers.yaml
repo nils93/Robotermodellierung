@@ -1,0 +1,96 @@
+sero_1_arm_controller:
+  type: position_controllers/JointTrajectoryController
+  joints:
+    - j1
+    - j2
+    - j3
+    - j4
+    - j5
+  gains:
+    j1:
+      p: 100
+      d: 1
+      i: 1
+      i_clamp: 1
+    j2:
+      p: 100
+      d: 1
+      i: 1
+      i_clamp: 1
+    j3:
+      p: 100
+      d: 1
+      i: 1
+      i_clamp: 1
+    j4:
+      p: 100
+      d: 1
+      i: 1
+      i_clamp: 1
+    j5:
+      p: 100
+      d: 1
+      i: 1
+      i_clamp: 1
+sero_2_arm_controller:
+  type: position_controllers/JointTrajectoryController
+  joints:
+    - j1_2
+    - j2_2
+    - j3_2
+    - j4_2
+    - j5_2
+  gains:
+    j1_2:
+      p: 100
+      d: 1
+      i: 1
+      i_clamp: 1
+    j2_2:
+      p: 100
+      d: 1
+      i: 1
+      i_clamp: 1
+    j3_2:
+      p: 100
+      d: 1
+      i: 1
+      i_clamp: 1
+    j4_2:
+      p: 100
+      d: 1
+      i: 1
+      i_clamp: 1
+    j5_2:
+      p: 100
+      d: 1
+      i: 1
+      i_clamp: 1
+sero_3_arm_controller:
+  type: position_controllers/JointTrajectoryController
+  joints:
+    - j1_3
+    - j2_3
+    - j3_3
+    - j4_3
+  gains:
+    j1_3:
+      p: 100
+      d: 1
+      i: 1
+      i_clamp: 1
+    j2_3:
+      p: 100
+      d: 1
+      i: 1
+      i_clamp: 1
+    j3_3:
+      p: 100
+      d: 1
+      i: 1
+      i_clamp: 1
+    j4_3:
+      p: 100
+      d: 1
+      i: 1
+      i_clamp: 1

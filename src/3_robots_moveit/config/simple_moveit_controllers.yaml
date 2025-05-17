@@ -1,0 +1,30 @@
+controller_list:
+  - name: sero_1_arm_controller
+    action_ns: follow_joint_trajectory
+    type: FollowJointTrajectory
+    default: True
+    joints:
+      - j1
+      - j2
+      - j3
+      - j4
+      - j5
+  - name: sero_2_arm_controller
+    action_ns: follow_joint_trajectory
+    type: FollowJointTrajectory
+    default: True
+    joints:
+      - j1_2
+      - j2_2
+      - j3_2
+      - j4_2
+      - j5_2
+  - name: sero_3_arm_controller
+    action_ns: follow_joint_trajectory
+    type: FollowJointTrajectory
+    default: True
+    joints:
+      - j1_3
+      - j2_3
+      - j3_3
+      - j4_3
