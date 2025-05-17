@@ -1,9 +1,0 @@
-<launch>
-  <!-- Lade die Controller-Parameter unter dem Namespace /sero_1 -->
-  <rosparam file="$(find sero_1_moveit)/config/ros_controllers.yaml" command="load" ns="sero_1"/>
-
-  <!-- Spawner mit Namespace -->
-  <node name="controller_spawner" pkg="controller_manager" type="spawner" respawn="false"
-        output="screen" ns="/sero_1"
-        args="arm_controller ee_controller joint_state_controller" />
-</launch>

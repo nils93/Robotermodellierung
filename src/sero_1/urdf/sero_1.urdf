@@ -1,4 +1,4 @@
-<robot name="sero_1">
+<robot name="multi_sero">
     <link name="world" />
     <joint name="fixed_link_to_world" type="fixed">
         <parent link="world" />
@@ -270,7 +270,8 @@
     
     <gazebo>
         <plugin name="control" filename="libgazebo_ros_control.so">
-            <robotNamespace>/sero_1</robotNamespace>
+            <!-- 
+            <robotNamespace>/sero_1</robotNamespace>-->
             <robotParam>/sero_1/robot_description</robotParam>
         </plugin>
     </gazebo> 

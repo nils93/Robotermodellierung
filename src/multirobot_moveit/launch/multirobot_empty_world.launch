@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<launch>
+    <!-- Launch empty Gazebo world -->
+    <include file="$(find gazebo_ros)/launch/empty_world.launch">
+        <arg name="world_name" value="$(find multi_robot_station)/worlds/my_world.world" />
+        <arg name="use_sim_time" value="true" />
+        <arg name="gui" value="true" />
+        <arg name="paused" value="false" />
+        <arg name="debug" value="false" />
+    </include>
+
+    <!-- Setze Pfad zu CAD-Modellen -->
+    <env name="GAZEBO_MODEL_PATH" value="$(find my_objects)"/>
+
+    <!-- Simulationszeit -->
+    <param name="use_sim_time" value="true"/>
+
+    <!-- Find my robot Description-->
+    <arg name="urdf_file" default="$(find multirobot)/urdf/multirobot.urdf" />
+    <param name="robot_description" textfile="$(arg urdf_file)" />
+
+
+    <!-- Spawn The robot over the robot_description param-->
+    <node name="urdf_spawner" pkg="gazebo_ros" type="spawn_model" respawn="false" output="screen" args="-urdf -param robot_description -model multirobot" />
+
+    <!-- Spawn Workobject -->
+    <node name="spawn_workobject" pkg="gazebo_ros" type="spawn_model"
+        args="-file $(find workobject)/urdf/workobject.urdf -urdf -model workobject -x 0.0 -y 1.0 -z 0.531 -R 3.1415 -P 0 -Y 3.1415"
+        output="screen" />
+
+</launch>
