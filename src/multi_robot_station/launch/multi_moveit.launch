@@ -1,0 +1,25 @@
+<launch>
+  <!-- MoveIt for sero_1 -->
+  <group ns="sero_1">
+    <include file="$(find sero_1_moveit)/launch/demo.launch">
+      <arg name="load_robot_description" value="false"/>
+      <arg name="moveit_controller_manager" value="ros_control"/>
+    </include>
+  </group>
+
+  <!-- MoveIt for sero_2 -->
+  <group ns="sero_2">
+    <include file="$(find sero_2_moveit)/launch/demo.launch">
+      <arg name="load_robot_description" value="false"/>
+      <arg name="moveit_controller_manager" value="ros_control"/>
+    </include>
+  </group>
+
+  <!-- MoveIt for sero_3 -->
+  <group ns="sero_3">
+    <include file="$(find sero_3_moveit)/launch/demo.launch">
+      <arg name="load_robot_description" value="false"/>
+      <arg name="moveit_controller_manager" value="ros_control"/>
+    </include>
+  </group>
+</launch>

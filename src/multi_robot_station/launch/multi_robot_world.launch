@@ -1,4 +1,7 @@
 <launch>
+  <!-- Use simulated time from Gazebo -->
+  <param name="use_sim_time" value="true"/>
+
   <!-- Set GAZEBO_MODEL_PATH for CAD models -->
   <env name="GAZEBO_MODEL_PATH" value="$(find my_objects)"/>
 

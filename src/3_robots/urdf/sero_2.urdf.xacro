@@ -1,0 +1,59 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://ros.org/wiki/xacro">
+
+  <xacro:macro name="sero_2_robot" params="name prefix parent pose">
+
+    <!-- Fixed joint to world -->
+    <joint name="${prefix}base_to_world" type="fixed">
+      <origin xyz="${pose.split()[0]} ${pose.split()[1]} ${pose.split()[2]}"
+              rpy="${pose.split()[3]} ${pose.split()[4]} ${pose.split()[5]}"/>
+      <parent link="${parent}"/>
+      <child link="${prefix}base"/>
+    </joint>
+
+    <!-- Link: base -->
+    <link name="${prefix}base">
+      <visual>
+        <origin xyz="-1.5815e-17 0.00037 1.2462e-17" rpy="-9.34e-16 1.45e-22 -1.06e-24"/>
+        <geometry>
+          <mesh filename="package://sero_2/meshes/base.stl"/>
+        </geometry>
+        <material name="base_material">
+          <color rgba="0.8902 0.6980 0.6392 1.0"/>
+        </material>
+      </visual>
+      <collision>
+        <origin xyz="-1.5815e-17 0.00037 1.2462e-17" rpy="-9.34e-16 1.45e-22 -1.06e-24"/>
+        <geometry>
+          <mesh filename="package://sero_2/meshes/base.stl"/>
+        </geometry>
+      </collision>
+      <inertial>
+        <origin xyz="-1.1009e-17 0.0171 0.0533" rpy="0 0 0"/>
+        <mass value="49.34"/>
+        <inertia ixx="0.4803" ixy="2.27e-16" ixz="-1.56e-19"
+                 iyy="0.3271" iyz="0.0264" izz="0.6633"/>
+      </inertial>
+    </link>
+
+    <!-- Repeat this block for each link and joint -->
+    <!-- Change all name="link_X" to name="${prefix}link_X" -->
+    <!-- Change all name="jX" to name="${prefix}jX" and use prefixed parent/child -->
+
+    <!-- Plugin for gazebo_ros_control -->
+    <gazebo>
+      <plugin name="${prefix}control" filename="libgazebo_ros_control.so">
+        <robotNamespace>${name}</robotNamespace>
+      </plugin>
+    </gazebo>
+
+    <!-- Plugin for joint state publisher -->
+    <gazebo>
+      <plugin name="${prefix}joint_state_publisher" filename="libgazebo_ros_joint_state_publisher.so">
+        <jointName>${prefix}j1, ${prefix}j2, ${prefix}j3, ${prefix}j4, ${prefix}j5</jointName>
+      </plugin>
+    </gazebo>
+
+  </xacro:macro>
+
+</robot>

@@ -1,0 +1,18 @@
+<launch>
+  <group ns="sero_2">
+    <!-- Load robot_description parameter in namespace -->
+    <param name="robot_description" textfile="$(find sero_2)/urdf/sero_2.urdf"/>
+
+    <!-- Start robot_state_publisher in namespace -->
+    <node name="rsp" pkg="robot_state_publisher" type="robot_state_publisher" output="screen" />
+
+    <!-- Start joint_state_publisher if needed (optional in simulation) -->
+    <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher" output="screen" />
+
+    <!-- Load and start the controller -->
+    <rosparam file="$(find sero_2_moveit)/config/gazebo_controllers.yaml" command="load"/>
+
+    <node name="controller_spawner" pkg="controller_manager" type="spawner"
+          args="joint_state_controller arm_controller joint_state_controller" output="screen"/>
+  </group>
+</launch>
