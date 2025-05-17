@@ -160,48 +160,48 @@
         <parent link="sero_1_link_5" />
         <child link="sero_1_endeffector" />
         <axis xyz="0 0 1" />
-        <limit effort="1" velocity="20" lower="-3.141592653589793116" upper="3.141592653589793116" />
-        <joint_properties friction="0.0" />
+        <limit effort="1000" velocity="20" lower="-3.141592653589793116" upper="3.141592653589793116" />
+        <dynamics damping="1.0" friction="1.0" />
     </joint>
     <joint name="sero_1_j5" type="revolute">
         <origin xyz="-0.030000000000000016237 -0.035000000000000142109 -0.18499999999999999778" rpy="-1.570796326794896558 0.57407536946603265893 1.57079632679489678" />
         <parent link="sero_1_link_4" />
         <child link="sero_1_link_5" />
         <axis xyz="0 0 1" />
-        <limit effort="1" velocity="20" lower="-2.0653116879748694146" upper="2.0650581841370048153" />
-        <joint_properties friction="0.0" />
+        <limit effort="1000" velocity="20" lower="-2.0653116879748694146" upper="2.0650581841370048153" />
+        <dynamics damping="1.0" friction="1.0" />
     </joint>
     <joint name="sero_1_j4" type="revolute">
         <origin xyz="0.22000000000000002887 0.12083333333333334814 -0.016980779096484183155" rpy="-1.5707963268408067226 -1.5707952499523358814 1.5707963267450772982" />
         <parent link="sero_1_link_3" />
         <child link="sero_1_link_4" />
         <axis xyz="0 0 1" />
-        <limit effort="1" velocity="20" lower="-3.141592653589793116" upper="3.141592653589793116" />
-        <joint_properties friction="0.0" />
+        <limit effort="1000" velocity="20" lower="-3.141592653589793116" upper="3.141592653589793116" />
+        <dynamics damping="1.0" friction="1.0" />
     </joint>
     <joint name="sero_1_j3" type="revolute">
         <origin xyz="0 0.44999999999999995559 1.2533970036995509267e-18" rpy="3.141592653589793116 3.529925104387571233e-17 -2.8217730704100758565" />
         <parent link="sero_1_link_2" />
         <child link="sero_1_link_3" />
         <axis xyz="0 0 1" />
-        <limit effort="1" velocity="20" lower="-3.2351423014966895764" upper="1.7570410727549981011" />
-        <joint_properties friction="0.0" />
+        <limit effort="1000" velocity="20" lower="-3.2351423014966895764" upper="1.7570410727549981011" />
+        <dynamics damping="1.0" friction="1.0" />
     </joint>
     <joint name="sero_1_j2" type="revolute">
         <origin xyz="0 -0.060000000000000004718 -0.14500000000000001776" rpy="-1.570796326794896558 -0.46704913247174045798 1.570796326794896336" />
         <parent link="sero_1_link_1" />
         <child link="sero_1_link_2" />
         <axis xyz="0 0 1" />
-        <limit effort="1" velocity="20" lower="-1.8110811019912356201" upper="1.8362307380071132279" />
-        <joint_properties friction="0.0" />
+        <limit effort="1000" velocity="20" lower="-1.8110811019912356201" upper="1.8362307380071132279" />
+        <dynamics damping="1.0" friction="1.0" />
     </joint>
     <joint name="sero_1_j1" type="revolute">
         <origin xyz="1.8041113859237242606e-16 0.055665231986508988127 0.10499999999999999611" rpy="-3.1415926535897926719 6.8688042396975808885e-17 8.1606641769779487982e-06" />
         <parent link="sero_1_base" />
         <child link="sero_1_link_1" />
         <axis xyz="0 0 1" />
-        <limit effort="1" velocity="20" lower="-3.141592653589793116" upper="3.141592653589793116" />
-        <joint_properties friction="0.0" />
+        <limit effort="1000" velocity="20" lower="-3.141592653589793116" upper="3.141592653589793116" />
+        <dynamics damping="1.0" friction="1.0" />
     </joint>
     <joint name="fixed_link_to_world" type="fixed">
         <parent link="world" />
@@ -367,48 +367,48 @@
         <parent link="sero_2_link_5" />
         <child link="sero_2_endeffector" />
         <axis xyz="0 0 1" />
-        <limit effort="1" velocity="20" />
-        <joint_properties friction="0.0" />
+        <limit effort="1000" velocity="20" />
+        <dynamics damping="1.0" friction="1.0" />
     </joint>
     <joint name="sero_2_j5" type="revolute">
         <origin xyz="0.019999999999999986539 -1.1102230246251565404e-16 -0.32499999999999845679" rpy="1.5707963267948970021 -0.6422904971427879639 1.5707963267948992225" />
         <parent link="sero_2_link_4" />
         <child link="sero_2_link_5" />
         <axis xyz="0 0 1" />
-        <limit effort="1" velocity="20" lower="-0.1570796326794896558" upper="3.2812189937493396741" />
-        <joint_properties friction="0.0" />
+        <limit effort="1000" velocity="20" lower="-0.1570796326794896558" upper="3.2812189937493396741" />
+        <dynamics damping="1.0" friction="1.0" />
     </joint>
     <joint name="sero_2_j4" type="revolute">
         <origin xyz="0.1052999999999999492 0 0.020000000000000059397" rpy="5.5511151231257814695e-17 -1.5707963267948952257 0" />
         <parent link="sero_2_link_3" />
         <child link="sero_2_link_4" />
         <axis xyz="0 0 1" />
-        <limit effort="1" velocity="20" lower="-3.141592653589793116" upper="3.141592653589793116" />
-        <joint_properties friction="0.0" />
+        <limit effort="1000" velocity="20" lower="-3.141592653589793116" upper="3.141592653589793116" />
+        <dynamics damping="1.0" friction="1.0" />
     </joint>
     <joint name="sero_2_j3" type="revolute">
         <origin xyz="0.47249999999999992006 5.5511151231257827021e-17 -0.039999999999999993894" rpy="-3.9099808047474802371e-16 6.5349778921725544513e-18 -1.8702914936790970835" />
         <parent link="sero_2_link_2" />
         <child link="sero_2_link_3" />
         <axis xyz="0 0 1" />
-        <limit effort="1" velocity="20" lower="-0.36651914291880921537" upper="3.4906585039886590671" />
-        <joint_properties friction="0.0" />
+        <limit effort="1000" velocity="20" lower="-0.36651914291880921537" upper="3.4906585039886590671" />
+        <dynamics damping="1.0" friction="1.0" />
     </joint>
     <joint name="sero_2_j2" type="revolute">
         <origin xyz="-0.020000000000000003886 0.14873863542433760077 -0.20873863542433754303" rpy="1.5707963267948958919 0.855974613270912843 -1.57079632679489678" />
         <parent link="sero_2_link_1" />
         <child link="sero_2_link_2" />
         <axis xyz="0 0 1" />
-        <limit effort="1" velocity="20" lower="-1.8174" upper="0" />
-        <joint_properties friction="0.0" />
+        <limit effort="1000" velocity="20" lower="-1.8174" upper="0" />
+        <dynamics damping="1.0" friction="1.0" />
     </joint>
     <joint name="sero_2_j1" type="revolute">
         <origin xyz="-1.3877787807814459837e-17 0.060367606489668872161 0.12000000000000006495" rpy="-3.1415926535897793492 -8.8628477392845443571e-22 3.141592653589793116" />
         <parent link="sero_2_base" />
         <child link="sero_2_link_1" />
         <axis xyz="0 0 1" />
-        <limit effort="1" velocity="20" lower="-3.141592653589793116" upper="3.141592653589793116" />
-        <joint_properties friction="0.0" />
+        <limit effort="1000" velocity="20" lower="-3.141592653589793116" upper="3.141592653589793116" />
+        <dynamics damping="1.0" friction="1.0" />
     </joint>
     <joint name="sero_1_to_sero_2" type="fixed">
         <parent link="sero_1_base" />
@@ -575,8 +575,8 @@
         <parent link="sero_3_endeffector_base" />
         <child link="sero_3_v_tube" />
         <axis xyz="0 0 1" />
-        <limit effort="1" velocity="20" />
-        <joint_properties friction="0.0" />
+        <limit effort="1000" velocity="20" />
+        <dynamics damping="1.0" friction="1.0" />
     </joint>
     <link name="sero_3_v_tube_2">
         <visual>
@@ -605,8 +605,8 @@
         <parent link="sero_3_endeffector_base" />
         <child link="sero_3_v_tube_2" />
         <axis xyz="0 0 1" />
-        <limit effort="1" velocity="20" />
-        <joint_properties friction="0.0" />
+        <limit effort="1000" velocity="20" />
+        <dynamics damping="1.0" friction="1.0" />
     </joint>
     <link name="sero_3_v_tube_3">
         <visual>
@@ -635,8 +635,8 @@
         <parent link="sero_3_endeffector_base" />
         <child link="sero_3_v_tube_3" />
         <axis xyz="0 0 1" />
-        <limit effort="1" velocity="20" />
-        <joint_properties friction="0.0" />
+        <limit effort="1000" velocity="20" />
+        <dynamics damping="1.0" friction="1.0" />
     </joint>
     <link name="sero_3_v_tube_4">
         <visual>
@@ -665,48 +665,48 @@
         <parent link="sero_3_endeffector_base" />
         <child link="sero_3_v_tube_4" />
         <axis xyz="0 0 1" />
-        <limit effort="1" velocity="20" />
-        <joint_properties friction="0.0" />
+        <limit effort="1000" velocity="20" />
+        <dynamics damping="1.0" friction="1.0" />
     </joint>
     <joint name="sero_3_j5" type="revolute">
         <origin xyz="0.14499999999999985123 -0.090000000000000301981 -0.079999999999999987788" rpy="-3.141592653589793116 1.5707963267948890085 0" />
         <parent link="sero_3_link_4" />
         <child link="sero_3_endeffector_base" />
         <axis xyz="0 0 1" />
-        <limit effort="1" velocity="20" lower="-3.141592653589793116" upper="3.141592653589793116" />
-        <joint_properties friction="0.0" />
+        <limit effort="1000" velocity="20" lower="-3.141592653589793116" upper="3.141592653589793116" />
+        <dynamics damping="1.0" friction="1.0" />
     </joint>
     <joint name="sero_3_j4" type="revolute">
         <origin xyz="-0.49500000000000005107 -0.14000000000000001332 -0.17000000000000009548" rpy="3.1415926535897917837 6.241086271459160841e-16 -3.1415926535897922278" />
         <parent link="sero_3_link_3" />
         <child link="sero_3_link_4" />
         <axis xyz="0 0 1" />
-        <limit effort="1" velocity="20" lower="-3.141592653589793116" upper="3.141592653589793116" />
-        <joint_properties friction="0.0" />
+        <limit effort="1000" velocity="20" lower="-3.141592653589793116" upper="3.141592653589793116" />
+        <dynamics damping="1.0" friction="1.0" />
     </joint>
     <joint name="sero_3_j3" type="revolute">
         <origin xyz="-0.62999999999999989342 -6.4711246131411124663e-32 1.061085658197035173e-17" rpy="-3.141592653589793116 -1.819226480685986761e-15 1.5707963267948961139" />
         <parent link="sero_3_link_2" />
         <child link="sero_3_link_3" />
         <axis xyz="0 0 1" />
-        <limit effort="1" velocity="20" lower="-3.141592653589793116" upper="3.141592653589793116" />
-        <joint_properties friction="0.0" />
+        <limit effort="1000" velocity="20" lower="-3.141592653589793116" upper="3.141592653589793116" />
+        <dynamics damping="1.0" friction="1.0" />
     </joint>
     <joint name="sero_3_j2" type="revolute">
         <origin xyz="-6.1629758220391547298e-33 0.12000000000000005107 -0.079999999999999960032" rpy="1.5707963267948956698 -1.5707963267948956698 0" />
         <parent link="sero_3_link_1" />
         <child link="sero_3_link_2" />
         <axis xyz="0 0 1" />
-        <limit effort="1" velocity="20" lower="0" upper="3.141592653589793116" />
-        <joint_properties friction="0.0" />
+        <limit effort="1000" velocity="20" lower="0" upper="3.141592653589793116" />
+        <dynamics damping="1.0" friction="1.0" />
     </joint>
     <joint name="sero_3_j1" type="revolute">
         <origin xyz="-4.1633363423443370266e-17 6.2524054036301313582e-17 0.17000000000000001221" rpy="3.141592653589793116 -3.5404820457539550914e-27 -5.5511151231290971505e-17" />
         <parent link="sero_3_base" />
         <child link="sero_3_link_1" />
         <axis xyz="0 0 1" />
-        <limit effort="1" velocity="20" lower="-3.141592653589793116" upper="3.141592653589793116" />
-        <joint_properties friction="0.0" />
+        <limit effort="1000" velocity="20" lower="-3.141592653589793116" upper="3.141592653589793116" />
+        <dynamics damping="1.0" friction="1.0" />
     </joint>
     <joint name="sero_2_to_sero_3" type="fixed">
         <parent link="sero_2_base" />
