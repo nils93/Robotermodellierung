@@ -41,3 +41,9 @@ initial:  # Define initial robot poses per group
     pose: sero_2_p_home
   - group: sero_3_arm
     pose: sero_3_p_home
+  - group: sero_1_ee
+    pose: sero_1_ee_p_home
+  - group: sero_2_ee
+    pose: sero_2_ee_p_home
+  - group: sero_3_ee
+    pose: sero_3_ee_p_home

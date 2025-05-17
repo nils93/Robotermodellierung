@@ -229,6 +229,7 @@ sero_2_arm:
   projection_evaluator: joints(sero_2_j1,sero_2_j2)
   longest_valid_segment_fraction: 0.005
 sero_3_arm:
+  default_planner_config: RRT
   planner_configs:
     - AnytimePathShortening
     - SBL

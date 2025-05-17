@@ -46,7 +46,7 @@ sero_2_ctrl:
     - sero_2_j3
     - sero_2_j4
     - sero_2_j5
-    - fastened
+    - sero_2_j6
   gains:
     sero_2_j1:
       p: 100
@@ -73,7 +73,7 @@ sero_2_ctrl:
       d: 1
       i: 1
       i_clamp: 1
-    fastened:
+    sero_2_j6:
       p: 100
       d: 1
       i: 1

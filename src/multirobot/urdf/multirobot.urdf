@@ -362,7 +362,7 @@
             <inertia ixx="0.00046375431396383494332" ixy="2.2864852994603759838e-34" ixz="8.1535948214775546414e-35" iyy="0.00046375431396383494332" iyz="-1.1475164562417600293e-20" izz="0.00020671818738927610188" />
         </inertial>
     </link>
-    <joint name="fastened" type="fixed">
+    <joint name="sero_2_j6" type="fixed">
         <origin xyz="-0.095000000000000028866 0 -0.019999999999999965722" rpy="3.141592653589793116 -1.5707963267948950037 0" />
         <parent link="sero_2_link_5" />
         <child link="sero_2_endeffector" />
@@ -399,7 +399,7 @@
         <parent link="sero_2_link_1" />
         <child link="sero_2_link_2" />
         <axis xyz="0 0 1" />
-        <limit effort="1" velocity="20" lower="0.54105206811824213542" upper="2.3212879051524581975" />
+        <limit effort="1" velocity="20" lower="-1.8174" upper="0" />
         <joint_properties friction="0.0" />
     </joint>
     <joint name="sero_2_j1" type="revolute">
@@ -877,13 +877,11 @@
     <plugin name="control" filename="libgazebo_ros_control.so">
         <robotNamespace>/</robotNamespace>
     </plugin>
-</gazebo> 
-    <gazebo>
-        <plugin name="joint_state_publisher" filename="libgazebo_ros_joint_state_publisher.so">
-            <jointName>sero_1_j1, sero_1_j2, sero_1_j3, sero_1_j4, sero_1_j5, sero_1_j6, sero_2_j1, sero_2_j2, sero_2_j3, sero_2_j4, sero_2_j5, fastened, sero_3_j1, sero_3_j2, sero_3_j3, sero_3_j4, sero_3_j5</jointName>
-            <updateRate>100.0</updateRate>
-        </plugin>
-    </gazebo>
-
+</gazebo>
+<gazebo>
+    <plugin name = "joint_state_publisher" filename = "libgazebo_ros_joint_state_publisher.so" >
+    <jointName>sero_1_j1, sero_1_j2, sero_1_j3, sero_1_j4, sero_1_j5, sero_1_j6, sero_2_j1, sero_2_j2, sero_2_j3, sero_2_j4, sero_2_j5, sero_3_j1, sero_3_j2, sero_3_j3, sero_3_j4, sero_3_j5</jointName>
+    </plugin>
+</gazebo>
 </robot>
 

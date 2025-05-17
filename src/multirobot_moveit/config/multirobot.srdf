@@ -22,6 +22,7 @@
         <chain base_link="sero_1_link_5" tip_link="sero_1_endeffector"/>
     </group>
     <group name="sero_2_ee">
+        <joint name="sero_2_j6"/>
         <chain base_link="sero_2_link_5" tip_link="sero_2_endeffector"/>
     </group>
     <group name="sero_3_ee">
@@ -37,8 +38,8 @@
     </group_state>
     <group_state name="sero_2_p_home" group="sero_2_arm">
         <joint name="sero_2_j1" value="0"/>
-        <joint name="sero_2_j2" value="0.8815"/>
-        <joint name="sero_2_j3" value="0.4977"/>
+        <joint name="sero_2_j2" value="0"/>
+        <joint name="sero_2_j3" value="0"/>
         <joint name="sero_2_j4" value="0"/>
         <joint name="sero_2_j5" value="0"/>
     </group_state>
@@ -48,8 +49,15 @@
         <joint name="sero_3_j3" value="0"/>
         <joint name="sero_3_j4" value="0"/>
     </group_state>
+    <group_state name="sero_1_ee_p_home" group="sero_1_ee">
+        <joint name="sero_1_j6" value="0"/>
+    </group_state>
+    <group_state name="sero_2_ee_p_home" group="sero_2_ee"/>
+    <group_state name="sero_3_ee_p_home" group="sero_3_ee">
+        <joint name="sero_3_j5" value="0"/>
+    </group_state>
     <!--END EFFECTOR: Purpose: Represent information about an end effector.-->
-    <end_effector name="sero_1_ee_sanding" parent_link="sero_1_link_5" group="sero_1_ee" parent_group="sero_1_arm"/>
+    <end_effector name="sero_1_ee_sand" parent_link="sero_1_link_5" group="sero_1_ee" parent_group="sero_1_arm"/>
     <end_effector name="sero_2_ee_blow" parent_link="sero_2_link_5" group="sero_2_ee" parent_group="sero_2_arm"/>
     <end_effector name="sero_3_ee_vacuum" parent_link="sero_3_link_4" group="sero_3_ee" parent_group="sero_3_arm"/>
     <!--VIRTUAL JOINT: Purpose: this element defines a virtual joint between a robot link and an external frame of reference (considered fixed with respect to the robot)-->
@@ -88,8 +96,6 @@
     <disable_collisions link1="sero_1_link_1" link2="sero_2_link_1" reason="Never"/>
     <disable_collisions link1="sero_1_link_1" link2="sero_2_link_2" reason="Never"/>
     <disable_collisions link1="sero_1_link_1" link2="sero_2_link_3" reason="Never"/>
-    <disable_collisions link1="sero_1_link_1" link2="sero_2_link_4" reason="Never"/>
-    <disable_collisions link1="sero_1_link_1" link2="sero_2_link_5" reason="Never"/>
     <disable_collisions link1="sero_1_link_1" link2="sero_3_base" reason="Never"/>
     <disable_collisions link1="sero_1_link_1" link2="sero_3_endeffector_base" reason="Never"/>
     <disable_collisions link1="sero_1_link_1" link2="sero_3_link_1" reason="Never"/>
@@ -103,8 +109,6 @@
     <disable_collisions link1="sero_1_link_2" link2="sero_1_link_3" reason="Adjacent"/>
     <disable_collisions link1="sero_1_link_2" link2="sero_2_base" reason="Never"/>
     <disable_collisions link1="sero_1_link_2" link2="sero_2_link_1" reason="Never"/>
-    <disable_collisions link1="sero_1_link_2" link2="sero_2_link_2" reason="Never"/>
-    <disable_collisions link1="sero_1_link_2" link2="sero_2_link_3" reason="Never"/>
     <disable_collisions link1="sero_1_link_2" link2="sero_3_base" reason="Never"/>
     <disable_collisions link1="sero_1_link_2" link2="sero_3_endeffector_base" reason="Never"/>
     <disable_collisions link1="sero_1_link_2" link2="sero_3_link_1" reason="Never"/>
@@ -130,6 +134,7 @@
     <disable_collisions link1="sero_1_link_3" link2="sero_3_v_tube_3" reason="Never"/>
     <disable_collisions link1="sero_1_link_3" link2="sero_3_v_tube_4" reason="Never"/>
     <disable_collisions link1="sero_1_link_4" link2="sero_1_link_5" reason="Adjacent"/>
+    <disable_collisions link1="sero_1_link_4" link2="sero_2_base" reason="Never"/>
     <disable_collisions link1="sero_1_link_4" link2="sero_3_base" reason="Never"/>
     <disable_collisions link1="sero_1_link_4" link2="sero_3_endeffector_base" reason="Never"/>
     <disable_collisions link1="sero_1_link_4" link2="sero_3_link_1" reason="Never"/>
@@ -150,9 +155,12 @@
     <disable_collisions link1="sero_1_link_5" link2="sero_3_v_tube_2" reason="Never"/>
     <disable_collisions link1="sero_1_link_5" link2="sero_3_v_tube_3" reason="Never"/>
     <disable_collisions link1="sero_1_link_5" link2="sero_3_v_tube_4" reason="Never"/>
+    <disable_collisions link1="sero_2_base" link2="sero_2_endeffector" reason="Never"/>
     <disable_collisions link1="sero_2_base" link2="sero_2_link_1" reason="Adjacent"/>
-    <disable_collisions link1="sero_2_base" link2="sero_2_link_2" reason="Default"/>
-    <disable_collisions link1="sero_2_base" link2="sero_2_link_3" reason="Default"/>
+    <disable_collisions link1="sero_2_base" link2="sero_2_link_2" reason="Never"/>
+    <disable_collisions link1="sero_2_base" link2="sero_2_link_3" reason="Never"/>
+    <disable_collisions link1="sero_2_base" link2="sero_2_link_4" reason="Never"/>
+    <disable_collisions link1="sero_2_base" link2="sero_2_link_5" reason="Never"/>
     <disable_collisions link1="sero_2_base" link2="sero_3_base" reason="Adjacent"/>
     <disable_collisions link1="sero_2_base" link2="sero_3_endeffector_base" reason="Never"/>
     <disable_collisions link1="sero_2_base" link2="sero_3_link_1" reason="Never"/>
@@ -163,14 +171,16 @@
     <disable_collisions link1="sero_2_base" link2="sero_3_v_tube_2" reason="Never"/>
     <disable_collisions link1="sero_2_base" link2="sero_3_v_tube_3" reason="Never"/>
     <disable_collisions link1="sero_2_base" link2="sero_3_v_tube_4" reason="Never"/>
+    <disable_collisions link1="sero_2_endeffector" link2="sero_2_link_1" reason="Never"/>
     <disable_collisions link1="sero_2_endeffector" link2="sero_2_link_2" reason="Never"/>
     <disable_collisions link1="sero_2_endeffector" link2="sero_2_link_3" reason="Never"/>
     <disable_collisions link1="sero_2_endeffector" link2="sero_2_link_4" reason="Never"/>
     <disable_collisions link1="sero_2_endeffector" link2="sero_2_link_5" reason="Adjacent"/>
     <disable_collisions link1="sero_2_endeffector" link2="sero_3_base" reason="Never"/>
+    <disable_collisions link1="sero_2_endeffector" link2="sero_3_endeffector_base" reason="Never"/>
     <disable_collisions link1="sero_2_endeffector" link2="sero_3_link_1" reason="Never"/>
     <disable_collisions link1="sero_2_endeffector" link2="sero_3_link_2" reason="Never"/>
-    <disable_collisions link1="sero_2_endeffector" link2="sero_3_link_4" reason="Never"/>
+    <disable_collisions link1="sero_2_endeffector" link2="sero_3_link_3" reason="Never"/>
     <disable_collisions link1="sero_2_endeffector" link2="sero_3_v_tube" reason="Never"/>
     <disable_collisions link1="sero_2_endeffector" link2="sero_3_v_tube_2" reason="Never"/>
     <disable_collisions link1="sero_2_endeffector" link2="sero_3_v_tube_3" reason="Never"/>
@@ -218,17 +228,15 @@
     <disable_collisions link1="sero_2_link_4" link2="sero_3_endeffector_base" reason="Never"/>
     <disable_collisions link1="sero_2_link_4" link2="sero_3_link_1" reason="Never"/>
     <disable_collisions link1="sero_2_link_4" link2="sero_3_link_2" reason="Never"/>
-    <disable_collisions link1="sero_2_link_4" link2="sero_3_link_3" reason="Never"/>
     <disable_collisions link1="sero_2_link_4" link2="sero_3_link_4" reason="Never"/>
     <disable_collisions link1="sero_2_link_4" link2="sero_3_v_tube" reason="Never"/>
     <disable_collisions link1="sero_2_link_4" link2="sero_3_v_tube_2" reason="Never"/>
     <disable_collisions link1="sero_2_link_4" link2="sero_3_v_tube_3" reason="Never"/>
     <disable_collisions link1="sero_2_link_4" link2="sero_3_v_tube_4" reason="Never"/>
     <disable_collisions link1="sero_2_link_5" link2="sero_3_base" reason="Never"/>
+    <disable_collisions link1="sero_2_link_5" link2="sero_3_endeffector_base" reason="Never"/>
     <disable_collisions link1="sero_2_link_5" link2="sero_3_link_1" reason="Never"/>
     <disable_collisions link1="sero_2_link_5" link2="sero_3_link_2" reason="Never"/>
-    <disable_collisions link1="sero_2_link_5" link2="sero_3_link_3" reason="Never"/>
-    <disable_collisions link1="sero_2_link_5" link2="sero_3_link_4" reason="Never"/>
     <disable_collisions link1="sero_2_link_5" link2="sero_3_v_tube" reason="Never"/>
     <disable_collisions link1="sero_2_link_5" link2="sero_3_v_tube_2" reason="Never"/>
     <disable_collisions link1="sero_2_link_5" link2="sero_3_v_tube_3" reason="Never"/>
