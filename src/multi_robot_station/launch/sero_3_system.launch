@@ -1,0 +1,19 @@
+<launch>
+  <!-- Launch sero_3 into Gazebo -->
+  <include file="$(find multi_robot_station)/launch/gazebo3.launch">
+    <arg name="robot_name" value="sero_3"/>
+    <arg name="x" value="0.0"/>
+    <arg name="y" value="0.0"/>
+    <arg name="z" value="0.525"/>
+    <arg name="R" value="0"/>
+    <arg name="P" value="0"/>
+    <arg name="Y" value="-1.5708"/>
+  </include>
+
+  <!-- Launch MoveIt for sero_3 -->
+  <group ns="sero_3">
+    <include file="$(find sero_3_moveit)/launch/demo.launch">
+      <arg name="load_robot_description" value="false"/>
+    </include>
+  </group>
+</launch>

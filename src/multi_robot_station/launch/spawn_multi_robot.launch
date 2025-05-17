@@ -7,29 +7,44 @@
     <arg name="world_name" value="$(find multi_robot_station)/worlds/my_world.world" />
   </include>
 
-  <!-- Roboter 1 -->
-  <node name="spawn_sero_1" pkg="gazebo_ros" type="spawn_model"
-        args="-file $(find sero_1)/urdf/sero_1.urdf -urdf -model sero_1 -x 1.5 -y 0.0 -z 0.525 -R 0 -P 0 -Y 1.5708"
-        output="screen" />
+  <!-- Robot 1 -->
+  <group ns="sero_1">
+    <!--<param name="robot_description" textfile="$(find sero_1)/urdf/sero_1.urdf"/>-->
+    <param name="robot_description" command="cat $(find sero_1)/urdf/sero_1.urdf" />
+    <node name="rsp_sero_1" pkg="robot_state_publisher" type="robot_state_publisher" output="screen"/>
+    <node name="spawn_sero_1" pkg="gazebo_ros" type="spawn_model"
+          args="-param robot_description -urdf -model sero_1 -x 1.5 -y 0.0 -z 0.525 -R 0 -P 0 -Y 1.5708"
+          output="screen"/>
+  </group>
 
-  <!-- Roboter 2 -->
-  <node name="spawn_sero_2" pkg="gazebo_ros" type="spawn_model"
-        args="-file $(find sero_2)/urdf/sero_2.urdf -urdf -model sero_2 -x 0.0 -y -1.5 -z 0.525 -R 0 -P 0 -Y 0" 
-        output="screen" />
+  <!-- Robot 2 -->
+  <group ns="sero_2">
+    <!--<param name="robot_description" textfile="$(find sero_2)/urdf/sero_2.urdf"/>-->
+    <param name="robot_description" command="cat $(find sero_2)/urdf/sero_2.urdf" />
+    <node name="rsp_sero_2" pkg="robot_state_publisher" type="robot_state_publisher" output="screen"/>
+    <node name="spawn_sero_2" pkg="gazebo_ros" type="spawn_model"
+          args="-param robot_description -urdf -model sero_2 -x 0.0 -y -1.5 -z 0.525 -R 0 -P 0 -Y 0"
+          output="screen"/>
+  </group>
 
-  <!-- Roboter 3 -->
-  <node name="spawn_sero_3" pkg="gazebo_ros" type="spawn_model"
-        args="-file $(find sero_3)/urdf/sero_3.urdf -urdf -model sero_3 -x 0.0 -y 0.0 -z 0.525 -R 0 -P 0 -Y 0"
-        output="screen" />
+  <!-- Robot 3 -->
+  <group ns="sero_3">
+    <!--<param name="robot_description" textfile="$(find sero_3)/urdf/sero_3.urdf"/>-->
+    <param name="robot_description" command="cat $(find sero_3)/urdf/sero_3.urdf" />
+    <node name="rsp_sero_3" pkg="robot_state_publisher" type="robot_state_publisher" output="screen"/>
+    <node name="spawn_sero_3" pkg="gazebo_ros" type="spawn_model"
+          args="-param robot_description -urdf -model sero_3 -x 0.0 -y 0.0 -z 0.525 -R 0 -P 0 -Y 0"
+          output="screen"/>
+  </group>
+
+  <node name="spawn_workobject" pkg="gazebo_ros" type="spawn_model"
+      args="-file $(find workobject)/urdf/workobject.urdf -urdf -model workobject -x 0.0 -y 1.0 -z 0.531 -R 3.1415 -P 0 -Y 3.1415"
+      output="screen" />
 
   <!-- Attacher-Service -->
   <node pkg="gazebo_ros_link_attacher" type="gazebo_ros_link_attacher_node" name="link_attacher_node" output="screen" />
 
   <!-- Python-Skript zum Verbinden -->
   <node pkg="multi_robot_station" type="attach_robots.py" name="attach_robots" output="screen" />
-
-  <node name="spawn_workobject" pkg="gazebo_ros" type="spawn_model"
-      args="-file $(find workobject)/urdf/workobject.urdf -urdf -model workobject -x 0.0 -y 1.0 -z 0.531 -R 3.1415 -P 0 -Y 3.1415"
-      output="screen" />
 
 </launch>

@@ -25,6 +25,7 @@ def attach(model1, link1, model2, link2):
 
 if __name__ == '__main__':
     rospy.init_node('multi_robot_attach')
+    rospy.sleep(10)  # wait 5 seconds
     wait_for_service()
 
     time.sleep(5.0)  # Gib Gazebo etwas Zeit zum Spawnen

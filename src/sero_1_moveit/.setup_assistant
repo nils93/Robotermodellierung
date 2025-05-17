@@ -1,0 +1,11 @@
+moveit_setup_assistant_config:
+  URDF:
+    package: sero_1
+    relative_path: urdf/sero_1.urdf
+    xacro_args: ""
+  SRDF:
+    relative_path: config/onshape.srdf
+  CONFIG:
+    author_name: test123
+    author_email: test@test.com
+    generated_timestamp: 1747148626
