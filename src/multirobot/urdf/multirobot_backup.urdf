@@ -389,7 +389,7 @@
 </inertial>
 </link>
 
-<joint name="fastened" type="fixed">
+<joint name="sero_2_j6" type="fixed">
 <origin xyz="-0.095000000000000028866 0 -0.019999999999999965722" rpy="3.141592653589793116 -1.5707963267948950037 0" />
 <parent link="sero_2_link_5" />
 <child link="sero_2_endeffector" />
@@ -430,7 +430,7 @@
 <parent link="sero_2_link_1" />
 <child link="sero_2_link_2" />
 <axis xyz="0 0 1"/>
-<limit effort="1" velocity="20" lower="0.54105206811824213542" upper="2.3212879051524581975"/>
+<limit effort="1" velocity="20" lower="-1.8174" upper="0"/>
 <joint_properties friction="0.0"/>
 </joint>
 
