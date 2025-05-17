@@ -1,0 +1,798 @@
+<robot name="3_robots">
+    <link name="world" />
+    <joint name="fixed_link_to_world" type="fixed">
+        <origin xyz="1.5 0.0 0.525" rpy="0 0 1.5708"/>
+        <parent link="world"/>
+    <child link="base"/>
+    </joint>
+    <link name="base">
+        <visual>
+            <origin xyz="1.8041124150158793782e-16 0.05566523198650896731 0" rpy="0 -0 0" />
+            <geometry>
+                <mesh filename="package://sero_1/meshes/base.stl" />
+            </geometry>
+            <material name="base_material">
+                <color rgba="0.89019607843137249503 0.69803921568627447236 0.63921568627450975342 1.0" />
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="1.8041124150158793782e-16 0.05566523198650896731 0" rpy="0 -0 0" />
+            <geometry>
+                <mesh filename="package://sero_1/meshes/base.stl" />
+            </geometry>
+        </collision>
+        <inertial>
+            <origin xyz="1.1000114868219835157e-10 0.02821395950736303726 0.048033342389235664238" rpy="0 0 0" />
+            <mass value="35.08705239524790187" />
+            <inertia ixx="0.23851697130036866867" ixy="2.720782460153843585e-10" ixz="-1.0025050005633659025e-10" iyy="0.15387922346861418466" iyz="0.0068756425646022177947" izz="0.32171277328667874373" />
+        </inertial>
+    </link>
+    <link name="link_1">
+        <visual>
+            <origin xyz="-3.4165628273044953481e-23 4.4252861730203675289e-18 0" rpy="3.141592653589793116 8.8261758232621279394e-33 1.694065894508600302e-21" />
+            <geometry>
+                <mesh filename="package://sero_1/meshes/link_1.stl" />
+            </geometry>
+            <material name="link_1_material">
+                <color rgba="0.92156862745098033773 0.80000000000000004441 0.65490196078431373028 1.0" />
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="-3.4165628273044953481e-23 4.4252861730203675289e-18 0" rpy="3.141592653589793116 8.8261758232621279394e-33 1.694065894508600302e-21" />
+            <geometry>
+                <mesh filename="package://sero_1/meshes/link_1.stl" />
+            </geometry>
+        </collision>
+        <inertial>
+            <origin xyz="-0.015239689133278312705 -0.021586960622581662095 -0.052922200956408961547" rpy="0 0 0" />
+            <mass value="18.368766956758115327" />
+            <inertia ixx="0.091881923345227628497" ixy="-0.003928507823349794946" ixz="-0.0058549145264777261236" iyy="0.077315975512156784322" iyz="-0.018619533982869217181" izz="0.081329742201552590597" />
+        </inertial>
+    </link>
+    <link name="link_2">
+        <visual>
+            <origin xyz="-1.3877787807814456755e-17 2.7755575615628913511e-17 1.0587911840678754238e-22" rpy="3.141592653589793116 8.4703294725430033907e-22 -5.5511151231257827021e-17" />
+            <geometry>
+                <mesh filename="package://sero_1/meshes/link_2.stl" />
+            </geometry>
+            <material name="link_2_material">
+                <color rgba="0.94117647058823528106 0.87450980392156862919 0.67843137254901964006 1.0" />
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="-1.3877787807814456755e-17 2.7755575615628913511e-17 1.0587911840678754238e-22" rpy="3.141592653589793116 8.4703294725430033907e-22 -5.5511151231257827021e-17" />
+            <geometry>
+                <mesh filename="package://sero_1/meshes/link_2.stl" />
+            </geometry>
+        </collision>
+        <inertial>
+            <origin xyz="-9.7069511742337241048e-09 0.21218755221227947327 -0.047778672194228995196" rpy="0 0 0" />
+            <mass value="23.673948033547031145" />
+            <inertia ixx="0.6558161243846677424" ixy="-4.2793701182063200488e-08" ixz="1.457960283351658051e-08" iyy="0.037401631785456156132" iyz="0.0087992679245661176157" izz="0.65336519359711076049" />
+        </inertial>
+    </link>
+    <link name="link_3">
+        <visual>
+            <origin xyz="-1.3877787807814456755e-17 0 -0.02999999999999999542" rpy="0 1.6940658945086006781e-21 0" />
+            <geometry>
+                <mesh filename="package://sero_1/meshes/link_3.stl" />
+            </geometry>
+            <material name="link_3_material">
+                <color rgba="0.79607843137254896693 0.90588235294117647189 0.74509803921568629193 1.0" />
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="-1.3877787807814456755e-17 0 -0.02999999999999999542" rpy="0 1.6940658945086006781e-21 0" />
+            <geometry>
+                <mesh filename="package://sero_1/meshes/link_3.stl" />
+            </geometry>
+        </collision>
+        <inertial>
+            <origin xyz="0.11674575857875565954 0.092289914347079254897 0.0096232090141137420491" rpy="0 0 0" />
+            <mass value="17.046409404154786671" />
+            <inertia ixx="0.074800627899214822136" ixy="-0.036857779963696414571" ixz="-0.0059546580572337063156" iyy="0.07889465668196611603" iyz="-0.011906977912637863731" izz="0.11406256275854873006" />
+        </inertial>
+    </link>
+    <link name="link_4">
+        <visual>
+            <origin xyz="0 0 2.7755575615628913511e-17" rpy="-3.141592653589793116 -0 2.1175823681357508477e-22" />
+            <geometry>
+                <mesh filename="package://sero_1/meshes/link_4.stl" />
+            </geometry>
+            <material name="link_4_material">
+                <color rgba="0.73725490196078435901 0.9372549019607843146 0.91764705882352937127 1.0" />
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="0 0 2.7755575615628913511e-17" rpy="-3.141592653589793116 -0 2.1175823681357508477e-22" />
+            <geometry>
+                <mesh filename="package://sero_1/meshes/link_4.stl" />
+            </geometry>
+        </collision>
+        <inertial>
+            <origin xyz="3.2977564252776502989e-09 -0.02702676809649579362 -0.062304227824277469416" rpy="0 0 0" />
+            <mass value="3.4104383191089318039" />
+            <inertia ixx="0.013598205960530259859" ixy="3.5112585730628976798e-10" ixz="-2.2034950615846304763e-10" iyy="0.013866957658279771906" iyz="-0.0019762165524031542925" izz="0.0046399785925361671651" />
+        </inertial>
+    </link>
+    <link name="link_5">
+        <visual>
+            <origin xyz="0 0 -0.058999999999999996891" rpy="0 -0 0" />
+            <geometry>
+                <mesh filename="package://sero_1/meshes/link_5.stl" />
+            </geometry>
+            <material name="link_5_material">
+                <color rgba="0.76078431372549015776 0.83921568627450982003 0.92549019607843141522 1.0" />
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="0 0 -0.058999999999999996891" rpy="0 -0 0" />
+            <geometry>
+                <mesh filename="package://sero_1/meshes/link_5.stl" />
+            </geometry>
+        </collision>
+        <inertial>
+            <origin xyz="-4.0468429552451979308e-09 0.039174510825137690007 -0.029499999335107222193" rpy="0 0 0" />
+            <mass value="1.3085442124892889826" />
+            <inertia ixx="0.0013064926249374241018" ixy="9.912058132376598351e-11" ixz="-1.9731401884078835894e-09" iyy="0.0006855126077186873227" iyz="-5.917739079764238076e-12" izz="0.0010923022573062720654" />
+        </inertial>
+    </link>
+    <link name="endeffector">
+        <visual>
+            <origin xyz="0 -0.060000000000000053291 -0.010000000000000008882" rpy="-3.141592653589793116 -0 -4.2351647362715007549e-22" />
+            <geometry>
+                <mesh filename="package://sero_1/meshes/endeffector.stl" />
+            </geometry>
+            <material name="endeffector_material">
+                <color rgba="0.80000000000000004441 0.74901960784313725839 0.91372549019607840481 1.0" />
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="0 -0.060000000000000053291 -0.010000000000000008882" rpy="-3.141592653589793116 -0 -4.2351647362715007549e-22" />
+            <geometry>
+                <mesh filename="package://sero_1/meshes/endeffector.stl" />
+            </geometry>
+        </collision>
+        <inertial>
+            <origin xyz="-2.007927628673531952e-08 -0.055461111974627962107 -0.097485938408557723522" rpy="0 0 0" />
+            <mass value="2.2359613690447335266" />
+            <inertia ixx="0.020791268849754438591" ixy="-8.8059871773682104797e-10" ixz="1.914123719498550581e-10" iyy="0.020196057963709122818" iyz="-0.00095402857951714054117" izz="0.0010816277361651634864" />
+        </inertial>
+    </link>
+    <joint name="jendeffector" type="revolute">
+        <origin xyz="1.1102230246251565404e-16 0.079999999999999960032 -0.029499999999999998446" rpy="1.5707963267948892305 -1.5707963265184670121 0" />
+        <parent link="link_5" />
+        <child link="endeffector" />
+        <axis xyz="0 0 1" />
+        <limit effort="1000" velocity="1.02" lower="-3.141592653589793116" upper="3.141592653589793116" />
+        <dynamics damping="1.0" friction="1.0" />
+    </joint>
+    <joint name="j5" type="revolute">
+        <origin xyz="-0.030000000000000016237 -0.035000000000000142109 -0.18499999999999999778" rpy="-1.570796326794896558 0.57407536946603265893 1.57079632679489678" />
+        <parent link="link_4" />
+        <child link="link_5" />
+        <axis xyz="0 0 1" />
+        <limit effort="1000" velocity="1.01" lower="-2.5" upper="1.7" />
+        <dynamics damping="1.0" friction="1.0" />
+    </joint>
+    <joint name="j4" type="revolute">
+        <origin xyz="0.22000000000000002887 0.12083333333333334814 -0.016980779096484183155" rpy="-1.5707963268408067226 -1.5707952499523358814 1.5707963267450772982" />
+        <parent link="link_3" />
+        <child link="link_4" />
+        <axis xyz="0 0 1" />
+        <limit effort="1000" velocity="1.03" lower="-3.141592653589793116" upper="3.141592653589793116" />
+        <dynamics damping="1.0" friction="1.0" />
+    </joint>
+    <joint name="j3" type="revolute">
+        <origin xyz="0 0.44999999999999995559 1.2533970036995509267e-18" rpy="3.141592653589793116 3.529925104387571233e-17 -2.8217730704100758565" />
+        <parent link="link_2" />
+        <child link="link_3" />
+        <axis xyz="0 0 1" />
+        <limit effort="1000" velocity="1.17" lower="-1.35" upper="2.5" />
+        <dynamics damping="1.0" friction="1.0" />
+    </joint>
+    <joint name="j2" type="revolute">
+        <origin xyz="0 -0.060000000000000004718 -0.14500000000000001776" rpy="-1.570796326794896558 -0.46704913247174045798 1.570796326794896336" />
+        <parent link="link_1" />
+        <child link="link_2" />
+        <axis xyz="0 0 1" />
+        <limit effort="9000" velocity="100" lower="-1.4" upper="2" />
+        <dynamics damping="1.0" friction="1.0" />
+    </joint>
+    <joint name="j1" type="revolute">
+        <origin xyz="1.8041113859237242606e-16 0.055665231986508988127 0.10499999999999999611" rpy="-3.1415926535897926719 6.8688042396975808885e-17 8.1606641769779487982e-06" />
+        <parent link="base" />
+        <child link="link_1" />
+        <axis xyz="0 0 1" />
+        <limit effort="1000" velocity="1.18" lower="-3.141592653589793116" upper="3.141592653589793116" />
+        <dynamics damping="1.0" friction="1.0" />
+    </joint>
+
+
+
+
+
+
+
+
+
+<!--ZWEITE ROBOT-->
+    <joint name="fixed_link_to_world_2" type="fixed">
+        <parent link="world"/>
+        <child link="base2"/>
+        <origin xyz="0.0 -1.5 0.525" rpy="0 0 0"/>
+    </joint>
+
+
+    <link name="base2">
+        <visual>
+            <origin xyz="-1.5815932371176240324e-17 0.0003676064896688987756 1.2462514743223658495e-17" rpy="-9.3394600618250885692e-16 1.4558378780933280025e-22 -1.0606777952125936304e-24" />
+            <geometry>
+                <mesh filename="package://sero_2/meshes/base2.stl" />
+            </geometry>
+            <material name="base2_material">
+                <color rgba="0.89019607843137249503 0.69803921568627447236 0.63921568627450975342 1.0" />
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="-1.5815932371176240324e-17 0.0003676064896688987756 1.2462514743223658495e-17" rpy="-9.3394600618250885692e-16 1.4558378780933280025e-22 -1.0606777952125936304e-24" />
+            <geometry>
+                <mesh filename="package://sero_2/meshes/base2.stl" />
+            </geometry>
+        </collision>
+        <inertial>
+            <origin xyz="-1.1008906693734771152e-17 0.01712945505275543373 0.053277045661753889838" rpy="0 0 0" />
+            <mass value="49.341703062128146939" />
+            <inertia ixx="0.48030579732272715709" ixy="2.2775645730969955764e-16" ixz="-1.5614007003723059311e-19" iyy="0.32715051410827444833" iyz="0.026418917266756287293" izz="0.66330772835406781596" />
+        </inertial>
+    </link>
+    <link name="link_01">
+        <visual>
+            <origin xyz="0 -6.9388937082278788177e-18 0" rpy="3.141592653589793116 -6.6648828361145180298e-38 0" />
+            <geometry>
+                <mesh filename="package://sero_2/meshes/link_01.stl" />
+            </geometry>
+            <material name="link_01_material">
+                <color rgba="0.92156862745098033773 0.80000000000000004441 0.65490196078431373028 1.0" />
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="0 -6.9388937082278788177e-18 0" rpy="3.141592653589793116 -6.6648828361145180298e-38 0" />
+            <geometry>
+                <mesh filename="package://sero_2/meshes/link_01.stl" />
+            </geometry>
+        </collision>
+        <inertial>
+            <origin xyz="-1.3930947794738095121e-17 0.039678416839350458267 -0.088135224166391870626" rpy="0 0 0" />
+            <mass value="19.091905974861962392" />
+            <inertia ixx="0.17356539548813906815" ixy="1.3064932428437966355e-41" ixz="1.1588565508314935939e-38" iyy="0.10969326521272225461" iyz="0.06154665368139393411" izz="0.097209143603018868807" />
+        </inertial>
+    </link>
+    <link name="link_02">
+        <visual>
+            <origin xyz="0.3869932029135638718 5.5511151231257827021e-17 -0.020000000000000000416" rpy="-1.4791141972893971351e-31 -0 0" />
+            <geometry>
+                <mesh filename="package://sero_2/meshes/link_02.stl" />
+            </geometry>
+            <material name="link_02_material">
+                <color rgba="0.94117647058823528106 0.87450980392156862919 0.67843137254901964006 1.0" />
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="0.3869932029135638718 5.5511151231257827021e-17 -0.020000000000000000416" rpy="-1.4791141972893971351e-31 -0 0" />
+            <geometry>
+                <mesh filename="package://sero_2/meshes/link_02.stl" />
+            </geometry>
+        </collision>
+        <inertial>
+            <origin xyz="0.19868099262593577614 5.3251367445785958629e-06 -0.019999999999999996947" rpy="0 0 0" />
+            <mass value="13.731956551120582333" />
+            <inertia ixx="0.018356645947704766653" ixy="-5.0560961534334941903e-06" ixz="5.2055933418348150452e-32" iyy="0.51193263504671415731" iyz="-2.3665497291348866197e-32" izz="0.52790229780144803939" />
+        </inertial>
+    </link>
+    <link name="link_03">
+        <visual>
+            <origin xyz="0.082936154343289242297 0.040000000000000035527 0.051595448702573779021" rpy="1.570796326794896558 -9.8607613152626475676e-32 -5.5511151231257827021e-17" />
+            <geometry>
+                <mesh filename="package://sero_2/meshes/link_03.stl" />
+            </geometry>
+            <material name="link_03_material">
+                <color rgba="0.79607843137254896693 0.90588235294117647189 0.74509803921568629193 1.0" />
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="0.082936154343289242297 0.040000000000000035527 0.051595448702573779021" rpy="1.570796326794896558 -9.8607613152626475676e-32 -5.5511151231257827021e-17" />
+            <geometry>
+                <mesh filename="package://sero_2/meshes/link_03.stl" />
+            </geometry>
+        </collision>
+        <inertial>
+            <origin xyz="0.027737840329478243018 2.7755575615628913511e-17 0.020000000000000087153" rpy="0 0 0" />
+            <mass value="4.3889152375046247556" />
+            <inertia ixx="0.0061998414225303945593" ixy="1.1033789677823471709e-18" ixz="-6.0558728947049249777e-34" iyy="0.01303827492757124451" iyz="-6.4283658511776695879e-34" izz="0.012341226150433244266" />
+        </inertial>
+    </link>
+    <link name="link_04">
+        <visual>
+            <origin xyz="-5.7182229731586198856e-18 -1.1102230246251565404e-16 -0.0050000000000000044409" rpy="1.570796326794896558 7.3955709864469856757e-32 2.7117093616972280811e-31" />
+            <geometry>
+                <mesh filename="package://sero_2/meshes/link_04.stl" />
+            </geometry>
+            <material name="link_04_material">
+                <color rgba="0.73725490196078435901 0.9372549019607843146 0.91764705882352937127 1.0" />
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="-5.7182229731586198856e-18 -1.1102230246251565404e-16 -0.0050000000000000044409" rpy="1.570796326794896558 7.3955709864469856757e-32 2.7117093616972280811e-31" />
+            <geometry>
+                <mesh filename="package://sero_2/meshes/link_04.stl" />
+            </geometry>
+        </collision>
+        <inertial>
+            <origin xyz="6.706124958959406219e-08 2.5645657196301469083e-07 -0.15365038198320141172" rpy="0 0 0" />
+            <mass value="15.107736051004897249" />
+            <inertia ixx="0.13214990381477231818" ixy="4.4796122324437923437e-08" ixz="-3.024594803775144215e-07" iyy="0.13305214321537708888" iyz="1.9559808232033071674e-07" izz="0.016366262810169347752" />
+        </inertial>
+    </link>
+    <link name="link_05">
+        <visual>
+            <origin xyz="-0.069999999999999895639 -1.1102230246251565404e-16 0.010000000000000005412" rpy="1.570796326794896558 1.570796326794896558 0" />
+            <geometry>
+                <mesh filename="package://sero_2/meshes/link_05.stl" />
+            </geometry>
+            <material name="link_05_material">
+                <color rgba="0.76078431372549015776 0.83921568627450982003 0.92549019607843141522 1.0" />
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="-0.069999999999999895639 -1.1102230246251565404e-16 0.010000000000000005412" rpy="1.570796326794896558 1.570796326794896558 0" />
+            <geometry>
+                <mesh filename="package://sero_2/meshes/link_05.stl" />
+            </geometry>
+        </collision>
+        <inertial>
+            <origin xyz="-0.035772312271263068117 -1.082749957061830637e-16 -0.019999999999999996947" rpy="0 0 0" />
+            <mass value="2.3102574452715738396" />
+            <inertia ixx="0.0010511771695403894673" ixy="2.3186664240757424612e-19" ixz="-1.7385449251018909641e-34" iyy="0.003125760927845208214" iyz="7.0337489501620479173e-34" izz="0.0035261880285266476026" />
+        </inertial>
+    </link>
+    <link name="ee">
+        <visual>
+            <origin xyz="5.9164567891575885406e-31 -1.1102230246251565404e-16 0" rpy="3.141592653589793116 -0 9.8607613152626475676e-32" />
+            <geometry>
+                <mesh filename="package://sero_2/meshes/ee.stl" />
+            </geometry>
+            <material name="ee_material">
+                <color rgba="0.85098039215686271941 0.7568627450980391913 0.86666666666666669627 1.0" />
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="5.9164567891575885406e-31 -1.1102230246251565404e-16 0" rpy="3.141592653589793116 -0 9.8607613152626475676e-32" />
+            <geometry>
+                <mesh filename="package://sero_2/meshes/ee.stl" />
+            </geometry>
+        </collision>
+        <inertial>
+            <origin xyz="4.5844704651727837579e-19 -1.1074837707529742556e-16 -0.029621700270214084555" rpy="0 0 0" />
+            <mass value="0.79097658475267251799" />
+            <inertia ixx="0.00046375431396383494332" ixy="2.2864852994603759838e-34" ixz="8.1535948214775546414e-35" iyy="0.00046375431396383494332" iyz="-1.1475164562417600293e-20" izz="0.00020671818738927610188" />
+        </inertial>
+    </link>
+    <joint name="fastened" type="fixed">
+        <origin xyz="-0.095000000000000028866 0 -0.019999999999999965722" rpy="3.141592653589793116 -1.5707963267948950037 0" />
+        <parent link="link_05" />
+        <child link="ee" />
+        <axis xyz="0 0 1" />
+        <limit effort="10" velocity="3.14"  />
+        <dynamics damping="1.0" friction="1.0" />
+    </joint>
+    <joint name="j5_2" type="revolute">
+        <origin xyz="0.019999999999999986539 -1.1102230246251565404e-16 -0.32499999999999845679" rpy="1.5707963267948970021 -0.6422904971427879639 1.5707963267948992225" />
+        <parent link="link_04" />
+        <child link="link_05" />
+        <axis xyz="0 0 1" />
+        <limit effort="10" velocity="3.14" lower="-1" upper="2.8792" />
+        <dynamics damping="1.0" friction="1.0" />
+    </joint>
+    <joint name="j4_2" type="revolute">
+        <origin xyz="0.1052999999999999492 0 0.020000000000000059397" rpy="5.5511151231257814695e-17 -1.5707963267948952257 0" />
+        <parent link="link_03" />
+        <child link="link_04" />
+        <axis xyz="0 0 1" />
+        <limit effort="10" velocity="3.14" lower="-6.283185307" upper="6.283185307" />
+        <dynamics damping="1.0" friction="1.0" />
+    </joint>
+    <joint name="j3_2" type="revolute">
+        <origin xyz="0.47249999999999992006 5.5511151231257827021e-17 -0.039999999999999993894" rpy="-3.9099808047474802371e-16 6.5349778921725544513e-18 -1.8702914936790970835" />
+        <parent link="link_02" />
+        <child link="link_03" />
+        <axis xyz="0 0 1" />
+        <limit effort="10" velocity="3.14" lower="0" upper="3.4906585039886590671" />
+        <dynamics damping="1.0" friction="1.0" />
+    </joint>
+    <joint name="j2_2" type="revolute">
+        <origin xyz="-0.020000000000000003886 0.14873863542433760077 -0.20873863542433754303" rpy="1.5707963267948958919 0.855974613270912843 -1.57079632679489678" />
+        <parent link="link_01" />
+        <child link="link_02" />
+        <axis xyz="0 0 1" />
+         <limit effort="10" velocity="3.14" lower="-1.8174" upper="0" />
+        <dynamics damping="1.0" friction="1.0" />
+    </joint>
+    <joint name="j1_2" type="revolute">
+        <origin xyz="-1.3877787807814459837e-17 0.060367606489668872161 0.12000000000000006495" rpy="-3.1415926535897793492 -8.8628477392845443571e-22 3.141592653589793116" />
+        <parent link="base2" />
+        <child link="link_01" />
+        <axis xyz="0 0 1" />
+        <limit effort="10" velocity="3.14" lower="-6.283185307" upper="6.283185307" />
+        <dynamics damping="1.0" friction="1.0" />
+    </joint>
+
+    <!-- Transmission -->
+
+    <transmission name="trans_j5_2">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="j5_2">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="j5_2_motor">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+    <transmission name="trans_j4_2">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="j4_2">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="j4_2_motor">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+    <transmission name="trans_j3_2">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="j3_2">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="j3_2_motor">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+    <transmission name="trans_j2_2">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="j2_2">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="j2_2_motor">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+    <transmission name="trans_j1_2">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="j1_2">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="j1_2_motor">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+
+
+    <!--MoveIt Setup Assistant -->
+    <!--
+    <transmission name="trans_j5_2">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="j5_2">
+            <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="j5_2_motor">
+            <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+    <transmission name="trans_j4_2">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="j4_2">
+            <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="j4_2_motor">
+            <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+    <transmission name="trans_j3_2">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="j3_2">
+            <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="j3_2_motor">
+            <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+    <transmission name="trans_j2_2">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="j2_2">
+            <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="j2_2_motor">
+            <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+    <transmission name="trans_j1_2">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="j1_2">
+            <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="j1_2_motor">
+            <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+    -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+ <!-- DRITTE ROBOT-->
+    <joint name="fixed_link_to_world_3" type="fixed">
+        <origin xyz="0.0 0.0 0.525" rpy="0 0 0"/>
+        <parent link="world"/>
+        <child link="base3"/>
+    </joint>
+
+    <link name="base3">
+        <visual>
+            <origin xyz="-4.1633363423443370266e-17 1.6949752565162061855e-18 -5.5154662533553587949e-34" rpy="-3.254009893154236877e-16 8.6281661508548166217e-32 1.2347465433156991646e-16" />
+            <geometry>
+                <mesh filename="package://sero_3/meshes/base3.stl" />
+            </geometry>
+            <material name="base3_material">
+                <color rgba="0.89019607843137249503 0.69803921568627447236 0.63921568627450975342 1.0" />
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="-4.1633363423443370266e-17 1.6949752565162061855e-18 -5.5154662533553587949e-34" rpy="-3.254009893154236877e-16 8.6281661508548166217e-32 1.2347465433156991646e-16" />
+            <geometry>
+                <mesh filename="package://sero_3/meshes/base3.stl" />
+            </geometry>
+        </collision>
+        <inertial>
+            <origin xyz="-1.4191131412431651619e-17 3.093208156293898791e-17 0.039865010471469702891" rpy="0 0 0" />
+            <mass value="29.561020908170693389" />
+            <inertia ixx="0.56414288287999059257" ixy="6.1629758220391547298e-32" ixz="-2.6008615487439589667e-32" iyy="0.5641428828799902595" iyz="1.5651332502670880486e-16" izz="1.0451288975690682381" />
+        </inertial>
+    </link>
+    <link name="link_1_3">
+        <visual>
+            <origin xyz="-6.1629758220391547298e-33 4.8470540592812887996e-18 0" rpy="3.141592653589793116 -2.0861283505423087262e-43 0" />
+            <geometry>
+                <mesh filename="package://sero_3/meshes/link_1_3.stl" />
+            </geometry>
+            <material name="link_1_3_material">
+                <color rgba="0.92156862745098033773 0.80000000000000004441 0.65490196078431373028 1.0" />
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="-6.1629758220391547298e-33 4.8470540592812887996e-18 0" rpy="3.141592653589793116 -2.0861283505423087262e-43 0" />
+            <geometry>
+                <mesh filename="package://sero_3/meshes/link_1_3.stl" />
+            </geometry>
+        </collision>
+        <inertial>
+            <origin xyz="2.5812154935817390889e-07 0.020078728528027917077 -0.084265679701914092403" rpy="0 0 0" />
+            <!--
+            <mass value="32.098264787234505491" /> -->
+            <mass value="20" />
+            <inertia ixx="0.15183599668872910238" ixy="-1.1318804273050995291e-06" ixz="4.1015787527610980043e-07" iyy="0.12206161215963268196" iyz="0.00514067802598717951" izz="0.12973629061825234232" />
+        </inertial>
+    </link>
+    <link name="link_2_3">
+        <visual>
+            <origin xyz="0 4.5924254968025766839e-18 4.1183628318625710158e-18" rpy="-3.141592653589793116 9.8607613152626475676e-32 -1.3749793942868710628e-32" />
+            <geometry>
+                <mesh filename="package://sero_3/meshes/link_2_3.stl" />
+            </geometry>
+            <material name="link_2_3_material">
+                <color rgba="0.94117647058823528106 0.87450980392156862919 0.67843137254901964006 1.0" />
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="0 4.5924254968025766839e-18 4.1183628318625710158e-18" rpy="-3.141592653589793116 9.8607613152626475676e-32 -1.3749793942868710628e-32" />
+            <geometry>
+                <mesh filename="package://sero_3/meshes/link_2_3.stl" />
+            </geometry>
+        </collision>
+        <inertial>
+            <origin xyz="-0.31499983020000299483 -5.9338950341248018232e-08 -0.1048694271057695887" rpy="0 0 0" />
+            <!--
+            <mass value="95.412481284338156229" /> -->
+            <mass value="10" />
+            <inertia ixx="0.30014578780677336756" ixy="2.7683924706706791416e-07" ixz="2.5259250984795803334e-06" iyy="5.0701114070706099213" iyz="-3.3364583905554261746e-07" izz="4.9823951617652841861" />
+        </inertial>
+    </link>
+    <link name="link_3_3">
+        <visual>
+            <origin xyz="0 0 -3.5177085194790902871e-18" rpy="1.570796326794896558 -1.9721522630525295135e-31 1.3755759769189022776e-33" />
+            <geometry>
+                <mesh filename="package://sero_3/meshes/link_3_3.stl" />
+            </geometry>
+            <material name="link_3_3_material">
+                <color rgba="0.79607843137254896693 0.90588235294117647189 0.74509803921568629193 1.0" />
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="0 0 -3.5177085194790902871e-18" rpy="1.570796326794896558 -1.9721522630525295135e-31 1.3755759769189022776e-33" />
+            <geometry>
+                <mesh filename="package://sero_3/meshes/link_3.stl" />
+            </geometry>
+        </collision>
+        <inertial>
+            <origin xyz="-0.12787550742648204349 -0.086695678159673439378 -0.13092497492624188826" rpy="0 0 0" />
+            <!--
+            <mass value="84.06211694702932391" /> -->
+            <mass value="5" />
+            <inertia ixx="0.72701390054885139946" ixy="-0.56396100688611627838" ixz="-0.3398755684914888664" iyy="2.2596801602232305939" iyz="-0.076724939144711401529" izz="2.471848827686650818" />
+        </inertial>
+    </link>
+    <link name="link_4_3">
+        <visual>
+            <origin xyz="0 0 3.0295804379226702294e-18" rpy="3.141592653589793116 -0 -3.8393994794198495367e-32" />
+            <geometry>
+                <mesh filename="package://sero_3/meshes/link_4_3.stl" />
+            </geometry>
+            <material name="link_4_3_material">
+                <color rgba="0.73725490196078435901 0.9372549019607843146 0.91764705882352937127 1.0" />
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="0 0 3.0295804379226702294e-18" rpy="3.141592653589793116 -0 -3.8393994794198495367e-32" />
+            <geometry>
+                <mesh filename="package://sero_3/meshes/link_4_3.stl" />
+            </geometry>
+        </collision>
+        <inertial>
+            <origin xyz="-0.0057366460591120483486 -0.056799838397228498421 -0.078907548477852723634" rpy="0 0 0" />
+            <!--
+            <mass value="35.563010627334307401" /> -->
+            <mass value="10" />
+            <inertia ixx="0.14795985643388004371" ixy="-0.006773630552061549355" ixz="-0.00022289820645230695706" iyy="0.19264265280028286531" iyz="-0.002206662293176273916" izz="0.2475639065566472008" />
+        </inertial>
+    </link>
+
+    <link name="v_tube">
+        <visual>
+            <origin xyz="0 -8.326672683761289173e-18 -0.044999999999999928946" rpy="3.141592653589793116 1.0342508817956038219e-31 0" />
+            <geometry>
+                <mesh filename="package://sero_3/meshes/v_tube.stl" />
+            </geometry>
+            <material name="v_tube_material">
+                <color rgba="0.80000000000000004441 0.74901960784313725839 0.91372549019607840481 1.0" />
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="0 -8.326672683761289173e-18 -0.044999999999999928946" rpy="3.141592653589793116 1.0342508817956038219e-31 0" />
+            <geometry>
+                <mesh filename="package://sero_3/meshes/v_tube.stl" />
+            </geometry>
+        </collision>
+        <inertial>
+            <origin xyz="1.7426086658785223658e-19 -8.326672683761289173e-18 -0.023353658507928257843" rpy="0 0 0" />
+            <mass value="0.16852026592631189073" />
+            <inertia ixx="3.3195910788590593564e-05" ixy="-6.5467390585808818723e-36" ixz="-3.6792700159404011462e-36" iyy="3.3195910788590593564e-05" iyz="0" izz="1.3625480037700539164e-05" />
+        </inertial>
+    </link>
+
+
+
+
+
+    <joint name="j5_3" type="revolute">
+        <origin xyz="0.14499999999999985123 -0.090000000000000301981 -0.079999999999999987788" rpy="-3.141592653589793116 1.5707963267948890085 0" />
+        <parent link="link_4_3" />
+        <child link="v_tube" />
+        <axis xyz="0 0 1" />
+        <limit effort="1000" velocity="3.14" lower="-3.141592653589793116" upper="3.141592653589793116" />
+        <dynamics damping="1.0" friction="1.0" />
+    </joint>
+    <joint name="j4_3" type="revolute">
+        <origin xyz="-0.49500000000000005107 -0.14000000000000001332 -0.17000000000000009548" rpy="3.1415926535897917837 6.241086271459160841e-16 -3.1415926535897922278" />
+        <parent link="link_3_3" />
+        <child link="link_4_3" />
+        <axis xyz="0 0 1" />
+        <limit effort="1000" velocity="3.14" lower="-3.141592653589793116" upper="3.141592653589793116" />
+        <dynamics damping="1.0" friction="1.0" />
+    </joint>
+    <joint name="j3_3" type="revolute">
+        <origin xyz="-0.62999999999999989342 -6.4711246131411124663e-32 1.061085658197035173e-17" rpy="-3.141592653589793116 -1.819226480685986761e-15 1.5707963267948961139" />
+        <parent link="link_2_3" />
+        <child link="link_3_3" />
+        <axis xyz="0 0 1" />
+        <limit effort="1000" velocity="3.14" lower="-3.141592653589793116" upper="3.141592653589793116" />
+        <dynamics damping="1.0" friction="1.0" />
+    </joint>
+    <joint name="j2_3" type="revolute">
+        <origin xyz="-6.1629758220391547298e-33 0.12000000000000005107 -0.079999999999999960032" rpy="1.5707963267948956698 -1.5707963267948956698 0" />
+        <parent link="link_1_3" />
+        <child link="link_2_3" />
+        <axis xyz="0 0 1" />
+        <limit effort="9000" velocity="3.14" lower="-1.5708" upper="1.5708" />
+        <dynamics damping="1.0" friction="1.0" />
+    </joint>
+    <joint name="j1_3" type="revolute">
+        <origin xyz="-4.1633363423443370266e-17 6.2524054036301313582e-17 0.17000000000000001221" rpy="3.141592653589793116 -3.5404820457539550914e-27 -5.5511151231290971505e-17" />
+        <parent link="base3" />
+        <child link="link_1_3" />
+        <axis xyz="0 0 1" />
+        <limit effort="100" velocity="3.14" lower="-3.141592653589793116" upper="3.141592653589793116" />
+        <dynamics damping="1.0" friction="1.0" />
+    </joint>
+    <!--MoveIt Setup Assistant -->
+    <transmission name="trans_j5_3">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="j5_3">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="j5_3_motor">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+    <transmission name="trans_j4_3">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="j4_3">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="j4_3_motor">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+    <transmission name="trans_j3_3">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="j3_3">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="j3_3_motor">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+    <transmission name="trans_j2_3">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="j2_3">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="j2_3_motor">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+    <transmission name="trans_j1_3">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="j1_3">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="j1_3_motor">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+
+
+
+
+</robot>
