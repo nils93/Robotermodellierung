@@ -172,11 +172,11 @@ if __name__ == "__main__":
 
     print("⏸ Pausing physics in Gazebo...")
     time.sleep(5)
-    if wait_for_service("/gazebo/pause_physics"):
-        subprocess.call(["rosservice", "call", "/gazebo/pause_physics"])
-    else:
-        print("❌ Could not pause physics — service not available.")
-        exit(1)
+    # if wait_for_service("/gazebo/pause_physics"):
+    #     subprocess.call(["rosservice", "call", "/gazebo/pause_physics"])
+    # else:
+    #     print("❌ Could not pause physics — service not available.")
+    #     exit(1)
 
     print("✅ Gazebo launched and physics paused. Proceed with spawning robot...")
 

@@ -1,0 +1,114 @@
+sero_1_ctrl:
+  type: position_controllers/JointTrajectoryController
+  joints:
+    - sero_1_j1
+    - sero_1_j2
+    - sero_1_j3
+    - sero_1_j4
+    - sero_1_j5
+    - sero_1_j6
+  gains:
+    sero_1_j1:
+      p: 100
+      d: 1
+      i: 1
+      i_clamp: 1
+    sero_1_j2:
+      p: 100
+      d: 1
+      i: 1
+      i_clamp: 1
+    sero_1_j3:
+      p: 100
+      d: 1
+      i: 1
+      i_clamp: 1
+    sero_1_j4:
+      p: 100
+      d: 1
+      i: 1
+      i_clamp: 1
+    sero_1_j5:
+      p: 100
+      d: 1
+      i: 1
+      i_clamp: 1
+    sero_1_j6:
+      p: 100
+      d: 1
+      i: 1
+      i_clamp: 1
+sero_2_ctrl:
+  type: position_controllers/JointTrajectoryController
+  joints:
+    - sero_2_j1
+    - sero_2_j2
+    - sero_2_j3
+    - sero_2_j4
+    - sero_2_j5
+    - fastened
+  gains:
+    sero_2_j1:
+      p: 100
+      d: 1
+      i: 1
+      i_clamp: 1
+    sero_2_j2:
+      p: 100
+      d: 1
+      i: 1
+      i_clamp: 1
+    sero_2_j3:
+      p: 100
+      d: 1
+      i: 1
+      i_clamp: 1
+    sero_2_j4:
+      p: 100
+      d: 1
+      i: 1
+      i_clamp: 1
+    sero_2_j5:
+      p: 100
+      d: 1
+      i: 1
+      i_clamp: 1
+    fastened:
+      p: 100
+      d: 1
+      i: 1
+      i_clamp: 1
+sero_3_ctrl:
+  type: position_controllers/JointTrajectoryController
+  joints:
+    - sero_3_j1
+    - sero_3_j2
+    - sero_3_j3
+    - sero_3_j4
+    - sero_3_j5
+  gains:
+    sero_3_j1:
+      p: 100
+      d: 1
+      i: 1
+      i_clamp: 1
+    sero_3_j2:
+      p: 100
+      d: 1
+      i: 1
+      i_clamp: 1
+    sero_3_j3:
+      p: 100
+      d: 1
+      i: 1
+      i_clamp: 1
+    sero_3_j4:
+      p: 100
+      d: 1
+      i: 1
+      i_clamp: 1
+    sero_3_j5:
+      p: 100
+      d: 1
+      i: 1
+      i_clamp: 1
