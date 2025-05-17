@@ -1,4 +1,4 @@
-<robot name="onshape">
+<robot name="sero_2">
 
     <link name="world">
     <!--Bleibt erstmal leer -->
@@ -323,7 +323,7 @@
     <!--Gazebo Plugins -->
     <gazebo>
         <plugin name="control" filename="libgazebo_ros_control.so">
-            <robotNamespace>/</robotNamespace>
+            <robotNamespace>sero_2</robotNamespace>
         </plugin>
     </gazebo>
     <gazebo>

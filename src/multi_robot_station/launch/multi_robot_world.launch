@@ -1,0 +1,14 @@
+<launch>
+  <!-- Set GAZEBO_MODEL_PATH for CAD models -->
+  <env name="GAZEBO_MODEL_PATH" value="$(find my_objects)"/>
+
+  <!-- Start Gazebo with a shared world -->
+  <include file="$(find gazebo_ros)/launch/empty_world.launch">
+    <arg name="world_name" value="$(find multi_robot_station)/worlds/my_world.world"/>
+  </include>
+
+  <!-- Launch each robot's system -->
+  <include file="$(find multi_robot_station)/launch/sero_1_system.launch"/>
+  <include file="$(find multi_robot_station)/launch/sero_2_system.launch"/>
+  <include file="$(find multi_robot_station)/launch/sero_3_system.launch"/>
+</launch>

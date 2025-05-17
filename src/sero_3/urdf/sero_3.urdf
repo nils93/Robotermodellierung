@@ -364,7 +364,7 @@
     <!--Gazebo Plugins -->
     <gazebo>
         <plugin name="control" filename="libgazebo_ros_control.so">
-            <robotNamespace>/</robotNamespace>
+            <robotNamespace>sero_3</robotNamespace>
         </plugin>
     </gazebo>
     <gazebo>

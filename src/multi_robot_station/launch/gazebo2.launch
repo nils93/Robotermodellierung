@@ -1,0 +1,51 @@
+<launch>
+  <!-- Reusable arguments -->
+  <arg name="robot_name"/>
+  <arg name="x" default="0.0"/>
+  <arg name="y" default="0.0"/>
+  <arg name="z" default="0.0"/>
+  <arg name="R" default="0"/>
+  <arg name="P" default="0"/>
+  <arg name="Y" default="0"/>
+  
+ <!--<arg name="initial_joint_positions" default=" -J j1 0 -J j2 -1.0894 -J j3 -0.659 -J j4 0 -J j5 0"/>-->
+  
+  <!-- Construct path -->
+  <arg name="urdf_path" default="$(eval find(arg('robot_name')) + '/urdf/' + arg('robot_name') + '.urdf')" />
+  <arg name="controller_config_path"
+       default="$(eval find(arg('robot_name') + '_moveit') + '/config/gazebo_controllers.yaml')" />
+
+  <group ns="$(arg robot_name)">
+    <!-- Set the robot urdf on the parameter server -->
+    <param name="robot_description" textfile="$(arg urdf_path)" />
+
+    <!-- Publish joint states -->
+    <node name="rsp_$(arg robot_name)" pkg="robot_state_publisher" type="robot_state_publisher" output="screen" />
+
+    <!-- Spawn the robot in Gazebo -->
+    <node name="spawn_$(arg robot_name)" pkg="gazebo_ros" type="spawn_model"
+          args="-file $(arg urdf_path) -urdf -model $(arg robot_name) -x $(arg x) -y $(arg y) -z $(arg z) -R $(arg R) -P $(arg P) -Y $(arg Y)"
+          output="screen" />
+
+    <!-- Unpause Gazebo after spawning the robot -->
+    <node name="unpause_physics_$(arg robot_name)" pkg="rosservice" type="rosservice" 
+          args="call /gazebo/unpause_physics" output="screen" />
+
+
+    <!-- Load controller parameters -->
+    <rosparam file="$(arg controller_config_path)" />
+
+    <!-- Include controller launch -->
+    <include file="$(dirname)/ros_controllers.launch">
+      <arg name="robot_name" value="$(arg robot_name)"/>
+    </include>
+
+
+    <!-- Start controllers -->
+    <node name="controller_spawner_$(arg robot_name)" pkg="controller_manager" type="spawner"
+          args="joint_state_controller arm_controller ee_controller" output="screen">
+      <param name="wait_for_controller_manager" value="true"/>
+    </node>
+
+  </group>
+</launch>

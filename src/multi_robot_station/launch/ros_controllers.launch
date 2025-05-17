@@ -1,0 +1,13 @@
+<launch>
+  <arg name="robot_name"/>
+
+  <!-- Load controller parameters -->
+  <rosparam file="$(eval find(arg('robot_name') + '_moveit') + '/config/ros_controllers.yaml')" command="load"/>
+
+  <!-- Start all controllers -->
+  <node name="controller_spawner_$(arg robot_name)" pkg="controller_manager" type="spawner"
+        respawn="false" output="screen"
+        args="joint_state_controller arm_controller ee_controller"
+        ns="$(arg robot_name)">
+  </node>
+</launch>

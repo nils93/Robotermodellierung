@@ -1,4 +1,4 @@
-<robot name="onshape">
+<robot name="sero_1">
     <link name="world" />
     <joint name="fixed_link_to_world" type="fixed">
         <parent link="world" />
@@ -270,7 +270,7 @@
 
     <gazebo>
         <plugin name="control" filename="libgazebo_ros_control.so">
-            <robotNamespace>/</robotNamespace>
+            <robotNamespace>sero_1</robotNamespace>
         </plugin>
     </gazebo>
     <gazebo>
