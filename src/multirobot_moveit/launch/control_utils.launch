@@ -8,11 +8,24 @@
 </node>
 
 <!-- Joint state controller -->
-<rosparam file="$(find multirobot_moveit)/config/joint_state_controller.yaml" command="load" />
-<node name="joint_state_controller_spawner" pkg="controller_manager" type="spawner" args="joint_state_controller" respawn="false" output="screen" />
+<rosparam file="$(find multirobot_moveit)/config/joint_state_controller.yaml" command="load" ns="sero_1" />
+<rosparam file="$(find multirobot_moveit)/config/joint_state_controller.yaml" command="load" ns="sero_2" />
+<rosparam file="$(find multirobot_moveit)/config/joint_state_controller.yaml" command="load" ns="sero_3" />
+
+<node name="joint_state_controller_spawner_1" pkg="controller_manager" type="spawner"
+      args="joint_state_controller" ns="sero_1" />
+<node name="joint_state_controller_spawner_2" pkg="controller_manager" type="spawner"
+      args="joint_state_controller" ns="sero_2" />
+<node name="joint_state_controller_spawner_3" pkg="controller_manager" type="spawner"
+      args="joint_state_controller" ns="sero_3" />
 
 <!-- Joint trajectory controller -->
-<rosparam file="$(find multirobot_moveit)/config/trajectory_controller.yaml" command="load" />
-<node name="arms_trajectory_controller_spawner" pkg="controller_manager" type="spawner" respawn="false" output="screen" args="sero_1_ctrl sero_2_ctrl sero_3_ctrl" />
+<node name="sero1_trajectory_controller_spawner" pkg="controller_manager" type="spawner"
+      args="sero_1_ctrl" ns="sero_1" respawn="false" output="screen" />
+<node name="sero2_trajectory_controller_spawner" pkg="controller_manager" type="spawner"
+      args="sero_2_ctrl" ns="sero_2" respawn="false" output="screen" />
+<node name="sero3_trajectory_controller_spawner" pkg="controller_manager" type="spawner"
+      args="sero_3_ctrl" ns="sero_3" respawn="false" output="screen" />
+
 
 </launch>

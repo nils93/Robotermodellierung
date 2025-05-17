@@ -1,3 +1,7 @@
+joint_state_controller:
+    type: joint_state_controller/JointStateController
+    publish_rate: 50
+
 sero_1_ctrl:
   type: position_controllers/JointTrajectoryController
   joints:
@@ -20,6 +24,14 @@ sero_1_ctrl:
   stop_trajectory_duration: 0.5
   state_publish_rate:  25
   action_monitor_rate: 10
+
+  pid_gains:
+    sero_1_j1: {p: 20000.0, i: 1000.0, d: 10.0}
+    sero_1_j2: {p: 20000.0, i: 1000.0, d: 10.0}
+    sero_1_j3: {p: 20000.0, i: 1000.0, d: 10.0}
+    sero_1_j4: {p: 20000.0, i: 1000.0, d: 10.0}
+    sero_1_j5: {p: 1000.0, i: 10.0, d: 1.0}
+    sero_1_j6: {p: 1000.0, i: 10.0, d: 1.0}
 
 sero_2_ctrl:
   type: position_controllers/JointTrajectoryController
@@ -44,6 +56,14 @@ sero_2_ctrl:
   state_publish_rate:  25
   action_monitor_rate: 10
 
+  pid_gains:
+    sero_2_j1: {p: 20000.0, i: 1000.0, d: 10.0}
+    sero_2_j2: {p: 20000.0, i: 1000.0, d: 10.0}
+    sero_2_j3: {p: 20000.0, i: 1000.0, d: 10.0}
+    sero_2_j4: {p: 20000.0, i: 1000.0, d: 10.0}
+    sero_2_j5: {p: 1000.0, i: 1.0, d: 1.0}
+    sero_2_j6: {p: 1000.0, i: 1.0, d: 1.0}
+
 sero_3_ctrl:
   type: position_controllers/JointTrajectoryController
   joints:
@@ -64,3 +84,10 @@ sero_3_ctrl:
   stop_trajectory_duration: 0.5
   state_publish_rate:  25
   action_monitor_rate: 10
+
+  pid_gains:
+    sero_3_j1: {p: 20000.0, i: 1000.0, d: 10.0}
+    sero_3_j2: {p: 20000.0, i: 1000.0, d: 10.0}
+    sero_3_j3: {p: 20000.0, i: 1000.0, d: 10.0}
+    sero_3_j4: {p: 20000.0, i: 1000.0, d: 10.0}
+    sero_3_j5: {p: 1000.0, i: 1.0, d: 1.0}
