@@ -1,12 +1,14 @@
 # === Catkin-Workspace – generierte Verzeichnisse ==========
-# build/
-# devel/
+build/
+devel/
 install/
 log/
+logs/
 
 # === ROS tools ============================================
 .rosinstall
 rosdep.yaml
+.catkin_tools/
 
 # === Editor- und IDE-Artefakte =============================
 .vscode/
