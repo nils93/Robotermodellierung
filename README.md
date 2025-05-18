@@ -5,6 +5,7 @@
 git clone https://github.com/nils93/Robotermodellierung.git sero_ws
 cd sero_ws
 ```
+
 ## 2. Change branch 
 ```bash
 git checkout sero_multi_station_moveit_path_planning
@@ -20,10 +21,16 @@ catkin build
 source devel/setup.bash
 ```
 
-## 5. Gazebo laden
+## 5. Open movit with gazebo simulation
 ```bash
 roslaunch sero_multi_station bringup_moveit.launch
 ```
+
+## 6. Open movit with gazebo simulation and station peripherals
+```bash
+roslaunch sero_multi_station factory_station.launch
+```
+
 
 ## Quellen
 Nachstehende Repo's werden verwendet:
