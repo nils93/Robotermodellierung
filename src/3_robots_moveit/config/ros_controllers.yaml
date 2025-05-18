@@ -6,6 +6,7 @@ sero_1_arm_controller:
     - j3
     - j4
     - j5
+    - jendeffector
   gains:
     j1:
       p: 100
@@ -32,6 +33,11 @@ sero_1_arm_controller:
       d: 1
       i: 1
       i_clamp: 1
+    jendeffector:
+      p: 100
+      d: 1
+      i: 1
+      i_clamp: 1
 sero_2_arm_controller:
   type: position_controllers/JointTrajectoryController
   joints:
@@ -40,6 +46,7 @@ sero_2_arm_controller:
     - j3_2
     - j4_2
     - j5_2
+    - fastened
   gains:
     j1_2:
       p: 100
@@ -66,6 +73,11 @@ sero_2_arm_controller:
       d: 1
       i: 1
       i_clamp: 1
+    fastened:
+      p: 100
+      d: 1
+      i: 1
+      i_clamp: 1
 sero_3_arm_controller:
   type: position_controllers/JointTrajectoryController
   joints:
@@ -73,6 +85,7 @@ sero_3_arm_controller:
     - j2_3
     - j3_3
     - j4_3
+    - j5_3
   gains:
     j1_3:
       p: 100
@@ -90,6 +103,11 @@ sero_3_arm_controller:
       i: 1
       i_clamp: 1
     j4_3:
+      p: 100
+      d: 1
+      i: 1
+      i_clamp: 1
+    j5_3:
       p: 100
       d: 1
       i: 1

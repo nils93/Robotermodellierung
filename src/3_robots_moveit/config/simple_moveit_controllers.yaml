@@ -9,6 +9,7 @@ controller_list:
       - j3
       - j4
       - j5
+      - jendeffector
   - name: sero_2_arm_controller
     action_ns: follow_joint_trajectory
     type: FollowJointTrajectory
@@ -19,6 +20,7 @@ controller_list:
       - j3_2
       - j4_2
       - j5_2
+      - fastened
   - name: sero_3_arm_controller
     action_ns: follow_joint_trajectory
     type: FollowJointTrajectory
@@ -28,3 +30,4 @@ controller_list:
       - j2_3
       - j3_3
       - j4_3
+      - j5_3

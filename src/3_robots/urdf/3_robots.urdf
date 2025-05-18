@@ -816,18 +816,18 @@
             <mechanicalReduction>1</mechanicalReduction>
         </actuator>
     </transmission>
-
     <gazebo>
         <plugin name="control" filename="libgazebo_ros_control.so">
             <robotNamespace>/</robotNamespace>
         </plugin>
+        <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
+            <robotNamespace>/</robotNamespace>
+        </plugin>
     </gazebo>
-
     <gazebo>
-        <plugin name = "joint_state_publisher" filename = "libgazebo_ros_joint_state_publisher.so" >
+        <plugin name="joint_state_publisher" filename="libgazebo_ros_joint_state_publisher.so">
             <jointName>j1, j2, j3, j4, j5 , j1_2, j2_2, j3_2, j4_2, j5_2, j1_3, j2_3, j3_3, j4_3, j5_3,</jointName>
         </plugin>
     </gazebo>
-
 </robot>
 
