@@ -1,0 +1,27 @@
+!!python/object/new:dynamic_reconfigure.encoding.Config
+dictitems:
+  antiwindup: false
+  d: 30.0
+  groups: !!python/object/new:dynamic_reconfigure.encoding.Config
+    dictitems:
+      antiwindup: false
+      d: 30.0
+      groups: !!python/object/new:dynamic_reconfigure.encoding.Config
+        state: []
+      i: 0.0
+      i_clamp_max: 1.0
+      i_clamp_min: -1.0
+      id: 0
+      name: Default
+      p: 200.0
+      parameters: !!python/object/new:dynamic_reconfigure.encoding.Config
+        state: []
+      parent: 0
+      state: true
+      type: ''
+    state: []
+  i: 0.0
+  i_clamp_max: 1.0
+  i_clamp_min: -1.0
+  p: 200.0
+state: []

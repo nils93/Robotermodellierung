@@ -25,6 +25,8 @@
 
   <!-- If needed, broadcast static tf for robot root -->
   <node pkg="tf2_ros" type="static_transform_publisher" name="virtual_joint_broadcaster_0" args="0 0 0 0 0 0 world sero_1_base" />
+  <node pkg="tf2_ros" type="static_transform_publisher" name="virtual_joint_broadcaster_1" args="0 0 0 0 0 0 world sero_2_base" />
+  <node pkg="tf2_ros" type="static_transform_publisher" name="virtual_joint_broadcaster_2" args="0 0 0 0 0 0 world sero_3_base" />
 
   <group if="$(eval arg('moveit_controller_manager') == 'fake')">
     <!-- We do not have a real robot connected, so publish fake joint states via a joint_state_publisher
