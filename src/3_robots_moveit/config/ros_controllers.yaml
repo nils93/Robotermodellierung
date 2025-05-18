@@ -9,35 +9,36 @@ sero_1_arm_controller:
     - jendeffector
   gains:
     j1:
-      p: 100
-      d: 1
-      i: 1
-      i_clamp: 1
+      p: 200000
+      d: 1000
+      i: 10
+      i_clamp: 10
     j2:
-      p: 100
-      d: 1
-      i: 1
-      i_clamp: 1
+      p: 200000
+      d: 1000
+      i: 10
+      i_clamp: 10
     j3:
-      p: 100
-      d: 1
-      i: 1
-      i_clamp: 1
+      p: 200000
+      d: 1000
+      i: 10
+      i_clamp: 10
     j4:
-      p: 100
-      d: 1
-      i: 1
-      i_clamp: 1
+      p: 200000
+      d: 1000
+      i: 10
+      i_clamp: 10
     j5:
-      p: 100
-      d: 1
-      i: 1
-      i_clamp: 1
+      p: 200000
+      d: 1000
+      i: 10
+      i_clamp: 10
     jendeffector:
-      p: 100
-      d: 1
-      i: 1
-      i_clamp: 1
+      p: 200000
+      d: 1000
+      i: 10
+      i_clamp: 10
+
 sero_2_arm_controller:
   type: position_controllers/JointTrajectoryController
   joints:
@@ -49,35 +50,36 @@ sero_2_arm_controller:
     - fastened
   gains:
     j1_2:
-      p: 100
-      d: 1
-      i: 1
-      i_clamp: 1
+      p: 200000
+      d: 1000
+      i: 10
+      i_clamp: 10
     j2_2:
-      p: 100
-      d: 1
-      i: 1
-      i_clamp: 1
+      p: 200000
+      d: 1000
+      i: 10
+      i_clamp: 10
     j3_2:
-      p: 100
-      d: 1
-      i: 1
-      i_clamp: 1
+      p: 200000
+      d: 1000
+      i: 10
+      i_clamp: 10
     j4_2:
-      p: 100
-      d: 1
-      i: 1
-      i_clamp: 1
+      p: 200000
+      d: 1000
+      i: 10
+      i_clamp: 10
     j5_2:
-      p: 100
-      d: 1
-      i: 1
-      i_clamp: 1
+      p: 200000
+      d: 1000
+      i: 10
+      i_clamp: 10
     fastened:
-      p: 100
-      d: 1
-      i: 1
-      i_clamp: 1
+      p: 200000
+      d: 1000
+      i: 10
+      i_clamp: 10
+
 sero_3_arm_controller:
   type: position_controllers/JointTrajectoryController
   joints:
@@ -88,27 +90,27 @@ sero_3_arm_controller:
     - j5_3
   gains:
     j1_3:
-      p: 100
-      d: 1
-      i: 1
-      i_clamp: 1
+      p: 200000
+      d: 1000
+      i: 10
+      i_clamp: 10
     j2_3:
-      p: 100
-      d: 1
-      i: 1
-      i_clamp: 1
+      p: 200000
+      d: 1000
+      i: 10
+      i_clamp: 10
     j3_3:
-      p: 100
-      d: 1
-      i: 1
-      i_clamp: 1
+      p: 200000
+      d: 1000
+      i: 10
+      i_clamp: 10
     j4_3:
-      p: 100
-      d: 1
-      i: 1
-      i_clamp: 1
+      p: 200000
+      d: 1000
+      i: 10
+      i_clamp: 10
     j5_3:
-      p: 100
-      d: 1
-      i: 1
-      i_clamp: 1
+      p: 200000
+      d: 1000
+      i: 10
+      i_clamp: 10
