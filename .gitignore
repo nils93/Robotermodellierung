@@ -1,6 +1,6 @@
 # === Catkin-Workspace – generierte Verzeichnisse ==========
-build/
-devel/
+# build/
+# devel/
 install/
 log/
 

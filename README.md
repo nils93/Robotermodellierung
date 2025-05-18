@@ -1,20 +1,28 @@
-# Robotermodellierung
+# Robotermodellierung/sero_multi_station_moveit_path_planning
 
-## 1. Git Repository klonen
+## 1. Clone git repository 
 ```bash
 git clone https://github.com/nils93/Robotermodellierung.git sero_ws
 cd sero_ws
 ```
-
-## 2. Setup-Skript ausführen
+## 2. Change branch 
 ```bash
-./setup.sh
+git checkout sero_multi_station_moveit_path_planning
+```
+
+## 3. Build workspace
+```bash
+catkin build
+```
+
+## 4. Source workspace 
+```bash
 source devel/setup.bash
 ```
 
-## 3. Gazebo laden
+## 5. Gazebo laden
 ```bash
-roslaunch multi_robot_station spawn_multi_robot.launch
+roslaunch sero_multi_station bringup_moveit.launch
 ```
 
 ## Quellen
