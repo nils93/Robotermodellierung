@@ -31,10 +31,7 @@ controller_list:
       - sero_3_j3
       - sero_3_j4
       - sero_3_j5
-  - name: fake_sero_3_ee_controller
-    type: $(arg fake_execution_type)
-    joints:
-      []
+
 initial:  # Define initial robot poses per group
   - group: sero_1_arm
     pose: sero_1_home

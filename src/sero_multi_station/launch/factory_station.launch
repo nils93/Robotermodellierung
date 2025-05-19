@@ -30,4 +30,9 @@
     <node name="spawn_sero_3_sockel" pkg="gazebo_ros" type="spawn_model" output="screen"
                 args="-param robot_description_sero_3_sockel -urdf -model sero_3_sockel -x 0 -y 0 -z 0"/>
 
+    <!-- Spawn workobject -->
+    <node name="spawn_workobject" pkg="gazebo_ros" type="spawn_model"
+      args="-file $(find station_peripherals)/urdf/workobject.urdf -urdf -model workobject -x 0.0 -y 1.05 -z 0.531 -R 3.1415 -P 0 -Y 3.1415"
+      output="screen" />
+
 </launch>
