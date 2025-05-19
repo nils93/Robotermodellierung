@@ -45,7 +45,7 @@
     <!--END EFFECTOR: Purpose: Represent information about an end effector.-->
     <end_effector name="sero_1_tcp" parent_link="sero_1_tcp" group="sero_1_arm"/>
     <end_effector name="sero_2_tcp" parent_link="sero_2_tcp" group="sero_2_arm"/>
-    <end_effector name="sero3_tcp" parent_link="sero_3_tcp" group="sero_3_arm"/>
+    <end_effector name="sero_3_tcp" parent_link="sero_3_tcp" group="sero_3_arm"/>
     <!--VIRTUAL JOINT: Purpose: this element defines a virtual joint between a robot link and an external frame of reference (considered fixed with respect to the robot)-->
     <virtual_joint name="sero_1_fixed" type="fixed" parent_frame="world" child_link="sero_1_base"/>
     <virtual_joint name="sero_2_fixed" type="fixed" parent_frame="world" child_link="sero_2_base"/>
