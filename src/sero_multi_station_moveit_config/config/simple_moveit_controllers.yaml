@@ -9,6 +9,7 @@ controller_list:
       - sero_1_j3
       - sero_1_j4
       - sero_1_j5
+      - sero_1_j6
   - name: sero_2_ctrl
     action_ns: follow_joint_trajectory
     type: FollowJointTrajectory
@@ -19,6 +20,7 @@ controller_list:
       - sero_2_j3
       - sero_2_j4
       - sero_2_j5
+      - sero_2_j6
   - name: sero_3_ctrl
     action_ns: follow_joint_trajectory
     type: FollowJointTrajectory

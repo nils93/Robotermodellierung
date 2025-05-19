@@ -196,36 +196,6 @@ sero_1_arm:
     - BITstar
   projection_evaluator: joints(sero_1_j1,sero_1_j2)
   longest_valid_segment_fraction: 0.005
-sero_1_ee:
-  default_planner_config: RRT
-  planner_configs:
-    - AnytimePathShortening
-    - SBL
-    - EST
-    - LBKPIECE
-    - BKPIECE
-    - KPIECE
-    - RRT
-    - RRTConnect
-    - RRTstar
-    - TRRT
-    - PRM
-    - PRMstar
-    - FMT
-    - BFMT
-    - PDST
-    - STRIDE
-    - BiTRRT
-    - LBTRRT
-    - BiEST
-    - ProjEST
-    - LazyPRM
-    - LazyPRMstar
-    - SPARS
-    - SPARStwo
-    - AITstar
-    - ABITstar
-    - BITstar
 sero_2_arm:
   default_planner_config: RRT
   planner_configs:
@@ -258,36 +228,6 @@ sero_2_arm:
     - BITstar
   projection_evaluator: joints(sero_2_j1,sero_2_j2)
   longest_valid_segment_fraction: 0.005
-sero_2_ee:
-  default_planner_config: RRT
-  planner_configs:
-    - AnytimePathShortening
-    - SBL
-    - EST
-    - LBKPIECE
-    - BKPIECE
-    - KPIECE
-    - RRT
-    - RRTConnect
-    - RRTstar
-    - TRRT
-    - PRM
-    - PRMstar
-    - FMT
-    - BFMT
-    - PDST
-    - STRIDE
-    - BiTRRT
-    - LBTRRT
-    - BiEST
-    - ProjEST
-    - LazyPRM
-    - LazyPRMstar
-    - SPARS
-    - SPARStwo
-    - AITstar
-    - ABITstar
-    - BITstar
 sero_3_arm:
   default_planner_config: RRT
   planner_configs:

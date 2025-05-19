@@ -8,4 +8,4 @@ moveit_setup_assistant_config:
   CONFIG:
     author_name: Ben Dover
     author_email: bendover@test.com
-    generated_timestamp: 1747594585
+    generated_timestamp: 1747682854

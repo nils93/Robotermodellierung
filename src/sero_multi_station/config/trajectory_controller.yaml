@@ -6,6 +6,7 @@ sero_1_ctrl:
     - sero_1_j3
     - sero_1_j4
     - sero_1_j5
+    - sero_1_j6
 
   constraints:
         goal_time: 0.6
@@ -15,6 +16,7 @@ sero_1_ctrl:
         sero_1_j3: {trajectory: 0.1, goal: 0.1}
         sero_1_j4: {trajectory: 0.1, goal: 0.1}
         sero_1_j5: {trajectory: 0.1, goal: 0.1}
+        sero_1_j6: {trajectory: 0.1, goal: 0.1}
   stop_trajectory_duration: 0.5
   state_publish_rate:  25
   action_monitor_rate: 10
@@ -27,6 +29,7 @@ sero_2_ctrl:
     - sero_2_j3
     - sero_2_j4
     - sero_2_j5
+    - sero_2_j6
 
   constraints:
         goal_time: 0.6
@@ -36,6 +39,7 @@ sero_2_ctrl:
         sero_2_j3: {trajectory: 0.1, goal: 0.1}
         sero_2_j4: {trajectory: 0.1, goal: 0.1}
         sero_2_j5: {trajectory: 0.1, goal: 0.1}
+        sero_2_j6: {trajectory: 0.1, goal: 0.1}
   stop_trajectory_duration: 0.5
   state_publish_rate:  25
   action_monitor_rate: 10
