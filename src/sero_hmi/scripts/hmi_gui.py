@@ -111,6 +111,28 @@ def move_relative(group, dx, dy, dz):
     except Exception as e:
         rospy.logwarn(f"Fehler in move_relative: {e}")
 
+def move_to_absolute_pose(group, pose):
+    """
+    Bewegt den Roboter-TCP zu einer absoluten Ziel-Pose (geometry_msgs/Pose).
+    """
+    try:
+        group.set_start_state_to_current_state()
+        group.set_max_velocity_scaling_factor(0.1)
+        group.set_max_acceleration_scaling_factor(0.1)
+
+        group.set_pose_target(pose)
+        success = group.go(wait=True)
+        group.stop()
+        group.clear_pose_targets()
+
+        if success:
+            rospy.loginfo("✅ Absolute Bewegung erfolgreich.")
+        else:
+            rospy.logwarn("❌ Absolute Pose nicht erreicht.")
+    except Exception as e:
+        rospy.logwarn(f"Fehler in move_to_absolute_pose: {e}")
+
+
 
 def load_texture_from_png(path):
     image = Image.open(path).convert("RGBA")
@@ -143,7 +165,7 @@ step_size = 0.2  # initialer Wert
 
 # ImGui Init
 glfw.init()
-window = glfw.create_window(1400, 720, "SERO HMI", None, None)
+window = glfw.create_window(1400, 800, "SERO HMI", None, None)
 glfw.make_context_current(window)
 imgui.create_context()
 impl = GlfwRenderer(window)
@@ -210,16 +232,37 @@ try:
 
         imgui.end_group()
 
-
         # Eingabefelder für relative Zielverschiebung
         imgui.separator()
+
         imgui.text("Ziel relativ zu TCP:")
         _, relative_x = imgui.input_float("Delta X [m]", relative_x, step=0.01)
         _, relative_y = imgui.input_float("Delta Y [m]", relative_y, step=0.01)
         _, relative_z = imgui.input_float("Delta Z [m]", relative_z, step=0.01)
 
-        if imgui.button("📦 Move Relative to TCP"):
+        if imgui.button("Move Relative to TCP"):
             move_relative(group, relative_x, relative_y, relative_z)
+
+        # Button für absolute Bewegung
+        # Eingabe für absolute Ziel-Pose
+        imgui.separator()
+        imgui.text("Zielpose absolut (Weltkoordinaten):")
+
+        # Initialisierung der Pose-Werte
+        if "abs_pose" not in locals():
+            abs_pose = Pose()
+            abs_pose.position.x = 0.5
+            abs_pose.position.y = 0.0
+            abs_pose.position.z = 0.5
+            abs_pose.orientation = current_pose.orientation  # default: aktuelle TCP-Ori
+
+        _, abs_pose.position.x = imgui.input_float("X [m]", abs_pose.position.x)
+        _, abs_pose.position.y = imgui.input_float("Y [m]", abs_pose.position.y)
+        _, abs_pose.position.z = imgui.input_float("Z [m]", abs_pose.position.z)
+
+        # Button für Bewegung
+        if imgui.button("🎯 Move to absolute Pose"):
+            move_to_absolute_pose(group, abs_pose)
 
         # Steuerung per Buttons
         imgui.separator()
