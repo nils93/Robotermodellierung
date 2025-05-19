@@ -261,7 +261,7 @@ try:
         _, abs_pose.position.z = imgui.input_float("Z [m]", abs_pose.position.z)
 
         # Button für Bewegung
-        if imgui.button("🎯 Move to absolute Pose"):
+        if imgui.button("Move to absolute Pose"):
             move_to_absolute_pose(group, abs_pose)
 
         # Steuerung per Buttons
