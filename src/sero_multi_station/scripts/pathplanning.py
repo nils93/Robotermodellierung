@@ -10,13 +10,6 @@ from math import radians
 def move_to_pose(group_name, pose):
     """
     Plans and executes a motion to the specified pose using the given MoveIt group name.
-
-    Args:
-        group_name (str): The MoveIt planning group name (e.g., "sero_1_arm")
-        pose (geometry_msgs.msg.Pose): Target pose for the end-effector
-
-    Returns:
-        bool: True if execution was successful, False otherwise
     """
     move_group = moveit_commander.MoveGroupCommander(group_name)
 
@@ -37,17 +30,32 @@ def move_to_pose(group_name, pose):
         rospy.logwarn(f"❌ {group_name} failed to reach the target pose.")
     return success
 
+def move_to_position(group_name, x, y, z):
+    """
+    Moves the robot to a target position (x, y, z) with no specific orientation.
+    """
+    move_group = moveit_commander.MoveGroupCommander(group_name)
+
+    move_group.set_planning_time(10)
+    move_group.set_max_velocity_scaling_factor(0.1)
+    move_group.set_max_acceleration_scaling_factor(0.1)
+
+    move_group.set_position_target([x, y, z])
+
+    rospy.loginfo(f"🚀 Moving {group_name} to position-only target: x={x}, y={y}, z={z}...")
+    success = move_group.go(wait=True)
+    move_group.stop()
+    move_group.clear_pose_targets()
+
+    if success:
+        rospy.loginfo(f"✅ {group_name} reached the position.")
+    else:
+        rospy.logwarn(f"❌ {group_name} failed to reach the position.")
+    return success
+
 def create_pose(name, x, y, z, roll_deg, pitch_deg, yaw_deg):
     """
     Creates and returns a geometry_msgs Pose from position and orientation (RPY in degrees).
-
-    Args:
-        name (str): A label for logging/debugging purposes
-        x, y, z (float): Position coordinates
-        roll_deg, pitch_deg, yaw_deg (float): Orientation in degrees
-
-    Returns:
-        geometry_msgs.msg.Pose: The constructed pose
     """
     pose = geometry_msgs.msg.Pose()
     pose.position.x = x
@@ -72,17 +80,21 @@ if __name__ == "__main__":
     moveit_commander.roscpp_initialize(sys.argv)
     rospy.init_node('move_group_simple_control', anonymous=True)
 
-    # Example calls
+    # Move sero_3_arm to pose
     sero3_pose1 = create_pose("pose1", 0.0, 1.0, 0.7, 0, 0, 0)
     move_to_pose("sero_3_arm", sero3_pose1)
 
-    sero1_pose1 = create_pose("pose1", 1.0, 0.0, 1.0, 0, -45, 0)
-    move_to_pose("sero_1_arm", sero1_pose1)
+    # Move sero_1_arm using position-only (no orientation constraint)
+    move_to_position("sero_1_arm", 1.0, 0.1, 1.0)
 
+    # Move sero_2_arm using position-only (no orientation constraint)
+    move_to_position("sero_2_arm", 0.1, -1.0, 1.0)
+
+    # Continue with full pose motions for sero_3_arm
     sero3_pose2 = create_pose("pose2", 0.8, 0.0, 1.5, 0, 0, 0)
     move_to_pose("sero_3_arm", sero3_pose2)
 
     sero3_pose3 = create_pose("pose3", 0.0, -1.0, 1.5, 0, 0, 0)
-    move_to_pose("sero_3_arm", sero3_pose3) 
+    move_to_pose("sero_3_arm", sero3_pose3)
 
-moveit_commander.roscpp_shutdown()
+    moveit_commander.roscpp_shutdown()
