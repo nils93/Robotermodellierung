@@ -1,24 +1,26 @@
-# Robotermodellierung
+# 🤖 Robotermodellierung – MoveIt! Path Planning mit Gazebo
 
-## 1. Git Repository klonen
+## 📦 1. Clone git repository 
 ```bash
-git clone https://github.com/nils93/Robotermodellierung.git sero_ws
-cd sero_ws
+git clone https://github.com/nils93/Robotermodellierung.git sero_ws && cd sero_ws
 ```
 
-## 2. Setup-Skript ausführen
+## 🛠️ 2. Start the setup.sh
 ```bash
 ./setup.sh
+```
+
+## 🔁 3. Source your workspace 
+```bash
 source devel/setup.bash
 ```
 
-## 3. Gazebo laden
+## 🚀 4. Open movit with gazebo simulation
 ```bash
-roslaunch multi_robot_station spawn_multi_robot.launch
+roslaunch sero_multi_station bringup_moveit.launch
 ```
 
-## Quellen
-Nachstehende Repo's werden verwendet:
+## 🏭 5. Open movit with gazebo simulation and station peripherals
 ```bash
-https://github.com/pal-robotics/gazebo_ros_link_attacher.git src/gazebo_ros_link_attacher
+roslaunch sero_multi_station factory_station.launch
 ```

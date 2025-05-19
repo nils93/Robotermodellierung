@@ -1,0 +1,62 @@
+sero_1_ctrl:
+  type: position_controllers/JointTrajectoryController
+  joints:
+    - sero_1_j1
+    - sero_1_j2
+    - sero_1_j3
+    - sero_1_j4
+    - sero_1_j5
+
+  constraints:
+        goal_time: 0.6
+        stopped_velocity_tolerance: 0.05
+        sero_1_j1: {trajectory: 0.1, goal: 0.1}
+        sero_1_j2: {trajectory: 0.1, goal: 0.1}
+        sero_1_j3: {trajectory: 0.1, goal: 0.1}
+        sero_1_j4: {trajectory: 0.1, goal: 0.1}
+        sero_1_j5: {trajectory: 0.1, goal: 0.1}
+  stop_trajectory_duration: 0.5
+  state_publish_rate:  25
+  action_monitor_rate: 10
+
+sero_2_ctrl:
+  type: position_controllers/JointTrajectoryController
+  joints:
+    - sero_2_j1
+    - sero_2_j2
+    - sero_2_j3
+    - sero_2_j4
+    - sero_2_j5
+
+  constraints:
+        goal_time: 0.6
+        stopped_velocity_tolerance: 0.05
+        sero_2_j1: {trajectory: 0.1, goal: 0.1}
+        sero_2_j2: {trajectory: 0.1, goal: 0.1}
+        sero_2_j3: {trajectory: 0.1, goal: 0.1}
+        sero_2_j4: {trajectory: 0.1, goal: 0.1}
+        sero_2_j5: {trajectory: 0.1, goal: 0.1}
+  stop_trajectory_duration: 0.5
+  state_publish_rate:  25
+  action_monitor_rate: 10
+
+sero_3_ctrl:
+  type: position_controllers/JointTrajectoryController
+  joints:
+    - sero_3_j1
+    - sero_3_j2
+    - sero_3_j3
+    - sero_3_j4
+    - sero_3_j5
+
+  constraints:
+        goal_time: 0.6
+        stopped_velocity_tolerance: 0.05
+        sero_3_j1: {trajectory: 0.1, goal: 0.1}
+        sero_3_j2: {trajectory: 0.1, goal: 0.1}
+        sero_3_j3: {trajectory: 0.1, goal: 0.1}
+        sero_3_j4: {trajectory: 0.1, goal: 0.1}
+        sero_3_j5: {trajectory: 0.1, goal: 0.1}
+  stop_trajectory_duration: 0.5
+  state_publish_rate:  25
+  action_monitor_rate: 10

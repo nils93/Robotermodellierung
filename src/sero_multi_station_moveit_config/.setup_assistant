@@ -1,0 +1,11 @@
+moveit_setup_assistant_config:
+  URDF:
+    package: sero_multi_station
+    relative_path: robot_description/sero_multi_station.urdf
+    xacro_args: ""
+  SRDF:
+    relative_path: config/sero_multi_station.srdf
+  CONFIG:
+    author_name: Ben Dover
+    author_email: bendover@test.com
+    generated_timestamp: 1747594585

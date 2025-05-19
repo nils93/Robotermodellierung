@@ -1,0 +1,25 @@
+<robot name="sero_2_sockel">
+  <link name="sero_2_sockel_link">
+    <visual>
+      <geometry>
+        <mesh filename="package://station_peripherals/meshes/sero_2_sockel.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+    </visual>
+    <collision>
+      <geometry>
+        <mesh filename="package://station_peripherals/meshes/sero_2_sockel.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+    </collision>
+    <inertial>
+      <mass value="50.0"/>
+      <origin xyz="0 0 0"/>
+      <inertia ixx="10.0" ixy="0.0" ixz="0.0"
+               iyy="10.0" iyz="0.0"
+               izz="10.0"/>
+    </inertial>
+  </link>
+
+  <gazebo reference="sero_2_sockel_link">
+    <static>true</static>
+  </gazebo>
+</robot>
