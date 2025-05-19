@@ -24,3 +24,8 @@ roslaunch sero_multi_station bringup_moveit.launch
 ```bash
 roslaunch sero_multi_station factory_station.launch
 ```
+
+## 🖥️ 6. Open the latest Sero HMI for the ultimate experience!
+```bash
+rosrun sero_hmi hmi_gui.py
+```
