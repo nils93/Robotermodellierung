@@ -8,42 +8,74 @@ import glfw
 import rospy
 import moveit_commander
 from geometry_msgs.msg import Pose
-
-
+from tf.transformations import (
+    quaternion_matrix, euler_from_quaternion, quaternion_from_euler
+)
+from math import radians
 from PIL import Image
 import numpy as np
 import OpenGL.GL as gl
 
-from geometry_msgs.msg import Pose
-
-def move_to_absolute_position(group, x, y, z):
+def move_to_home(group_name):
     """
-    Bewegt den TCP an eine absolute Position (x, y, z) mit neutraler Orientierung.
-    Verwendet Approximate IK via set_joint_value_target.
+    Bewegt den Roboter zur benannten Home-Pose (z. B. 'sero_1_home').
     """
-    from geometry_msgs.msg import Pose
-    pose = Pose()
-    pose.position.x = x
-    pose.position.y = y
-    pose.position.z = z
-    pose.orientation.w = 1.0  # neutrale Orientierung
+    move_group = moveit_commander.MoveGroupCommander(group_name)
+    home_name = group_name.replace("_arm", "_home")
+    rospy.loginfo(f"🏠 Bewege {group_name} zur Pose '{home_name}'")
+    move_group.set_named_target(home_name)
 
+    success = move_group.go(wait=True)
+    move_group.stop()
+
+    if success:
+        rospy.loginfo("✅ Roboter ist in der Home-Position.")
+    else:
+        rospy.logwarn("❌ Bewegung zur Home-Pose fehlgeschlagen.")
+
+
+def move_relative_rpy(group, droll_deg, dpitch_deg, dyaw_deg):
+    """
+    Bewegt den Roboter relativ zur aktuellen Orientierung (Roll, Pitch, Yaw in Grad).
+    Position bleibt gleich.
+    """
     try:
+        base_pose = group.get_current_pose().pose
+
+        # aktuelle Orientierung in Euler umwandeln
+        q = base_pose.orientation
+        roll, pitch, yaw = euler_from_quaternion([q.x, q.y, q.z, q.w])
+
+        # relative Änderung anwenden
+        roll += radians(droll_deg)
+        pitch += radians(dpitch_deg)
+        yaw += radians(dyaw_deg)
+
+        # zurück in Quaternion
+        q_new = quaternion_from_euler(roll, pitch, yaw)
+
+        target = Pose()
+        target.position = base_pose.position
+        target.orientation.x = q_new[0]
+        target.orientation.y = q_new[1]
+        target.orientation.z = q_new[2]
+        target.orientation.w = q_new[3]
+
         group.set_start_state_to_current_state()
         group.set_max_velocity_scaling_factor(0.1)
         group.set_max_acceleration_scaling_factor(0.1)
+        group.set_pose_target(target)
 
-        group.set_joint_value_target(pose, True)
         success = group.go(wait=True)
         group.stop()
         group.clear_pose_targets()
 
         if success:
-            rospy.loginfo("✅ Absolute Position erreicht.")
+            rospy.loginfo("✅ Relative RPY-Bewegung erfolgreich.")
         else:
-            rospy.logwarn("❌ Bewegung zur Position fehlgeschlagen.")
+            rospy.logwarn("❌ Bewegung mit RPY fehlgeschlagen.")
     except Exception as e:
-        rospy.logwarn(f"Fehler in move_to_absolute_position: {e}")
+        rospy.logwarn(f"Fehler in move_relative_rpy: {e}")
 
 
 def move_relative(group, dx, dy, dz):
@@ -54,9 +86,13 @@ def move_relative(group, dx, dy, dz):
     try:
         base_pose = group.get_current_pose().pose  # ohne TCP-Link
         target = Pose()
-        target.position.x = base_pose.position.x + dx
-        target.position.y = base_pose.position.y + dy
-        target.position.z = base_pose.position.z + dz
+        # Local → World Transformation
+        rot = [base_pose.orientation.x, base_pose.orientation.y, base_pose.orientation.z, base_pose.orientation.w]
+        transformed = tf.quaternion_matrix(rot).dot([dx, dy, dz, 0.0])  # 4D homogen
+
+        target.position.x = base_pose.position.x + transformed[0]
+        target.position.y = base_pose.position.y + transformed[1]
+        target.position.z = base_pose.position.z + transformed[2]
         target.orientation = base_pose.orientation  # Orientierung beibehalten
 
         group.set_start_state_to_current_state()
@@ -79,7 +115,6 @@ def move_relative(group, dx, dy, dz):
 def load_texture_from_png(path):
     image = Image.open(path).convert("RGBA")
     img_data = np.array(image, dtype=np.uint8)
-
     texture_id = gl.glGenTextures(1)
     gl.glBindTexture(gl.GL_TEXTURE_2D, texture_id)
     gl.glTexParameteri(gl.GL_TEXTURE_2D, gl.GL_TEXTURE_MIN_FILTER, gl.GL_LINEAR)
@@ -96,7 +131,6 @@ moveit_commander.roscpp_initialize([])
 planning_groups = ["sero_1_arm", "sero_2_arm", "sero_3_arm"]
 tcp_links = ["sero_1_tcp", "sero_2_tcp", "sero_3_tcp"]
 current_index = 0
-
 group = moveit_commander.MoveGroupCommander(planning_groups[current_index])
 
 # GUI Inputfelder für relative Bewegung
@@ -104,9 +138,12 @@ relative_x = 0.0
 relative_y = 0.0
 relative_z = 0.0
 
+# GUI Inputfeld für Step-Size
+step_size = 0.2  # initialer Wert
+
 # ImGui Init
 glfw.init()
-window = glfw.create_window(1280, 720, "SERO HMI", None, None)
+window = glfw.create_window(1400, 720, "SERO HMI", None, None)
 glfw.make_context_current(window)
 imgui.create_context()
 impl = GlfwRenderer(window)
@@ -133,38 +170,46 @@ try:
         imgui.new_frame()
         imgui.begin("SERO Robotersteuerung")
 
-        # Auswahl der Planning Group
+        # Linke Spalte
         imgui.begin_group()
+
+        # Planning Group Auswahl
         changed, current_index = imgui.combo("Planning Group", current_index, planning_groups)
         if changed:
             group = moveit_commander.MoveGroupCommander(planning_groups[current_index])
+
+        # Home-Button
+        if imgui.button("Home-Position"):
+            group_name = planning_groups[current_index]
+            move_to_home(group_name)
+
         imgui.end_group()
 
+        # Rechte Spalte
         imgui.same_line()
 
         imgui.begin_group()
-        imgui.text(" ")
-        imgui.text("Roboterbild:")
+
+        # Roboterbild
         current_group_name = planning_groups[current_index]
         if current_group_name in textures:
             tex_id, w, h = textures[current_group_name]
-            imgui.image(tex_id, 200, 200)  # z.B. 200x200 Pixel
+            imgui.image(tex_id, 200, 200)
         else:
             imgui.text("Kein Bild verfügbar")
-        imgui.end_group()
 
-        if changed:
-            group = moveit_commander.MoveGroupCommander(planning_groups[current_index])
-
-        # Aktuelle TCP-Position anzeigen
+        # Aktuelle TCP-Position
         try:
             current_pose = group.get_current_pose(tcp_links[current_index]).pose
-            imgui.text(f"Aktuelle TCP-Position:")
+            imgui.text("TCP Position:")
             imgui.text(f"X: {current_pose.position.x:.3f}")
             imgui.text(f"Y: {current_pose.position.y:.3f}")
             imgui.text(f"Z: {current_pose.position.z:.3f}")
         except:
             imgui.text("⚠️ Keine TCP-Pose verfügbar")
+
+        imgui.end_group()
+
 
         # Eingabefelder für relative Zielverschiebung
         imgui.separator()
@@ -176,21 +221,6 @@ try:
         if imgui.button("📦 Move Relative to TCP"):
             move_relative(group, relative_x, relative_y, relative_z)
 
-        imgui.separator()
-        imgui.text("Zielkoordinaten (absolut):")
-
-        if "abs_x" not in locals():
-            abs_x, abs_y, abs_z = 0.0, 0.0, 0.0
-
-        _, abs_x = imgui.input_float("X [m]", abs_x, 0.01)
-        _, abs_y = imgui.input_float("Y [m]", abs_y, 0.01)
-        _, abs_z = imgui.input_float("Z [m]", abs_z, 0.01)
-
-        if imgui.button("🎯 Move to Absolute Position"):
-            move_to_absolute_position(group, abs_x, abs_y, abs_z)
-
-
-        step_size = 0.2  # initialer Wert
         # Steuerung per Buttons
         imgui.separator()
         imgui.text("Steuerung per Buttons:")
@@ -198,9 +228,7 @@ try:
         # Eingabefeld für Step-Size
         
         _, step_size = imgui.slider_float("Step Size [m]", step_size, 0.01, 0.3, "%.3f")
-
         move = [0.0, 0.0, 0.0]
-
 
         if imgui.button("+X"): move[0] -= step_size
         imgui.same_line()
@@ -231,6 +259,33 @@ try:
                 group.clear_pose_targets()
             except Exception as e:
                 rospy.logwarn(f"Fehler bei Button-Bewegung: {e}")
+
+        # Steuerung per RPY
+        imgui.separator()
+        imgui.text("Rotation (relativ zum TCP):")
+
+        if "rot_step" not in locals():
+            rot_step = 5.0  # Grad pro Klick
+
+        _, rot_step = imgui.input_float("Rotationsschritt [°]", rot_step, 1.0)
+        rot_step = max(1.0, min(45.0, rot_step))  # begrenzen
+
+        rpy_move = [0.0, 0.0, 0.0]
+
+        if imgui.button("+Roll"): rpy_move[0] += rot_step
+        imgui.same_line()
+        if imgui.button("-Roll"): rpy_move[0] -= rot_step
+        imgui.same_line()
+        if imgui.button("+Pitch"): rpy_move[1] += rot_step
+        imgui.same_line()
+        if imgui.button("-Pitch"): rpy_move[1] -= rot_step
+        imgui.same_line()
+        if imgui.button("+Yaw"): rpy_move[2] += rot_step
+        imgui.same_line()
+        if imgui.button("-Yaw"): rpy_move[2] -= rot_step
+
+        if any(rpy_move):
+            move_relative_rpy(group, *rpy_move)
 
         imgui.end()
         imgui.render()
