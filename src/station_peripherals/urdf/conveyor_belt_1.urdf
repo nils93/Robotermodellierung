@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!--
   @file conveyor_belt_1.urdf
   @package station_peripherals
@@ -10,6 +11,8 @@
 -->
 
 
+=======
+>>>>>>> d5173fffd94fab46ff3292e3aa4704e5f5ab3f23
 <robot name="conveyor_belt_1">
   <link name="conveyor_belt_1_link">
     <visual>

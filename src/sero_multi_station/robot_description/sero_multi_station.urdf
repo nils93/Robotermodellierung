@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!--
   @file sero_multi_station.urdf
   @package sero_multi_station
@@ -12,6 +13,8 @@
   Used for MoveIt, Gazebo simulation and RViz visualization.
 -->
 
+=======
+>>>>>>> d5173fffd94fab46ff3292e3aa4704e5f5ab3f23
 <robot name="sero_multi_station">
     <link name="world" />
     <!-- Fixed jointS to attach the robot to the world -->
@@ -185,12 +188,15 @@
             <inertia ixx="0.020791268849754438591" ixy="-8.8059871773682104797e-10" ixz="1.914123719498550581e-10" iyy="0.020196057963709122818" iyz="-0.00095402857951714054117" izz="0.0010816277361651634864" />
         </inertial>
     </link>
+<<<<<<< HEAD
     <link name="sero_1_tcp"/>
     <joint name="sero_1_jtcp" type="fixed">
         <origin xyz="0  -0.060828  -0.205" rpy="0 0 0" />
         <parent link="sero_1_endeffector" />
         <child link="sero_1_tcp" />
     </joint>
+=======
+>>>>>>> d5173fffd94fab46ff3292e3aa4704e5f5ab3f23
     <joint name="sero_1_j6" type="revolute">
         <origin xyz="1.1102230246251565404e-16 0.079999999999999960032 -0.029499999999999998446" rpy="1.5707963267948892305 -1.5707963265184670121 0" />
         <parent link="sero_1_link_5" />
@@ -394,12 +400,15 @@
             <inertia ixx="0.00046375431396383494332" ixy="2.2864852994603759838e-34" ixz="8.1535948214775546414e-35" iyy="0.00046375431396383494332" iyz="-1.1475164562417600293e-20" izz="0.00020671818738927610188" />
         </inertial>
     </link>
+<<<<<<< HEAD
     <link name="sero_2_tcp"/>
     <joint name="sero_2_jtcp" type="fixed">
         <origin xyz="0 0 -0.100" rpy="0 0 0" />
         <parent link="sero_2_endeffector" />
         <child link="sero_2_tcp" />
     </joint>
+=======
+>>>>>>> d5173fffd94fab46ff3292e3aa4704e5f5ab3f23
     <joint name="sero_2_j6" type="revolute">
         <origin xyz="-0.095000000000000028866 0 -0.019999999999999965722" rpy="3.141592653589793116 -1.5707963267948950037 0" />
         <parent link="sero_2_link_5" />
@@ -701,12 +710,15 @@
         <limit effort="1000" velocity="20" />
         <dynamics damping="1.0" friction="1.0" />
     </joint>
+<<<<<<< HEAD
     <link name="sero_3_tcp"/>
     <joint name="sero_3_jtcp" type="fixed">
         <origin xyz="0 0 -0.08" rpy="0 0 0" />
         <parent link="sero_3_endeffector_base" />
         <child link="sero_3_tcp" />
     </joint>
+=======
+>>>>>>> d5173fffd94fab46ff3292e3aa4704e5f5ab3f23
     <joint name="sero_3_j5" type="revolute">
         <origin xyz="0.14499999999999985123 -0.090000000000000301981 -0.079999999999999987788" rpy="-3.141592653589793116 1.5707963267948890085 0" />
         <parent link="sero_3_link_4" />
@@ -922,9 +934,12 @@
             <robotNamespace>/</robotNamespace>
         </plugin>
     </gazebo>
+<<<<<<< HEAD
     <gazebo>
         <plugin name = "joint_state_publisher" filename = "libgazebo_ros_joint_state_publisher.so" >
             <jointName> sero_1_j1, sero_1_j2, sero_1_j3, sero_1_j4, sero_1_j5, sero_1_j6, sero_2_j1, sero_2_j2, sero_2_j3, sero_2_j4, sero_2_j5, sero_2_j6, sero_3_j1, sero_3_j2, sero_3_j3, sero_3_j4, sero_3_j5 </jointName>
         </plugin>     
     </gazebo>   
+=======
+>>>>>>> d5173fffd94fab46ff3292e3aa4704e5f5ab3f23
 </robot>

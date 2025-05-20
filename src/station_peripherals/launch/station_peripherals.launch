@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <?xml version="1.0"?>
 <!--
   @file station_peripherals.launch
@@ -12,6 +13,8 @@
   These components support the multi-robot setup in the main factory simulation.
 -->
 
+=======
+>>>>>>> d5173fffd94fab46ff3292e3aa4704e5f5ab3f23
 <launch>
 <param name="robot_description_conveyor_belt_1" command="$(find xacro)/xacro $(find station_peripherals)/urdf/conveyor_belt_1.urdf"/>
 <param name="robot_description_conveyor_belt_2" command="$(find xacro)/xacro $(find station_peripherals)/urdf/conveyor_belt_2.urdf"/>

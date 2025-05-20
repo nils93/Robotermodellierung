@@ -4,7 +4,10 @@
   <arg name="planning_adapters"
        default="default_planner_request_adapters/LimitMaxCartesianLinkSpeed
                 default_planner_request_adapters/AddTimeParameterization
+<<<<<<< HEAD
                 default_planner_request_adapters/ResolveConstraintFrames
+=======
+>>>>>>> d5173fffd94fab46ff3292e3aa4704e5f5ab3f23
                 default_planner_request_adapters/FixWorkspaceBounds
                 default_planner_request_adapters/FixStartStateBounds
                 default_planner_request_adapters/FixStartStateCollision
