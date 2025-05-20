@@ -184,93 +184,19 @@ if __name__ == "__main__":
     move_to_named_target("sero_3_arm", "sero_3_place_wobj")
     move_to_named_target("sero_3_arm", "sero_3_home")
 
-'''
-    # region === Old code ===
+# Move to pose, move to position, and move to joint positions are not called in this example.
+# the Reason is that the Moveit inverse kinematics (IK) solver is seemingly not able to find a 
+# solution for the many of the given poses. Errors in inverse path planning are hard to reproduce
+# at this current stage. You can uncomment the lines below to test them.
+#     # Example of moving to a specific pose
+#     pose = create_pose("test_pose", 0.6, 0.0, 0.9, 0, 0, 0)
+#     move_to_pose("sero_1_arm", pose)
+#     # Example of moving to a specific position
+#     move_to_position("sero_1_arm", 0.7, 0.0, 1.2)
+#     # Example of moving to specific joint positions
+#     joint_values_deg = [0, 45, 90, 0, 0, 0]  # Example joint angles in degrees
+#     move_to_joint_positions_deg("sero_1_arm", joint_values_deg)
 
-        move_to_named_target("sero_3_arm", "sero_3_pick_wobj")
-
-        rospy.sleep(2)  # Allow time for the arm to reach the pose
-
-        # Move sero_3_arm to pose
-        sero3_pose1 = create_pose("pose1", 0.0, 1.1, 0.7, 0, 0, 0)
-        move_to_pose("sero_3_arm", sero3_pose1)
-
-        rospy.sleep(2)  # Allow time for the arm to reach the pose
-
-        # Continue with full pose motions for sero_3_arm
-        sero3_pose2 = create_pose("pose2", 0.8, 0.0, 1.5, 0, 0, 0)
-        move_to_pose("sero_3_arm", sero3_pose2)
-
-        rospy.sleep(2)  # Allow time for the arm to reach the pose
-
-        sero1_pose1 = create_pose("pose3", 0.7, 0.2, 1.0, 0, 0, -90)
-        move_to_pose("sero_1_arm", sero3_pose1)
-
-        sero1_pose2 = create_pose("pose4", 0.7, -0.2, 1.0, 0, 0, -90)
-        move_to_pose("sero_1_arm", sero3_pose2)
-
-        move_to_position("sero_1_arm", -0.5, 0.2, 1.0)
-
-        rospy.sleep(2)  # Allow time for the arm to reach the pose
-
-        move_to_position("sero_1_arm", -0.5, -0.2, 1.0)
-
-        rospy.sleep(2)  # Allow time for the arm to reach the pose
-
-        # Continue with full pose motions for sero_3_arm
-        sero3_pose3 = create_pose("pose3", 0.0, -1.0, 1.5, 0, 0, 0)
-        move_to_pose("sero_3_arm", sero3_pose3)
-
-        rospy.sleep(2)  # Allow time for the arm to reach the pose
-
-        move_to_position("sero_2_arm", 0.3, -1.2, 0.6)
-
-        rospy.sleep(2)  # Allow time for the arm to reach the pose
-
-        move_to_position("sero_2_arm", -0.3, -1.2, 0.6)
-
-        rospy.sleep(2)  # Allow time for the arm to reach the pose
-
-        sero3_pose4 = create_pose("pose4", -1.0, 0.0, 0.7, 0, 0, 0)
-        move_to_pose("sero_3_arm", sero3_pose4) 
-
-        rospy.sleep(2)  # Allow time for the arm to reach the pose
-
-        moveit_commander.roscpp_shutdown()
-
-        # Move sero_3_arm to pose
-        sero3_pose1 = create_pose("pose1", 0.0, 1.0, 0.7, 0, 0, 0)
-        move_to_pose("sero_3_arm", sero3_pose1)
-
-        # Move sero_1_arm using position-only (no orientation constraint)
-        sero1_pose1 = create_pose("pose5", 1.85, 0.35, 1.0, 0, 0, 45)
-        move_to_pose("sero_1_arm", sero1_pose1)
-
-        # 1.497, -0.04697, 1.150, 0.38304033774535784, 0.38304033774535784, 0.5943881867164019
-
-        # Move sero_2_arm using position-only (no orientation constraint)
-        move_to_position("sero_2_arm", 0.1, -1.0, 1.0)
-
-        # Continue with full pose motions for sero_3_arm
-        sero3_pose2 = create_pose("pose2", 0.8, 0.0, 1.5, 0, 0, 0)
-        move_to_pose("sero_3_arm", sero3_pose2)
-
-        sero3_pose3 = create_pose("pose3", 0.0, -0.8, 1.5, 0, 0, 0)
-        move_to_pose("sero_3_arm", sero3_pose3)
-
-        sero3_pose4 = create_pose("pose4", -0.8, 0.0, 0.7, 0, 0, 0)
-        move_to_pose("sero_3_arm", sero3_pose4) 
-
-        # Move sero_2_arm using position-only (no orientation constraint)
-        move_to_position("sero_3_arm", 0.0, 1.0, 0.7)
-
-        # Move sero_1_arm to a known joint configuration
-        # (e.g., [j1, j2, j3, j4, j5]) — adapt to your robot's DoF
-        move_to_joint_positions_deg("sero_1_arm", [90, 0, 0, 0, 0])
-
-        move_to_joint_positions_deg("sero_1_arm", [0, 90, 0, 0, 0])
-
-        move_to_joint_positions_deg("sero_1_arm", [0, 0, 90, 0, 0])
-
-    # endregion
-'''
+    moveit_commander.roscpp_shutdown()
+    rospy.signal_shutdown("Finished all movements.")
+    sys.exit(0)
