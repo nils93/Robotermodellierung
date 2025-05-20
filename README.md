@@ -16,3 +16,9 @@ rosrun sero_multi_station pathplanning.py
 ```
 
 ## 🍿 4. Enjoy the ultimate sero experience!
+
+## In case something bad happens, here are the key commands from the setup.sh
+```bash
+source devel/setup.bash && roslaunch sero_multi_station factory_station.launch
+source devel/setup.bash && rosrun sero_hmi hmi_gui.py
+```
