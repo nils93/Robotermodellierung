@@ -1,5 +1,17 @@
 #!/usr/bin/env python3
 
+## @file pathplanning.py
+#  @package sero_multi_station
+#  @brief Moves a robot arm between predefined named targets and optionally to custom poses, positions, or joint configurations.
+#
+#  This script uses MoveIt to execute a typical sequence for a multi-robot cell.
+#  It includes named targets and helper functions for absolute poses, Cartesian positions, and joint values.
+#
+#  @requires rospy
+#  @requires moveit_commander
+#  @requires geometry_msgs.msg
+#  @requires tf.transformations
+
 import sys
 import rospy
 import moveit_commander
@@ -9,11 +21,9 @@ from math import radians
 
 def move_to_named_target(group_name, target_name):
     """
-    Moves the robot to a predefined named target (e.g., 'home') as set in the MoveIt Setup Assistant.
-
-    Args:
-        group_name (str): MoveIt planning group name (e.g., "sero_1_arm")
-        target_name (str): Name of the predefined pose (e.g., "home")
+    Moves the robot to a predefined named target.
+    @param group_name MoveIt group name (e.g. "sero_1_arm")
+    @param target_name Name of the predefined target
     """
     move_group = moveit_commander.MoveGroupCommander(group_name)
 
@@ -38,8 +48,9 @@ def move_to_named_target(group_name, target_name):
 
 def move_to_pose(group_name, pose):
     """
-    Plans and executes a motion to the specified pose using the given MoveIt group name.
-    Optimized to favor the closest, most natural motion path.
+    Plans and executes a motion to the specified absolute pose.
+    @param group_name MoveIt group name
+    @param pose Target pose as geometry_msgs/Pose
     """
     move_group = moveit_commander.MoveGroupCommander(group_name)
 
@@ -76,7 +87,10 @@ def move_to_position(group_name, x, y, z):
     """
     Moves the robot to a target position (x, y, z) with no strict orientation constraint,
     using set_approximate_joint_value_target() for better IK compatibility with KDL.
-
+    @param group_name MoveIt group
+    @param x X position [m]
+    @param y Y position [m]
+    @param z Z position [m]
     Args:
         group_name (str): MoveIt planning group
         x, y, z (float): Target position in meters
@@ -114,6 +128,10 @@ def move_to_position(group_name, x, y, z):
 def create_pose(name, x, y, z, roll_deg, pitch_deg, yaw_deg):
     """
     Creates and returns a geometry_msgs Pose from position and orientation (RPY in degrees).
+    @param name Optional label for logging
+    @param x,y,z Cartesian coordinates
+    @param roll_deg, pitch_deg, yaw_deg Orientation in degrees
+    @return geometry_msgs.msg.Pose
     """
     pose = geometry_msgs.msg.Pose()
     pose.position.x = x
@@ -136,6 +154,8 @@ def create_pose(name, x, y, z, roll_deg, pitch_deg, yaw_deg):
 def move_to_joint_positions_deg(group_name, joint_values_deg):
     """
     Moves the robot arm to specific joint positions given in degrees.
+    @param group_name MoveIt planning group
+    @param joint_values_deg List of joint angles in degrees
 
     Args:
         group_name (str): MoveIt planning group (e.g., "sero_1_arm")
@@ -184,6 +204,7 @@ if __name__ == "__main__":
     move_to_named_target("sero_3_arm", "sero_3_place_wobj")
     move_to_named_target("sero_3_arm", "sero_3_home")
 
+# Optional manual tests (commented out)
 # Move to pose, move to position, and move to joint positions are not called in this example.
 # the Reason is that the Moveit inverse kinematics (IK) solver is seemingly not able to find a 
 # solution for the many of the given poses. Errors in inverse path planning are hard to reproduce

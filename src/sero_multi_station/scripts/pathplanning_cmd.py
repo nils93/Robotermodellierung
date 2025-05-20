@@ -1,12 +1,38 @@
 #!/usr/bin/env python3
 
+## @file pathplanning_cmd.py
+#  @package sero_multi_station
+#  @brief Moves a robot arm to a 3D position with neutral orientation using MoveIt.
+#
+#  This script is intended for basic position-only control (ignoring orientation).
+#  It sets a pose goal with w=1.0 and disables orientation constraints.
+#
+#  @requires rospy
+#  @requires moveit_commander
+#  @requires geometry_msgs.msg
+
 import sys
 import rospy
 import moveit_commander
 from geometry_msgs.msg import Pose
 
 def move_to_position(group_name, x, y, z):
-    # Initialize moveit_commander and rospy node
+    ##
+    # @brief Moves the specified MoveIt group to a 3D target position (x, y, z).
+    #
+    # @param group_name Name of the MoveIt planning group (e.g., `"sero_3_arm"`).
+    # @param x X-coordinate in meters
+    # @param y Y-coordinate in meters
+    # @param z Z-coordinate in meters
+    #
+    # @details
+    # - A dummy quaternion (w = 1) is used for orientation
+    # - Orientation tolerance is set to π (any orientation allowed)
+    # - Position tolerance is set to 1 cm
+    # - Uses `set_pose_target()` and `go(wait=True)` to execute motion
+    #
+    # @returns Logs success/failure to ROS log output
+    ##
     moveit_commander.roscpp_initialize(sys.argv)
     rospy.init_node('move_group_position_only', anonymous=True)
 
