@@ -1,5 +1,4 @@
 <?xml version="1.0"?>
-<<<<<<< HEAD
 <!--
   @file bringup_moveit.launch
   @package sero_multi_station
@@ -11,18 +10,12 @@
   - optional RViz interface
 -->
 
-=======
->>>>>>> d5173fffd94fab46ff3292e3aa4704e5f5ab3f23
 <launch>
     <!-- Run the main MoveIt executable with trajectory execution -->
     <include file="$(find sero_multi_station_moveit_config)/launch/move_group.launch">
         <arg name="allow_trajectory_execution" value="true" />
-<<<<<<< HEAD
         <!-- value von simple in ros_control geändert! -->
         <arg name="moveit_controller_manager" value="ros_control" />
-=======
-        <arg name="moveit_controller_manager" value="simple" />
->>>>>>> d5173fffd94fab46ff3292e3aa4704e5f5ab3f23
         <arg name="fake_execution_type" value="interpolate" />
         <arg name="info" value="true" />
         <arg name="debug" value="false" />

@@ -1,5 +1,4 @@
 <?xml version="1.0"?>
-<<<<<<< HEAD
 <!--
   @file control_utils.launch
   @package sero_multi_station
@@ -11,8 +10,6 @@
   - spawn joint_state and trajectory controllers
 -->
 
-=======
->>>>>>> d5173fffd94fab46ff3292e3aa4704e5f5ab3f23
 <launch>
 
 <!-- Robot state publisher -->
