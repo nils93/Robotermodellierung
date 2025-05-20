@@ -1,0 +1,18 @@
+/**
+ * @page hmi_interface SERO HMI Interface
+
+ * @section hmi_imgui ImGui-Based GUI for Manual Robot Control
+
+ * @image html hmi_sero_1.png
+
+ * This image shows the graphical Human-Machine Interface (HMI) used to control the SERO robot arms.
+ * The GUI is implemented in Python using the ImGui library (pyimgui + OpenGL) and communicates with MoveIt via ROS.
+
+ * Key elements:
+ * - On the left: selection of the active planning group and a button to move to the predefined home pose.
+ * - In the center: fields to define relative and absolute Cartesian motions (TCP-based).
+ * - On the right: a live image of the selected robot, current TCP position, and movement confirmation.
+ * - Below: button-based incremental movement in XYZ and RPY space.
+ *
+ * The GUI is designed for real-time feedback and fast manual positioning during development and testing.
+ */
