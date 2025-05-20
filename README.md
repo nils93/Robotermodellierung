@@ -10,4 +10,9 @@ git clone https://github.com/nils93/Robotermodellierung.git sero_ws && cd sero_w
 ./setup.sh
 ```
 
-## 🍿 3. Enjoy the ultimate sero experience!
+## 🧠 3. Run station logic
+```bash
+rosrun sero_multi_station pathplanning.py
+```
+
+## 🍿 4. Enjoy the ultimate sero experience!
