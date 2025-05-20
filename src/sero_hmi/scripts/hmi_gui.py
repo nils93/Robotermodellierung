@@ -120,7 +120,7 @@ def move_relative(group, dx, dy, dz):
         target = Pose()
         # Local → World Transformation
         rot = [base_pose.orientation.x, base_pose.orientation.y, base_pose.orientation.z, base_pose.orientation.w]
-        transformed = tf.quaternion_matrix(rot).dot([dx, dy, dz, 0.0])  # 4D homogen
+        transformed = quaternion_matrix(rot).dot([dx, dy, dz, 0.0])  # 4D homogen
 
         target.position.x = base_pose.position.x + transformed[0]
         target.position.y = base_pose.position.y + transformed[1]
@@ -270,6 +270,21 @@ try:
             imgui.text(f"X: {current_pose.position.x:.3f}")
             imgui.text(f"Y: {current_pose.position.y:.3f}")
             imgui.text(f"Z: {current_pose.position.z:.3f}")
+
+            # RPY aus Quaternion berechnen
+            q = current_pose.orientation
+            roll, pitch, yaw = euler_from_quaternion([q.x, q.y, q.z, q.w])
+
+            # numerische Rauschunterdrückung (±0.5°)
+            eps = 1e-2
+            if abs(roll) < eps: roll = 0.0
+            if abs(pitch) < eps: pitch = 0.0
+            if abs(yaw) < eps: yaw = 0.0
+
+            imgui.text("TCP Orientation (RPY):")
+            imgui.text(f"Roll:  {roll * 180 / 3.1415:.1f}°")
+            imgui.text(f"Pitch: {pitch * 180 / 3.1415:.1f}°")
+            imgui.text(f"Yaw:   {yaw * 180 / 3.1415:.1f}°")
         except:
             imgui.text("⚠️ Keine TCP-Pose verfügbar")
 
@@ -323,7 +338,7 @@ try:
         if imgui.button("+Y"): move[1] += step_size
         imgui.same_line()
         if imgui.button("-Y"): move[1] -= step_size
-
+        imgui.same_line()
         if imgui.button("+Z"): move[2] += step_size
         imgui.same_line()
         if imgui.button("-Z"): move[2] -= step_size

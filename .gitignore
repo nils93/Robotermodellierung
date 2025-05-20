@@ -39,3 +39,9 @@ doc/latex/
 *.dot
 *.dox
 *.tag
+
+# Allow Doxygen input files
+!doc/*.dox
+!doc/images/
+!doc/images/*.png
+!doc/latex/refman.pdf

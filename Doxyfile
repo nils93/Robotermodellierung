@@ -28,3 +28,12 @@ EXCLUDE_PATTERNS       = */build/* */devel/* */.git/* *.log *.cmake *.make *.sta
 
 INPUT = . doc/ros_overview.dox README.md
 IMAGE_PATH = doc/images
+INPUT += doc/hmi_interface.dox
+INPUT += doc/gazebo_station.dox
+
+GENERATE_LATEX = YES
+LATEX_OUTPUT = latex
+PDF_HYPERLINKS = YES
+USE_PDFLATEX     = NO
+LATEX_CMD_NAME   = xelatex
+MAKEINDEX_CMD_NAME = makeindex
