@@ -36,6 +36,9 @@ case "$run_choice" in
     # Terminal 1: Simulation
     gnome-terminal -- bash -c "source devel/setup.bash && roslaunch sero_multi_station factory_station.launch; exec bash"
 
+    # Kurze Pause, damit ROS & Gazebo Zeit zum Initialisieren haben 
+    sleep 5
+
     # Terminal 2: HMI GUI
     gnome-terminal -- bash -c "source devel/setup.bash && rosrun sero_hmi hmi_gui.py; exec bash"
 
