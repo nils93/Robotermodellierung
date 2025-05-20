@@ -45,4 +45,6 @@ doc/latex/
 !doc/images/*.png
 !doc/pdf/
 !doc/pdf/*.pdf
+
+# Weitere temporäre Dateien
 imgui.ini
