@@ -45,3 +45,4 @@ doc/latex/
 !doc/images/*.png
 !doc/pdf/
 !doc/pdf/*.pdf
+imgui.ini
