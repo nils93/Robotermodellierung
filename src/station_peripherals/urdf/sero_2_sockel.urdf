@@ -1,3 +1,12 @@
+<!--
+  @file sero_2_sockel.urdf
+  @package station_peripherals
+  @brief Static base (sockel) model for SERO robot 2.
+
+  Analog to robot 1, this base defines the fixed transform and mesh geometry.
+-->
+
+
 <robot name="sero_2_sockel">
   <link name="sero_2_sockel_link">
     <visual>

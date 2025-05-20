@@ -1,3 +1,18 @@
+<<<<<<< HEAD
+<!--
+  @file conveyor_belt_1.urdf
+  @package station_peripherals
+  @brief URDF model of the first conveyor belt in the factory layout.
+
+  This model defines:
+  • fixed base transform
+  • mesh geometry for visual and collision representation
+  • used in simulation to transport objects between robot workcells
+-->
+
+
+=======
+>>>>>>> d5173fffd94fab46ff3292e3aa4704e5f5ab3f23
 <robot name="conveyor_belt_1">
   <link name="conveyor_belt_1_link">
     <visual>

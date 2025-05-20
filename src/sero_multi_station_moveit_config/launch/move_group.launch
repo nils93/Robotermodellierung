@@ -1,3 +1,21 @@
+<<<<<<< HEAD
+<?xml version="1.0"?>
+<!--
+  @file move_group.launch
+  @package sero_multi_station_moveit_config
+  @brief Main entry point for starting the MoveIt `move_group` node.
+
+  This launch file loads:
+  • the robot description (URDF + SRDF)
+  • kinematics and planning configurations (e.g. OMPL, CHOMP)
+  • controller and sensor interfaces
+  • the move_group node that handles planning requests
+
+  Used by high-level launch files like `demo.launch` or `bringup_moveit.launch`.
+-->
+
+=======
+>>>>>>> d5173fffd94fab46ff3292e3aa4704e5f5ab3f23
 <launch>
 
   <!-- GDB Debug Option -->
@@ -82,7 +100,11 @@
 
   <!-- Lade Controller-Zuweisung -->
   <rosparam command="load" file="$(find sero_multi_station_moveit_config)/config/simple_moveit_controllers.yaml" />  
+<<<<<<< HEAD
+
+=======
   
+>>>>>>> d5173fffd94fab46ff3292e3aa4704e5f5ab3f23
   <!-- Start the actual move_group node/action server -->
   <node name="move_group" launch-prefix="$(arg launch_prefix)" pkg="moveit_ros_move_group" type="move_group" respawn="false" output="screen" args="$(arg command_args)">
     <!-- Set the display variable, in case OpenGL code is used internally -->

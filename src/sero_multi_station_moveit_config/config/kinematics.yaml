@@ -5,6 +5,8 @@ sero_1_arm:
   goal_joint_tolerance: 0.0001
   goal_position_tolerance: 0.0001
   goal_orientation_tolerance: 0.001
+<<<<<<< HEAD
+=======
 sero_1_ee:
   kinematics_solver: kdl_kinematics_plugin/KDLKinematicsPlugin
   kinematics_solver_search_resolution: 0.005
@@ -12,6 +14,7 @@ sero_1_ee:
   goal_joint_tolerance: 0.0001
   goal_position_tolerance: 0.0001
   goal_orientation_tolerance: 0.001
+>>>>>>> d5173fffd94fab46ff3292e3aa4704e5f5ab3f23
 sero_2_arm:
   kinematics_solver: kdl_kinematics_plugin/KDLKinematicsPlugin
   kinematics_solver_search_resolution: 0.005
@@ -19,6 +22,8 @@ sero_2_arm:
   goal_joint_tolerance: 0.0001
   goal_position_tolerance: 0.0001
   goal_orientation_tolerance: 0.001
+<<<<<<< HEAD
+=======
 sero_2_ee:
   kinematics_solver: kdl_kinematics_plugin/KDLKinematicsPlugin
   kinematics_solver_search_resolution: 0.005
@@ -26,6 +31,7 @@ sero_2_ee:
   goal_joint_tolerance: 0.0001
   goal_position_tolerance: 0.0001
   goal_orientation_tolerance: 0.001
+>>>>>>> d5173fffd94fab46ff3292e3aa4704e5f5ab3f23
 sero_3_arm:
   kinematics_solver: kdl_kinematics_plugin/KDLKinematicsPlugin
   kinematics_solver_search_resolution: 0.005

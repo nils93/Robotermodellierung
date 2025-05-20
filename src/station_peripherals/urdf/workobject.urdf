@@ -1,4 +1,12 @@
-<?xml version="1.0"?>
+<!--
+  @file workobject.urdf
+  @package station_peripherals
+  @brief URDF model of a generic workobject placed on the conveyor.
+
+  This object can represent parts, pallets or tools within the cell
+  and serves as interaction target for pick-and-place tasks.
+-->
+
 <robot name="workobject">
   <link name="workobject_link">
 

@@ -10,6 +10,33 @@
     <!--CHAINS: When a chain is specified, all the links along the chain (including endpoints) are included in the group. Additionally, all the joints that are parents to included links are also included. This means that joints along the chain and the parent joint of the base link are included in the group-->
     <!--SUBGROUPS: Groups can also be formed by referencing to already defined group names-->
     <group name="sero_1_arm">
+<<<<<<< HEAD
+        <chain base_link="sero_1_base" tip_link="sero_1_tcp"/>
+    </group>
+    <group name="sero_2_arm">
+        <chain base_link="sero_2_base" tip_link="sero_2_tcp"/>
+    </group>
+    <group name="sero_3_arm">
+        <chain base_link="sero_3_base" tip_link="sero_3_tcp"/>
+    </group>
+    <!--GROUP STATES: Purpose: Define a named state for a particular group, in terms of joint values. This is useful to define states like 'folded arms'-->
+    <group_state name="sero_1_start_sanding" group="sero_1_arm">
+        <joint name="sero_1_j1" value="0.20849108665522387"/>
+        <joint name="sero_1_j2" value="0.6180593105079506"/>
+        <joint name="sero_1_j3" value="0.8112780326431865"/>
+        <joint name="sero_1_j4" value="0.05623595874311338"/>
+        <joint name="sero_1_j5" value="1.327813697288044"/>
+        <joint name="sero_1_j6" value="0.22708010173945592"/>
+    </group_state>
+    <group_state name="sero_1_end_sanding" group="sero_1_arm">
+        <joint name="sero_1_j1" value="-0.24353103468003745"/>
+        <joint name="sero_1_j2" value="0.6282234801945474"/>
+        <joint name="sero_1_j3" value="0.7904609740192097"/>
+        <joint name="sero_1_j4" value="0.054755819929237504"/>
+        <joint name="sero_1_j5" value="1.3211445102609014"/>
+        <joint name="sero_1_j6" value="-0.2264225922862"/>
+    </group_state>
+=======
         <chain base_link="sero_1_base" tip_link="sero_1_link_5"/>
     </group>
     <group name="sero_1_ee">
@@ -25,33 +52,114 @@
         <chain base_link="sero_3_base" tip_link="sero_3_endeffector_base"/>
     </group>
     <!--GROUP STATES: Purpose: Define a named state for a particular group, in terms of joint values. This is useful to define states like 'folded arms'-->
+>>>>>>> d5173fffd94fab46ff3292e3aa4704e5f5ab3f23
     <group_state name="sero_1_home" group="sero_1_arm">
         <joint name="sero_1_j1" value="0"/>
         <joint name="sero_1_j2" value="0"/>
         <joint name="sero_1_j3" value="0"/>
         <joint name="sero_1_j4" value="0"/>
+<<<<<<< HEAD
+        <joint name="sero_1_j5" value="0"/>
+        <joint name="sero_1_j6" value="0"/>
+    </group_state>
+    <group_state name="sero_2_start_blowing" group="sero_2_arm">
+        <joint name="sero_2_j1" value="-2.6878"/>
+        <joint name="sero_2_j2" value="-0.5934"/>
+        <joint name="sero_2_j3" value="3.1241"/>
+        <joint name="sero_2_j4" value="-1.3080"/>
+        <joint name="sero_2_j5" value="1.6581"/>
+        <joint name="sero_2_j6" value="-1.9024"/>
+    </group_state>
+    <group_state name="sero_2_end_blowing" group="sero_2_arm">
+        <joint name="sero_2_j1" value="-3.2416"/>
+        <joint name="sero_2_j2" value="-0.6109"/>
+        <joint name="sero_2_j3" value="3.1590"/>
+        <joint name="sero_2_j4" value="-0.5934"/>
+        <joint name="sero_2_j5" value="1.1868"/>
+        <joint name="sero_2_j6" value="-2.5656"/>
+    </group_state>
+    <!-- <group_state name="sero_2_home" group="sero_2_arm">
+=======
         <joint name="sero_1_j5" value="1.2459"/>
     </group_state>
     <group_state name="sero_2_home" group="sero_2_arm">
+>>>>>>> d5173fffd94fab46ff3292e3aa4704e5f5ab3f23
         <joint name="sero_2_j1" value="0"/>
         <joint name="sero_2_j2" value="-0.1209"/>
         <joint name="sero_2_j3" value="0"/>
         <joint name="sero_2_j4" value="0"/>
+<<<<<<< HEAD
+        <joint name="sero_2_j5" value="0.3"/>
+        <joint name="sero_2_j6" value="0"/>
+    </group_state> -->
+    <group_state name="sero_2_home" group="sero_2_arm">
+        <joint name="sero_2_j1" value="-3.1416"/>
+        <joint name="sero_2_j2" value="0"/>
+        <joint name="sero_2_j3" value="0"/>
+        <joint name="sero_2_j4" value="0"/>
+        <joint name="sero_2_j5" value="0"/>
+        <joint name="sero_2_j6" value="0"/>
+    </group_state>
+    <group_state name="sero_3_pick_wobj" group="sero_3_arm">
+        <joint name="sero_3_j1" value="-1.5708"/>
+        <joint name="sero_3_j2" value="1.0123"/>
+        <joint name="sero_3_j3" value="-0.0175"/>
+        <joint name="sero_3_j4" value="0.5061"/>
+        <joint name="sero_3_j5" value="0"/>
+    </group_state>
+    <group_state name="sero_3_show_wobj_1" group="sero_3_arm">
+        <joint name="sero_3_j1" value="0"/>
+        <joint name="sero_3_j2" value="0.4538"/>
+        <joint name="sero_3_j3" value="-0.5236"/>
+        <joint name="sero_3_j4" value="-0.9948"/>
+        <joint name="sero_3_j5" value="0"/>
+    </group_state>
+    <group_state name="sero_3_show_wobj_2" group="sero_3_arm">
+        <joint name="sero_3_j1" value="1.5708"/>
+        <joint name="sero_3_j2" value="0.2443"/>
+        <joint name="sero_3_j3" value="-0.19199"/>
+        <joint name="sero_3_j4" value="-0.45379"/>
+        <joint name="sero_3_j5" value="0"/>
+    </group_state>
+    <group_state name="sero_3_place_wobj" group="sero_3_arm">
+        <joint name="sero_3_j1" value="3.1416"/>
+        <joint name="sero_3_j2" value="0.9425"/>
+        <joint name="sero_3_j3" value="0"/>
+        <joint name="sero_3_j4" value="0.6109"/>
+        <joint name="sero_3_j5" value="0"/>
+=======
         <joint name="sero_2_j5" value="-1"/>
+>>>>>>> d5173fffd94fab46ff3292e3aa4704e5f5ab3f23
     </group_state>
     <group_state name="sero_3_home" group="sero_3_arm">
         <joint name="sero_3_j1" value="0"/>
         <joint name="sero_3_j2" value="0"/>
         <joint name="sero_3_j3" value="0"/>
+<<<<<<< HEAD
+        <joint name="sero_3_j4" value="0"/>
+        <joint name="sero_3_j5" value="0"/>
+    </group_state>
+    <!--END EFFECTOR: Purpose: Represent information about an end effector.-->
+    <end_effector name="sero_1_tcp" parent_link="sero_1_tcp" group="sero_1_arm"/>
+    <end_effector name="sero_2_tcp" parent_link="sero_2_tcp" group="sero_2_arm"/>
+    <end_effector name="sero_3_tcp" parent_link="sero_3_tcp" group="sero_3_arm"/>
+=======
         <joint name="sero_3_j4" value="1.561"/>
         <joint name="sero_3_j5" value="0"/>
     </group_state>
     <!--END EFFECTOR: Purpose: Represent information about an end effector.-->
 
+>>>>>>> d5173fffd94fab46ff3292e3aa4704e5f5ab3f23
     <!--VIRTUAL JOINT: Purpose: this element defines a virtual joint between a robot link and an external frame of reference (considered fixed with respect to the robot)-->
     <virtual_joint name="sero_1_fixed" type="fixed" parent_frame="world" child_link="sero_1_base"/>
     <virtual_joint name="sero_2_fixed" type="fixed" parent_frame="world" child_link="sero_2_base"/>
     <virtual_joint name="sero_3_fixed" type="fixed" parent_frame="world" child_link="sero_3_base"/>
+<<<<<<< HEAD
+    <virtual_joint name="sero_1_jtcp" type="fixed" parent_frame="sero_1_endeffector" child_link="sero_1_tcp"/>
+    <virtual_joint name="sero_2_jtcp" type="fixed" parent_frame="sero_2_endeffector" child_link="sero_2_tcp"/>
+    <virtual_joint name="sero_3_jtcp" type="fixed" parent_frame="sero_3_endeffector_base" child_link="sero_3_tcp"/>
+=======
+>>>>>>> d5173fffd94fab46ff3292e3aa4704e5f5ab3f23
     <!--DISABLE COLLISIONS: By default it is assumed that any link of the robot could potentially come into collision with any other link in the robot. This tag disables collision checking between a specified pair of links. -->
     <disable_collisions link1="sero_1_base" link2="sero_1_link_1" reason="Adjacent"/>
     <disable_collisions link1="sero_1_base" link2="sero_1_link_2" reason="Never"/>

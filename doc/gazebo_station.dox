@@ -1,0 +1,15 @@
+/**
+ * @page gazebo_station The Factory Station
+ * @section description Description
+
+ * This overview shows our robotic station:
+ * - Sero_1
+ * - Sero_2
+ * - Sero_3
+ * - workobject
+ * @image html station_1.png
+ * @image latex station_1.png
+ * @image html station_2.png
+ * @image latex station_2.png
+
+ */

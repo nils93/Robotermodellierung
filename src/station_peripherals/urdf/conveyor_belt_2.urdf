@@ -1,3 +1,16 @@
+<<<<<<< HEAD
+<!--
+  @file conveyor_belt_2.urdf
+  @package station_peripherals
+  @brief URDF model of the second conveyor belt in the workcell.
+
+  This component supports lateral transport between robot positions
+  and can be reused for mirroring production lines.
+-->
+
+
+=======
+>>>>>>> d5173fffd94fab46ff3292e3aa4704e5f5ab3f23
 <robot name="conveyor_belt_2">
   <link name="conveyor_belt_2_link">
     <visual>

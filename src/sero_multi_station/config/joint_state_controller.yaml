@@ -1,3 +1,13 @@
+<<<<<<< HEAD
+# @file joint_state_controller.yaml
+# @package sero_multi_station
+# @brief Defines the joint state controller for all SERO robots.
+#
+# This controller continuously publishes the current joint states
+# (position, velocity) to ROS topics for visualization and logging.
+
+=======
+>>>>>>> d5173fffd94fab46ff3292e3aa4704e5f5ab3f23
 joint_state_controller:
     type: joint_state_controller/JointStateController
     publish_rate: 50

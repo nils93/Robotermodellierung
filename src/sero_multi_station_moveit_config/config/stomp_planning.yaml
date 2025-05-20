@@ -11,6 +11,9 @@ stomp/sero_1_arm:
   task:
     noise_generator:
       - class: stomp_moveit/NormalDistributionSampling
+<<<<<<< HEAD
+        stddev: [0.05, 0.05, 0.05, 0.05, 0.05, 0.05]
+=======
         stddev: [0.05, 0.05, 0.05, 0.05, 0.05]
     cost_functions:
       - class: stomp_moveit/CollisionCheck
@@ -51,6 +54,7 @@ stomp/sero_1_ee:
     noise_generator:
       - class: stomp_moveit/NormalDistributionSampling
         stddev: [0.05]
+>>>>>>> d5173fffd94fab46ff3292e3aa4704e5f5ab3f23
     cost_functions:
       - class: stomp_moveit/CollisionCheck
         collision_penalty: 1.0
@@ -89,6 +93,9 @@ stomp/sero_2_arm:
   task:
     noise_generator:
       - class: stomp_moveit/NormalDistributionSampling
+<<<<<<< HEAD
+        stddev: [0.05, 0.05, 0.05, 0.05, 0.05, 0.05]
+=======
         stddev: [0.05, 0.05, 0.05, 0.05, 0.05]
     cost_functions:
       - class: stomp_moveit/CollisionCheck
@@ -129,6 +136,7 @@ stomp/sero_2_ee:
     noise_generator:
       - class: stomp_moveit/NormalDistributionSampling
         stddev: [0.05]
+>>>>>>> d5173fffd94fab46ff3292e3aa4704e5f5ab3f23
     cost_functions:
       - class: stomp_moveit/CollisionCheck
         collision_penalty: 1.0

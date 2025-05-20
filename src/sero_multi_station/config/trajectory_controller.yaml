@@ -1,3 +1,15 @@
+<<<<<<< HEAD
+# @file trajectory_controller.yaml
+# @package sero_multi_station
+# @brief Configures JointTrajectoryControllers for SERO robots 1–3.
+#
+# Each robot uses an individual controller to execute joint-level
+# trajectories from planners such as MoveIt.
+# Includes settings for tolerances, constraints, and control rates.
+
+
+=======
+>>>>>>> d5173fffd94fab46ff3292e3aa4704e5f5ab3f23
 sero_1_ctrl:
   type: position_controllers/JointTrajectoryController
   joints:
@@ -6,6 +18,10 @@ sero_1_ctrl:
     - sero_1_j3
     - sero_1_j4
     - sero_1_j5
+<<<<<<< HEAD
+    - sero_1_j6
+=======
+>>>>>>> d5173fffd94fab46ff3292e3aa4704e5f5ab3f23
 
   constraints:
         goal_time: 0.6
@@ -15,6 +31,10 @@ sero_1_ctrl:
         sero_1_j3: {trajectory: 0.1, goal: 0.1}
         sero_1_j4: {trajectory: 0.1, goal: 0.1}
         sero_1_j5: {trajectory: 0.1, goal: 0.1}
+<<<<<<< HEAD
+        sero_1_j6: {trajectory: 0.1, goal: 0.1}
+=======
+>>>>>>> d5173fffd94fab46ff3292e3aa4704e5f5ab3f23
   stop_trajectory_duration: 0.5
   state_publish_rate:  25
   action_monitor_rate: 10
@@ -27,6 +47,10 @@ sero_2_ctrl:
     - sero_2_j3
     - sero_2_j4
     - sero_2_j5
+<<<<<<< HEAD
+    - sero_2_j6
+=======
+>>>>>>> d5173fffd94fab46ff3292e3aa4704e5f5ab3f23
 
   constraints:
         goal_time: 0.6
@@ -36,6 +60,10 @@ sero_2_ctrl:
         sero_2_j3: {trajectory: 0.1, goal: 0.1}
         sero_2_j4: {trajectory: 0.1, goal: 0.1}
         sero_2_j5: {trajectory: 0.1, goal: 0.1}
+<<<<<<< HEAD
+        sero_2_j6: {trajectory: 0.1, goal: 0.1}
+=======
+>>>>>>> d5173fffd94fab46ff3292e3aa4704e5f5ab3f23
   stop_trajectory_duration: 0.5
   state_publish_rate:  25
   action_monitor_rate: 10

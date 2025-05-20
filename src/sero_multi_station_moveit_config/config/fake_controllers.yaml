@@ -7,9 +7,12 @@ controller_list:
       - sero_1_j3
       - sero_1_j4
       - sero_1_j5
+<<<<<<< HEAD
+=======
   - name: fake_sero_1_ee_controller
     type: $(arg fake_execution_type)
     joints:
+>>>>>>> d5173fffd94fab46ff3292e3aa4704e5f5ab3f23
       - sero_1_j6
   - name: fake_sero_2_arm_controller
     type: $(arg fake_execution_type)
@@ -19,9 +22,12 @@ controller_list:
       - sero_2_j3
       - sero_2_j4
       - sero_2_j5
+<<<<<<< HEAD
+=======
   - name: fake_sero_2_ee_controller
     type: $(arg fake_execution_type)
     joints:
+>>>>>>> d5173fffd94fab46ff3292e3aa4704e5f5ab3f23
       - sero_2_j6
   - name: fake_sero_3_arm_controller
     type: $(arg fake_execution_type)
@@ -31,7 +37,10 @@ controller_list:
       - sero_3_j3
       - sero_3_j4
       - sero_3_j5
+<<<<<<< HEAD
+=======
 
+>>>>>>> d5173fffd94fab46ff3292e3aa4704e5f5ab3f23
 initial:  # Define initial robot poses per group
   - group: sero_1_arm
     pose: sero_1_home

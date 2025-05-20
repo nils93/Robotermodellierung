@@ -1,3 +1,13 @@
+<!--
+  @file sero_1_sockel.urdf
+  @package station_peripherals
+  @brief Static base (sockel) model for SERO robot 1.
+
+  Used to elevate and fix the robot to its mounting frame.
+  Contains STL mesh and origin pose for correct placement in the simulation.
+-->
+
+
 <robot name="sero_1_sockel">
   <link name="sero_1_sockel_link">
     <visual>

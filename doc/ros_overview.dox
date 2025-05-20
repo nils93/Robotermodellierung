@@ -1,0 +1,17 @@
+/**
+ * @page ros_overview ROS Computation Graph
+ * @section description Description
+
+ * This overview shows how the main ROS components interact in the SERO robotic workcell:
+ * - MoveIt planners
+ * - HMI ImGui interface
+ * - Controllers and robot descriptions
+ * - Gazebo simulation
+ * @section rosgraph_nodesonly Simplified Graph (Nodes only)
+ * @image html rosgraph_1.png
+ * @image latex rosgraph_1.png
+ * @section rosgraph_full Full Computation Graph
+ * @image html rosgraph_2.png
+ * @image latex rosgraph_2.png
+
+ */

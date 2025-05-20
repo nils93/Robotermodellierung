@@ -27,6 +27,12 @@
   <node pkg="tf2_ros" type="static_transform_publisher" name="virtual_joint_broadcaster_0" args="0 0 0 0 0 0 world sero_1_base" />
   <node pkg="tf2_ros" type="static_transform_publisher" name="virtual_joint_broadcaster_1" args="0 0 0 0 0 0 world sero_2_base" />
   <node pkg="tf2_ros" type="static_transform_publisher" name="virtual_joint_broadcaster_2" args="0 0 0 0 0 0 world sero_3_base" />
+<<<<<<< HEAD
+  <node pkg="tf2_ros" type="static_transform_publisher" name="virtual_joint_broadcaster_3" args="0 0 0 0 0 0 sero_1_endeffector sero_1_tcp" />
+  <node pkg="tf2_ros" type="static_transform_publisher" name="virtual_joint_broadcaster_4" args="0 0 0 0 0 0 sero_2_endeffector sero_2_tcp" />
+  <node pkg="tf2_ros" type="static_transform_publisher" name="virtual_joint_broadcaster_5" args="0 0 0 0 0 0 sero_3_endeffector_base sero_3_tcp" />
+=======
+>>>>>>> d5173fffd94fab46ff3292e3aa4704e5f5ab3f23
 
   <group if="$(eval arg('moveit_controller_manager') == 'fake')">
     <!-- We do not have a real robot connected, so publish fake joint states via a joint_state_publisher
