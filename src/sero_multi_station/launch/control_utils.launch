@@ -1,4 +1,15 @@
 <?xml version="1.0"?>
+<!--
+  @file control_utils.launch
+  @package sero_multi_station
+  @brief Utility launch file to load controller configurations and spawners.
+
+  Used as an include in higher-level launch files to:
+  - load controller parameters (YAML)
+  - start controller manager
+  - spawn joint_state and trajectory controllers
+-->
+
 <launch>
 
 <!-- Robot state publisher -->

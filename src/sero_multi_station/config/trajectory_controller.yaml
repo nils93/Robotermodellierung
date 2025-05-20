@@ -1,3 +1,12 @@
+# @file trajectory_controller.yaml
+# @package sero_multi_station
+# @brief Configures JointTrajectoryControllers for SERO robots 1–3.
+#
+# Each robot uses an individual controller to execute joint-level
+# trajectories from planners such as MoveIt.
+# Includes settings for tolerances, constraints, and control rates.
+
+
 sero_1_ctrl:
   type: position_controllers/JointTrajectoryController
   joints:

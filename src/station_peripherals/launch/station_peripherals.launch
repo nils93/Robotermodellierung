@@ -1,3 +1,17 @@
+<?xml version="1.0"?>
+<!--
+  @file station_peripherals.launch
+  @package station_peripherals
+  @brief Launch file for loading peripheral components into Gazebo.
+
+  This file spawns:
+  • conveyor belts
+  • fixed platforms (sockel) for each robot
+  • workobjects and static frames
+
+  These components support the multi-robot setup in the main factory simulation.
+-->
+
 <launch>
 <param name="robot_description_conveyor_belt_1" command="$(find xacro)/xacro $(find station_peripherals)/urdf/conveyor_belt_1.urdf"/>
 <param name="robot_description_conveyor_belt_2" command="$(find xacro)/xacro $(find station_peripherals)/urdf/conveyor_belt_2.urdf"/>

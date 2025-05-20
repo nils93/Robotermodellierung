@@ -1,4 +1,15 @@
 <?xml version="1.0"?>
+<!--
+  @file bringup_moveit.launch
+  @package sero_multi_station
+  @brief Launches the full MoveIt-based control stack for all SERO robots.
+  
+  This file initializes:
+  - robot description and controllers
+  - MoveIt node (`move_group`)
+  - optional RViz interface
+-->
+
 <launch>
     <!-- Run the main MoveIt executable with trajectory execution -->
     <include file="$(find sero_multi_station_moveit_config)/launch/move_group.launch">

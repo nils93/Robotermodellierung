@@ -1,3 +1,10 @@
+# @file simple_moveit_controllers.yaml
+# @package sero_multi_station_moveit_config
+# @brief Defines MoveIt controller handles for each robot arm.
+#
+# This file is used by the simple MoveIt controller manager plugin.
+# It maps each controller name to a trajectory action interface and joint list.
+
 controller_list:
   - name: sero_1_ctrl
     action_ns: follow_joint_trajectory

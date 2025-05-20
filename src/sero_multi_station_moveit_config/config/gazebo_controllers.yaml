@@ -1,3 +1,11 @@
+# @file gazebo_controllers.yaml
+# @package sero_multi_station_moveit_config
+# @brief Defines the minimal controller setup for Gazebo simulation.
+#
+# This file configures the joint state controller that publishes
+# joint states during simulation. It is essential for MoveIt and RViz
+# to track the current robot state.
+
 # Publish joint_states
 joint_state_controller:
   type: joint_state_controller/JointStateController

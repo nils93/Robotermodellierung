@@ -31,5 +31,11 @@ compile_commands.json
 *.swp
 *.swo
 .DS_Store
-devel/
 URDF/
+
+# Doxygen output
+doc/html/
+doc/latex/
+*.dot
+*.dox
+*.tag

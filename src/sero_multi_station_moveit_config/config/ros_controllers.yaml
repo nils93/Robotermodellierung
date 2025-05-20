@@ -1,3 +1,14 @@
+# @file ros_controllers.yaml
+# @package sero_multi_station_moveit_config
+# @brief Defines all controllers used in simulation and real-time control.
+#
+# Includes:
+# • joint_state_controller for publishing joint states
+# • JointTrajectoryControllers for all SERO robots (1–3)
+# • Individual joint limits and tolerances
+#
+# Used by the controller manager via control_utils.launch.
+
 joint_state_controller:
     type: joint_state_controller/JointStateController
     publish_rate: 50

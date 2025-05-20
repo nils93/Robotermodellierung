@@ -10,22 +10,4 @@ git clone https://github.com/nils93/Robotermodellierung.git sero_ws && cd sero_w
 ./setup.sh
 ```
 
-## 🔁 3. Source your workspace 
-```bash
-source devel/setup.bash
-```
-
-## 🚀 4. Open movit with gazebo simulation
-```bash
-roslaunch sero_multi_station bringup_moveit.launch
-```
-
-## 🏭 5. Open movit with gazebo simulation and station peripherals
-```bash
-roslaunch sero_multi_station factory_station.launch
-```
-
-## 🖥️ 6. Open the latest Sero HMI for the ultimate experience!
-```bash
-rosrun sero_hmi hmi_gui.py
-```
+## 🍿 3. Enjoy the ultimate sero experience!

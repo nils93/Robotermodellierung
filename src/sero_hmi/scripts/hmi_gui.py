@@ -1,5 +1,25 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
+
+"""
+@file hmi_gui.py
+@package sero_hmi
+@brief ImGui-based Human-Machine Interface (HMI) for controlling multiple SERO robots using MoveIt.
+
+This script provides a graphical interface to:
+• select a planning group for one of three SERO arms
+• move the robot to a predefined home pose
+• control the robot in Cartesian space (relative or absolute)
+• rotate the TCP via RPY inputs
+• visualize the current TCP position and select commands via ImGui buttons
+
+Dependencies:
+- rospy
+- moveit_commander
+- geometry_msgs.msg
+- OpenGL / imgui (via pyimgui and GLFW)
+"""
+
 import os
 import sys
 import imgui
@@ -18,7 +38,9 @@ import OpenGL.GL as gl
 
 def move_to_home(group_name):
     """
-    Bewegt den Roboter zur benannten Home-Pose (z. B. 'sero_1_home').
+    @brief Moves the selected robot to its predefined home pose.
+
+    @param group_name Name of the MoveIt planning group (e.g. "sero_1_arm").
     """
     move_group = moveit_commander.MoveGroupCommander(group_name)
     home_name = group_name.replace("_arm", "_home")
@@ -36,9 +58,14 @@ def move_to_home(group_name):
 
 def move_relative_rpy(group, droll_deg, dpitch_deg, dyaw_deg):
     """
-    Bewegt den Roboter relativ zur aktuellen Orientierung (Roll, Pitch, Yaw in Grad).
-    Position bleibt gleich.
+    @brief Rotates the robot TCP relative to its current orientation.
+
+    @param group MoveGroupCommander instance.
+    @param droll_deg Roll offset in degrees.
+    @param dpitch_deg Pitch offset in degrees.
+    @param dyaw_deg Yaw offset in degrees.
     """
+
     try:
         base_pose = group.get_current_pose().pose
 
@@ -80,9 +107,14 @@ def move_relative_rpy(group, droll_deg, dpitch_deg, dyaw_deg):
 
 def move_relative(group, dx, dy, dz):
     """
-    Bewegt den Roboter relativ zur aktuellen TCP-Position um dx, dy, dz (in m).
-    Verwendet Approximate IK via set_joint_value_target(pose, True).
+    @brief Moves the robot TCP relatively in Cartesian space.
+
+    @param group MoveGroupCommander instance.
+    @param dx Relative X offset in meters.
+    @param dy Relative Y offset in meters.
+    @param dz Relative Z offset in meters.
     """
+
     try:
         base_pose = group.get_current_pose().pose  # ohne TCP-Link
         target = Pose()
@@ -113,8 +145,12 @@ def move_relative(group, dx, dy, dz):
 
 def move_to_absolute_pose(group, pose):
     """
-    Bewegt den Roboter-TCP zu einer absoluten Ziel-Pose (geometry_msgs/Pose).
+    @brief Moves the robot TCP to a given absolute target pose.
+
+    @param group MoveGroupCommander instance.
+    @param pose Target geometry_msgs/Pose object in world coordinates.
     """
+
     try:
         group.set_start_state_to_current_state()
         group.set_max_velocity_scaling_factor(0.1)
@@ -135,6 +171,13 @@ def move_to_absolute_pose(group, pose):
 
 
 def load_texture_from_png(path):
+    """
+    @brief Loads a PNG image as an OpenGL texture for ImGui.
+
+    @param path Absolute path to the PNG image file.
+    @return (texture_id, width, height) tuple.
+    """
+    
     image = Image.open(path).convert("RGBA")
     img_data = np.array(image, dtype=np.uint8)
     texture_id = gl.glGenTextures(1)

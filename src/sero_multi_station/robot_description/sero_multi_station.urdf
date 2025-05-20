@@ -1,3 +1,17 @@
+<!--
+  @file sero_multi_station.urdf
+  @package sero_multi_station
+  @brief Unified URDF for the full SERO robotic workcell with 3 serial robots.
+
+  This file defines:
+  • base frames and fixed joints
+  • full kinematic chains of all three SERO robots
+  • references to mesh geometries
+  • inertial and collision properties
+
+  Used for MoveIt, Gazebo simulation and RViz visualization.
+-->
+
 <robot name="sero_multi_station">
     <link name="world" />
     <!-- Fixed jointS to attach the robot to the world -->

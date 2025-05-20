@@ -1,0 +1,30 @@
+# Projektname
+PROJECT_NAME           = "SERO Robotersteuerung"
+
+# Ausgabeordner
+OUTPUT_DIRECTORY       = doc
+
+# Recurse in Unterverzeichnisse
+RECURSIVE              = YES
+
+# Dateitypen einbeziehen
+FILE_PATTERNS          = *.cpp *.c *.h *.py *.launch *.xml *.yaml *.urdf *.xacro *.txt *.sh
+EXTENSION_MAPPING 	   = launch=xml urdf=xml xacro=xml
+
+# Auch nicht-dokumentierte Dateien mit aufnehmen
+EXTRACT_ALL            = YES
+
+# Graphen aktivieren (requires graphviz)
+HAVE_DOT               = YES
+CALL_GRAPH             = YES
+CALLER_GRAPH           = YES
+DOT_IMAGE_FORMAT       = svg
+
+# Hauptseite als Markdown definieren
+USE_MDFILE_AS_MAINPAGE = README.md
+
+# Diese Dateinamen ignorieren (Build-Cache etc.)
+EXCLUDE_PATTERNS       = */build/* */devel/* */.git/* *.log *.cmake *.make *.stamp *.check_cache
+
+INPUT = . doc/ros_overview.dox README.md
+IMAGE_PATH = doc/images

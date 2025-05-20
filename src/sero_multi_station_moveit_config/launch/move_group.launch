@@ -1,3 +1,18 @@
+<?xml version="1.0"?>
+<!--
+  @file move_group.launch
+  @package sero_multi_station_moveit_config
+  @brief Main entry point for starting the MoveIt `move_group` node.
+
+  This launch file loads:
+  • the robot description (URDF + SRDF)
+  • kinematics and planning configurations (e.g. OMPL, CHOMP)
+  • controller and sensor interfaces
+  • the move_group node that handles planning requests
+
+  Used by high-level launch files like `demo.launch` or `bringup_moveit.launch`.
+-->
+
 <launch>
 
   <!-- GDB Debug Option -->
