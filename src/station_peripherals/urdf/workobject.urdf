@@ -1,29 +1,30 @@
-<?xml version="1.0"?>
 <robot name="workobject">
+  <link name="world"/>
   <link name="workobject_link">
-
-    <inertial>
-      <mass value="0.2"/>
-      <origin xyz="0 0 0"/>
-      <inertia
-        ixx="0.001" ixy="0" ixz="0"
-        iyy="0.001" iyz="0"
-        izz="0.001"/>
-    </inertial>
-
     <visual>
-      <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <mesh filename="package://workobject/meshes/workobject.stl" scale="0.001 0.001 0.001"/>
+        <mesh filename="package://station_peripherals/meshes/workobject.stl" scale="0.001 0.001 0.001"/>
       </geometry>
     </visual>
-
     <collision>
-      <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <mesh filename="package://workobject/meshes/workobject.stl" scale="0.001 0.001 0.001"/>
+        <mesh filename="package://station_peripherals/meshes/workobject.stl" scale="0.001 0.001 0.001"/>
       </geometry>
     </collision>
-
+    <inertial>
+      <mass value="50.0"/>
+      <origin xyz="0 0 0"/>
+      <inertia ixx="10.0" ixy="0.0" ixz="0.0"
+               iyy="10.0" iyz="0.0"
+               izz="10.0"/>
+    </inertial>
   </link>
+  <joint name="workobject_joint" type="fixed">
+    <parent link="world"/>
+    <child link="workobject_link"/>
+    <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+  </joint>
+  <gazebo reference="workobject_link">
+    <static>true</static>
+  </gazebo>
 </robot>

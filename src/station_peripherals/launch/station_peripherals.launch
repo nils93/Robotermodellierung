@@ -4,6 +4,7 @@
 <param name="robot_description_sero_1_sockel" command="$(find xacro)/xacro $(find station_peripherals)/urdf/sero_1_sockel.urdf"/>
 <param name="robot_description_sero_2_sockel" command="$(find xacro)/xacro $(find station_peripherals)/urdf/sero_2_sockel.urdf"/>
 <param name="robot_description_sero_3_sockel" command="$(find xacro)/xacro $(find station_peripherals)/urdf/sero_3_sockel.urdf"/>
+<param name="robot_description_workobject" command="$(find xacro)/xacro $(find station_peripherals)/urdf/workobject.urdf"/>
 
 <include file="$(find gazebo_ros)/launch/empty_world.launch"/>
 
@@ -28,8 +29,7 @@
             args="-param robot_description_sero_3_sockel -urdf -model sero_3_sockel -x 0 -y 0 -z 0"/>
 
 <!-- Spawn workobject -->
-<node name="spawn_workobject" pkg="gazebo_ros" type="spawn_model"
-      args="-file $(find station_peripherals)/urdf/workobject.urdf -urdf -model workobject -x 0.0 -y 1.1 -z 0.531 -R 3.1415 -P 0 -Y 3.1415"
-      output="screen" />
+<node name="spawn_workobject" pkg="gazebo_ros" type="spawn_model" output="screen"
+            args="-param robot_description_workobject -urdf -model workobject -x 0.0 -y 1.05 -z 0.546 -R 3.1415 -P 0 -Y 3.1415"/>
 
 </launch>
