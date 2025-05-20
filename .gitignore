@@ -37,11 +37,11 @@ URDF/
 doc/html/
 doc/latex/
 *.dot
-*.dox
 *.tag
 
-# Allow Doxygen input files
+# Erlaube Doxygen-Eingabedateien
 !doc/*.dox
 !doc/images/
 !doc/images/*.png
-!doc/latex/refman.pdf
+!doc/pdf/
+!doc/pdf/*.pdf
